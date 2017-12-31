@@ -1,6 +1,4 @@
 @extends("front_end.header") 
-<?php $title = "الرئيسية"; 
- ?>
 @section('content')
 <section class="main-container">
     <!-- suggested-->

@@ -1,16 +1,22 @@
-<?php $title = "الصوتيات"; @include("header.php"); ?>
+@extends('front_end.header') 
+@section('content')
 <section class="main-container">
-    
+    @if($track)
     <h3 class="audio-header">عنوان المقطع الصوتى</h3>
     <div class="audio-player">
-        <audio id="player" src="audios/audio_1.mp3"></audio>
+        <?php 
+            $init_link = "" ; 
+            if($track->content_type==1)
+                $init_link = url()."/" ; 
+        ?>
+        <audio id="player" src="{{$init_link.$track->path}}"></audio>
         <div class="time-holder cf">
-            <div class="duration">00:28</div>
+            <div class="duration"></div>
             <div>/</div>
             <div class="current-time">00:00</div>
 
         </div>
-
+    @endif 
         <div class="audio-controls flex-container">
 
             <!--<div class="rewind-btn flex-col-1">
@@ -38,29 +44,19 @@
     <!-- suggested-->
     <h3 class="suggested">صوتيات مقترحة</h3>
     <ul class="audio-play-list" id="all-media">
+        @foreach($related_audios as $audio)
         <li class="search-hook">
-            <a href="audio_page.php" class="cf arabic">
+            <a href="{{url('audios/'.$audio->id)}}" class="cf arabic">
                 <div class="play-status"><span class="fa fa-play"></span></div>
-                <p>يا وطنا - موطني - السعودية	</p>
+                <p>{{$audio->title}}</p>
             </a>
         </li>
-        <li class="search-hook">
-            <a href="audio_page.php" class="cf arabic">
-                <div class="play-status"><span class="fa fa-play"></span></div>
-                <p>مقطع شهر المغفرة	</p>
-            </a>
-        </li>
-        <li class="search-hook">
-            <a href="audio_page.php" class="cf arabic">
-                <div class="play-status"><span class="fa fa-play"></span></div>
-                <p>لا تردين - البوم الجمهرة	</p>
-            </a>
-        </li>
+        @endforeach
     </ul>
      
 
-    <a href='audios.php' class="xs-toggle-btn more">رجوع</a>
+    <a href='{{url("audios")}}' class="xs-toggle-btn more">رجوع</a>
 </section>
-<?php @include('footer.php'); ?>
+@stop 
 
  
