@@ -18,9 +18,17 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('content','operator')->get();
+        $posts = null;
+        if(isset($request['content_id'])&&!empty($request['content_id']) && is_numeric($request['content_id']))
+        {
+            $posts = Post::where(['content_id' => $request['content_id']])->with('content','operator')->get();
+        }
+        else
+        {
+            $posts = Post::with('content','operator')->get();
+        }
         return view('posts/index',compact('posts'));
     }
 
@@ -31,7 +39,7 @@ class PostController extends Controller
      */
     public function create(PostRequest $request)
     {
-        $contents = Content::all();
+         $contents = Content::all();
         if($contents->isEmpty())
         {
          \Session::flash('msg', 'You Should Add Content First');
@@ -43,12 +51,12 @@ class PostController extends Controller
         {
             $post = null ;
             $contents = Content::where(['id' => $request['content_id']])->lists('title','id');
-            $operators = Operator::lists('title','id');
+            $operators = Operator::with('country')->get();
         }
         else
         {
             $post = null;
-            $operators = Operator::lists('title','id');
+            $operators = Operator::with('country')->get();
             $contents = Content::lists('title','id');  
         }
         

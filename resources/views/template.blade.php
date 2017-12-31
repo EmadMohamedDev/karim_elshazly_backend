@@ -141,16 +141,6 @@
     <ul class="nav flaty-nav pull-right">
 
         <!-- BEGIN Tasks Dropdown -->
-        <li>
-            <a href="<?php use App\Notification;if(Config::get('languages')[App::getLocale()] == "English" ){ echo route('lang.switch', "ar"); } else { echo route('lang.switch', "en"); } ?>" >
-                <?php
-                if (Config::get('languages')[App::getLocale()] == "English")
-                    echo "عربي" ;
-                else
-                    echo  "English";
-                ?>
-            </a>
-        </li>
         <!-- BEGIN Button User -->
         <li class="user-profile">
             <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
@@ -400,7 +390,7 @@
                 </ul>
             </li>
         </ul>
-   
+   <!--
         <ul class="nav nav-list">
             <li id="poem_category">
                 <a href="#" class="dropdown-toggle">
@@ -443,7 +433,7 @@
             </li>
         </ul>
   
-
+ -->
                               
                {{--@endif--}}
         </ul>
