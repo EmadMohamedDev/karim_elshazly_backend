@@ -1,13 +1,21 @@
 <?php 
     $number = 25 ; 
+    $query_params = "" ; 
     if(isset($_GET['op']))
-    {
+    { 
         $over = $_GET['op'] ; 
         $number = 25 ; 
         if(isset($over) && !empty($over))
             $number = 100 / $over ; 
     }
+
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "?op_id=".$op_id  ; 
+    }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="ar" >
@@ -54,7 +62,7 @@
                     <ul class="menu-categories">
                         <!-- menu link 1 -->
                         <li>
-                            <a href='{{url("/")}}' class="row">
+                            <a href='{{url("/".$query_params)}}' class="row">
                                 <div class="small-3 columns">
                                     <span class="fa fa-home"></span>
                                 </div>
@@ -65,7 +73,7 @@
                         </li>
                         <!-- menu link 2 -->
                         <li>
-                            <a href='{{url("videos")}}' class="row">
+                            <a href='{{url("videos".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-film"></span>
                                 </div>
@@ -76,7 +84,7 @@
                         </li>
                         <!-- menu link 3 -->
                         <li>
-                            <a href='{{url("audios")}}' class="row">
+                            <a href='{{url("audios".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-music"></span>
                                 </div>
@@ -87,7 +95,7 @@
                         </li>
                          <!-- menu link 4 -->
                          <li>
-                            <a href='{{url("images")}}' class="row">
+                            <a href='{{url("photos".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-picture-o"></span>
                                 </div>
@@ -98,7 +106,7 @@
                         </li>
                         <!-- menu link 5 -->
                         <li>
-                            <a href='{{url("faq")}}' class="row">
+                            <a href='{{url("faq".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-info-circle"></span>
                                 </div>
@@ -131,7 +139,7 @@
                             <li class="burger-menu-btn"><span class="fa fa-bars"></span></li>
                             <!-- make this a partial -->
                             <div class="logo-img">
-                                <a href='{{url("/")}}'>كريم الشاذلي</a>
+                                <a href='{{url("/".$query_params)}}'>كريم الشاذلي</a>
                             </div>
                         </ul>
                     </div>
@@ -143,7 +151,7 @@
                     <ul class="toggle-menu row">
                         <!-- tab 1 -->
                         <li class="tab" style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("/")}}' class="toggle-btn trigger-click">
+                            <a href='{{url("/".$query_params)}}' class="toggle-btn trigger-click">
                                 <div>
                                     <span class="fa fa-home"></span>
                                     <p>الرئيسيه</p>
@@ -152,7 +160,7 @@
                         </li>
                         <!-- tab 2 -->
                         <li class="tab"  style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("images")}}' class="toggle-btn trigger-click">
+                            <a href='{{url("photos".$query_params)}}' class="toggle-btn trigger-click">
                                 <div>
                                     <span class="fa fa-picture-o"></span>
                                     <p>الصور</p>
@@ -161,7 +169,7 @@
                         </li>
                         <!-- tab 3 -->
                         <li class="tab" style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("audios")}}' class="toggle-btn">
+                            <a href='{{url("audios".$query_params)}}' class="toggle-btn">
                                 <div class="flex-container center-center">
                                     <span class="fa fa-music"></span>
                                     <p>صوتيات</p>
@@ -170,7 +178,7 @@
                         </li>
                         <!-- tab 4 -->
                         <li class="tab"  style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("videos")}}' class="toggle-btn">
+                            <a href='{{url("videos".$query_params)}}' class="toggle-btn">
                                 <div>
                                     <span class="fa fa-film"></span>
                                     <p>الفيدوهات</p>
@@ -206,6 +214,8 @@
         <script src="{{url('js/vendor/video-js/video.js')}}"></script>
         <script src="{{url('js/theme/player.js')}}"></script>             
         <script src="{{url('js/theme/main.js')}}"></script>
+        @yield('scripts')
+
     </body>
 </html>
 

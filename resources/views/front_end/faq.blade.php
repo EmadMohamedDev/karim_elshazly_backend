@@ -1,4 +1,5 @@
-<?php $title = "الارشادات"; @include("header.php"); ?>
+@extends('front_end.header') 
+@section('content')
 <section class="main-container">
     <!-- suggested-->
     <h3 class="suggested">الارشادات</h3>
@@ -19,6 +20,6 @@
 
     <a href='index.php' class="xs-toggle-btn more">رجوع</a>
 </section>
-<?php @include('footer.php'); ?>
+@stop
 
  
