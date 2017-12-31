@@ -371,157 +371,13 @@ class RoleRouteTableSeeder extends Seeder
             ),
             44 => 
             array (
-                'id' => 46,
-                'role_id' => 1,
-                'route_id' => 102,
-                'created_at' => '2017-12-27 08:11:33',
-                'updated_at' => '2017-12-27 08:11:33',
-            ),
-            45 => 
-            array (
-                'id' => 48,
-                'role_id' => 1,
-                'route_id' => 104,
-                'created_at' => '2017-12-27 08:13:20',
-                'updated_at' => '2017-12-27 08:13:20',
-            ),
-            46 => 
-            array (
-                'id' => 49,
-                'role_id' => 1,
-                'route_id' => 105,
-                'created_at' => '2017-12-27 08:14:08',
-                'updated_at' => '2017-12-27 08:14:08',
-            ),
-            47 => 
-            array (
-                'id' => 50,
-                'role_id' => 1,
-                'route_id' => 106,
-                'created_at' => '2017-12-27 08:14:33',
-                'updated_at' => '2017-12-27 08:14:33',
-            ),
-            48 => 
-            array (
-                'id' => 52,
-                'role_id' => 1,
-                'route_id' => 108,
-                'created_at' => '2017-12-27 08:15:34',
-                'updated_at' => '2017-12-27 08:15:34',
-            ),
-            49 => 
-            array (
-                'id' => 53,
-                'role_id' => 1,
-                'route_id' => 107,
-                'created_at' => '2017-12-27 08:22:24',
-                'updated_at' => '2017-12-27 08:22:24',
-            ),
-            50 => 
-            array (
-                'id' => 54,
-                'role_id' => 1,
-                'route_id' => 109,
-                'created_at' => '2017-12-27 12:43:56',
-                'updated_at' => '2017-12-27 12:43:56',
-            ),
-            51 => 
-            array (
-                'id' => 55,
-                'role_id' => 1,
-                'route_id' => 111,
-                'created_at' => '2017-12-27 12:44:11',
-                'updated_at' => '2017-12-27 12:44:11',
-            ),
-            52 => 
-            array (
-                'id' => 56,
-                'role_id' => 1,
-                'route_id' => 110,
-                'created_at' => '2017-12-27 12:44:36',
-                'updated_at' => '2017-12-27 12:44:36',
-            ),
-            53 => 
-            array (
-                'id' => 57,
-                'role_id' => 1,
-                'route_id' => 112,
-                'created_at' => '2017-12-27 12:44:43',
-                'updated_at' => '2017-12-27 12:44:43',
-            ),
-            54 => 
-            array (
-                'id' => 58,
-                'role_id' => 1,
-                'route_id' => 114,
-                'created_at' => '2017-12-27 12:45:30',
-                'updated_at' => '2017-12-27 12:45:30',
-            ),
-            55 => 
-            array (
                 'id' => 59,
                 'role_id' => 1,
                 'route_id' => 113,
                 'created_at' => '2017-12-27 12:45:44',
                 'updated_at' => '2017-12-27 12:45:44',
             ),
-            56 => 
-            array (
-                'id' => 60,
-                'role_id' => 1,
-                'route_id' => 115,
-                'created_at' => '2017-12-27 12:46:26',
-                'updated_at' => '2017-12-27 12:46:26',
-            ),
-            57 => 
-            array (
-                'id' => 61,
-                'role_id' => 1,
-                'route_id' => 116,
-                'created_at' => '2017-12-27 13:58:06',
-                'updated_at' => '2017-12-27 13:58:06',
-            ),
-            58 => 
-            array (
-                'id' => 62,
-                'role_id' => 1,
-                'route_id' => 117,
-                'created_at' => '2017-12-27 14:01:19',
-                'updated_at' => '2017-12-27 14:01:19',
-            ),
-            59 => 
-            array (
-                'id' => 63,
-                'role_id' => 1,
-                'route_id' => 118,
-                'created_at' => '2017-12-27 14:02:02',
-                'updated_at' => '2017-12-27 14:02:02',
-            ),
-            60 => 
-            array (
-                'id' => 64,
-                'role_id' => 1,
-                'route_id' => 119,
-                'created_at' => '2017-12-27 14:02:43',
-                'updated_at' => '2017-12-27 14:02:43',
-            ),
-            61 => 
-            array (
-                'id' => 65,
-                'role_id' => 1,
-                'route_id' => 120,
-                'created_at' => '2017-12-27 14:03:55',
-                'updated_at' => '2017-12-27 14:03:55',
-            ),
-            62 => 
-            array (
-                'id' => 66,
-                'role_id' => 1,
-                'route_id' => 121,
-                'created_at' => '2017-12-27 14:05:36',
-                'updated_at' => '2017-12-27 14:05:36',
-            ),
-            63 => 
+            45 => 
             array (
                 'id' => 67,
                 'role_id' => 1,
@@ -529,7 +385,7 @@ class RoleRouteTableSeeder extends Seeder
                 'created_at' => '2017-12-27 14:06:20',
                 'updated_at' => '2017-12-27 14:06:20',
             ),
-            64 => 
+            46 => 
             array (
                 'id' => 68,
                 'role_id' => 1,
@@ -537,7 +393,7 @@ class RoleRouteTableSeeder extends Seeder
                 'created_at' => '2017-12-27 14:06:22',
                 'updated_at' => '2017-12-27 14:06:22',
             ),
-            65 => 
+            47 => 
             array (
                 'id' => 69,
                 'role_id' => 1,
@@ -545,7 +401,7 @@ class RoleRouteTableSeeder extends Seeder
                 'created_at' => '2017-12-27 14:06:25',
                 'updated_at' => '2017-12-27 14:06:25',
             ),
-            66 => 
+            48 => 
             array (
                 'id' => 70,
                 'role_id' => 1,
