@@ -36,8 +36,5 @@ class DatabaseSeeder extends Seeder
         $this->call('ContentsTableSeeder');
         $this->call('RbtsTableSeeder');
         $this->call('PostsTableSeeder');
-        $this->call('PoemsCategoryTableSeeder');
-        $this->call('PoemsProvidersTableSeeder');
-        $this->call('PoemsProvContentTableSeeder');
     }
 }
