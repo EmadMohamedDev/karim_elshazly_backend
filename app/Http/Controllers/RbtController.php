@@ -19,9 +19,17 @@ class RbtController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rbts = Rbt::with('category','content','operator')->get();
+        $rbts =  null ;
+        if(isset($request['content_id'])&&!empty($request['content_id']) && is_numeric($request['content_id']))
+        {
+             $rbts = Rbt::where(['content_id' => $request['content_id']])->with('content','operator')->get();
+        }
+        else
+        {
+            $rbts = Rbt::with('category','content','operator')->get(); 
+        }
         return view('rbts/index',compact('rbts'));
     }
 
@@ -32,7 +40,7 @@ class RbtController extends Controller
      */
     public function create(Request $request)
     {
-        $contents = Content::all();
+       $contents = Content::all();
         if($contents->isEmpty())
         {
          \Session::flash('msg', 'You Should Add Content First');
@@ -45,17 +53,16 @@ class RbtController extends Controller
             $rbt = null ;
             $content_id = $request['content_id'] ;
             $contents = Content::where(['id' => $request['content_id']])->lists('title','id');
-            $operators = Operator::lists('title','id');
+            $operators = Operator::with('country')->get();
             $categories = Category::lists('title','id');
         }
         else
         {
             $rbt = null ;
-            $operators = Operator::lists('title','id');
+            $operators = Operator::with('country')->get();
             $contents = Content::lists('title','id');
             $categories = Category::lists('title','id');
         }
-        
         return view('rbts.input',compact('rbt','operators','categories','contents'));
     }
 

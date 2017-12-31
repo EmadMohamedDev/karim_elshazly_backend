@@ -12,8 +12,8 @@
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.operators.operator-tap'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
         <select class="form-control chosen-rtl" name="operator_id" required>
-            @foreach ($operators as $key => $value)
-                <option value="{{ $key }}" @if ($post !=null && $post->operator_id == $key) selected @endif>{{ $value }}</option>
+            @foreach ($operators as $operator)
+                <option value="{{ $operator->id }}" @if ($post !=null && $post->operator_id == $operator->id) selected @endif>{{ $operator->title }} - {{$operator->country->title}}</option>
             @endforeach
         </select>
         <br/>
