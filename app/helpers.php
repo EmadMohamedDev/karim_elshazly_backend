@@ -38,7 +38,9 @@ function get_static_routes()
 
     Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
-    Route::get('/','DashboardController@index');
+    Route::get('/dashboard','DashboardController@index');
+    Route::get('/','FrontEndController@homepage');
+
 
     Route::group(['middleware'=> 'auth'],function(){
     Route::resource('static_translation','\App\Http\Controllers\StaticTranslationController');
@@ -146,7 +148,7 @@ function dynamic_routes($route_model,$found_roles)
         }) ; 
     }
     else{
-          Route::group(['middleware' =>['auth']], 
+          Route::group(['middleware' =>[]], 
         function() use($route_model,$route_method,$route,$controller_method){
                 if($route_method=="resource")
                     Route::resource($route,$controller_method) ;   

@@ -178,8 +178,8 @@ class RouteController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'method' => 'required|min:3|unique_with:routes,method,route',
-            'route' => 'required|min:3|unique_with:routes,method,route',
+            'method' => 'required|unique_with:routes,method,route',
+            'route' => 'required|unique_with:routes,method,route',
             'controller_name' => 'required' , 
             'function_name' => 'required'
         ]);
@@ -241,8 +241,8 @@ class RouteController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'method' => 'required|min:3|unique_with:routes,method,route,'.$id,
-            'route' => 'required|min:3|unique_with:routes,method,route,'.$id,
+            'method' => 'required|unique_with:routes,method,route,'.$id,
+            'route' => 'required|unique_with:routes,method,route,'.$id,
             'controller_name' => 'required' , 
             'function_name' => 'required'
         ]);
