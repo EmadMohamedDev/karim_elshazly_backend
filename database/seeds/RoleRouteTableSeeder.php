@@ -409,6 +409,14 @@ class RoleRouteTableSeeder extends Seeder
                 'created_at' => '2017-12-27 14:06:31',
                 'updated_at' => '2017-12-27 14:06:31',
             ),
+            49 => 
+            array (
+                'id' => 71,
+                'role_id' => 1,
+                'route_id' => 116,
+                'created_at' => '2017-12-31 09:27:24',
+                'updated_at' => '2017-12-31 09:27:24',
+            ),
         ));
         
         
