@@ -29,16 +29,6 @@ class RoutesTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'id' => 2,
-                'method' => 'get',
-                'route' => 'users/new',
-                'controller_name' => 'UserController ',
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
-                'function_name' => 'create',
-            ),
-            2 => 
-            array (
                 'id' => 3,
                 'method' => 'post',
                 'route' => 'users',
@@ -47,7 +37,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'store',
             ),
-            3 => 
+            2 => 
             array (
                 'id' => 4,
                 'method' => 'get',
@@ -57,7 +47,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 13:28:17',
                 'function_name' => 'index',
             ),
-            4 => 
+            3 => 
             array (
                 'id' => 6,
                 'method' => 'get',
@@ -67,7 +57,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'profile',
             ),
-            5 => 
+            4 => 
             array (
                 'id' => 7,
                 'method' => 'post',
@@ -77,7 +67,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-14 12:29:01',
                 'function_name' => 'UpdatePassword',
             ),
-            6 => 
+            5 => 
             array (
                 'id' => 8,
                 'method' => 'post',
@@ -87,7 +77,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-14 12:29:08',
                 'function_name' => 'UpdateProfilePicture',
             ),
-            7 => 
+            6 => 
             array (
                 'id' => 9,
                 'method' => 'post',
@@ -97,7 +87,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-14 12:29:19',
                 'function_name' => 'UpdateNameAndEmail',
             ),
-            8 => 
+            7 => 
             array (
                 'id' => 10,
                 'method' => 'get',
@@ -107,7 +97,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-15 08:34:32',
                 'function_name' => 'destroy',
             ),
-            9 => 
+            8 => 
             array (
                 'id' => 11,
                 'method' => 'get',
@@ -117,7 +107,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-14 12:29:40',
                 'function_name' => 'edit',
             ),
-            10 => 
+            9 => 
             array (
                 'id' => 12,
                 'method' => 'post',
@@ -127,7 +117,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-14 12:29:49',
                 'function_name' => 'update',
             ),
-            11 => 
+            10 => 
             array (
                 'id' => 14,
                 'method' => 'get',
@@ -137,7 +127,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-14 12:29:57',
                 'function_name' => 'index',
             ),
-            12 => 
+            11 => 
             array (
                 'id' => 15,
                 'method' => 'get',
@@ -147,7 +137,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'index',
             ),
-            13 => 
+            12 => 
             array (
                 'id' => 16,
                 'method' => 'get',
@@ -157,7 +147,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'create',
             ),
-            14 => 
+            13 => 
             array (
                 'id' => 17,
                 'method' => 'get',
@@ -167,7 +157,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'destroy',
             ),
-            15 => 
+            14 => 
             array (
                 'id' => 18,
                 'method' => 'get',
@@ -177,7 +167,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'edit',
             ),
-            16 => 
+            15 => 
             array (
                 'id' => 19,
                 'method' => 'post',
@@ -187,7 +177,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'update',
             ),
-            17 => 
+            16 => 
             array (
                 'id' => 20,
                 'method' => 'post',
@@ -197,7 +187,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'store',
             ),
-            18 => 
+            17 => 
             array (
                 'id' => 21,
                 'method' => 'get',
@@ -207,7 +197,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'file_manager',
             ),
-            19 => 
+            18 => 
             array (
                 'id' => 22,
                 'method' => 'get',
@@ -217,7 +207,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'multi_upload',
             ),
-            20 => 
+            19 => 
             array (
                 'id' => 23,
                 'method' => 'post',
@@ -227,7 +217,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'save_uploaded',
             ),
-            21 => 
+            20 => 
             array (
                 'id' => 24,
                 'method' => 'get',
@@ -237,7 +227,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'upload_resize',
             ),
-            22 => 
+            21 => 
             array (
                 'id' => 25,
                 'method' => 'post',
@@ -247,7 +237,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'save_image',
             ),
-            23 => 
+            22 => 
             array (
                 'id' => 26,
                 'method' => 'post',
@@ -257,7 +247,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-12 12:19:46',
                 'function_name' => 'update',
             ),
-            24 => 
+            23 => 
             array (
                 'id' => 27,
                 'method' => 'get',
@@ -267,7 +257,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'destroy',
             ),
-            25 => 
+            24 => 
             array (
                 'id' => 28,
                 'method' => 'get',
@@ -277,7 +267,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'destroy',
             ),
-            26 => 
+            25 => 
             array (
                 'id' => 29,
                 'method' => 'post',
@@ -287,7 +277,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'update',
             ),
-            27 => 
+            26 => 
             array (
                 'id' => 30,
                 'method' => 'get',
@@ -297,7 +287,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'index',
             ),
-            28 => 
+            27 => 
             array (
                 'id' => 31,
                 'method' => 'get',
@@ -307,7 +297,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'create',
             ),
-            29 => 
+            28 => 
             array (
                 'id' => 32,
                 'method' => 'post',
@@ -317,7 +307,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'store',
             ),
-            30 => 
+            29 => 
             array (
                 'id' => 33,
                 'method' => 'get',
@@ -327,7 +317,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'destroy',
             ),
-            31 => 
+            30 => 
             array (
                 'id' => 34,
                 'method' => 'get',
@@ -337,7 +327,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'edit',
             ),
-            32 => 
+            31 => 
             array (
                 'id' => 35,
                 'method' => 'post',
@@ -347,7 +337,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'update',
             ),
-            33 => 
+            32 => 
             array (
                 'id' => 36,
                 'method' => 'get',
@@ -357,7 +347,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'index',
             ),
-            34 => 
+            33 => 
             array (
                 'id' => 37,
                 'method' => 'get',
@@ -367,7 +357,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'create',
             ),
-            35 => 
+            34 => 
             array (
                 'id' => 38,
                 'method' => 'post',
@@ -377,7 +367,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'store',
             ),
-            36 => 
+            35 => 
             array (
                 'id' => 39,
                 'method' => 'get',
@@ -387,7 +377,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'edit',
             ),
-            37 => 
+            36 => 
             array (
                 'id' => 40,
                 'method' => 'get',
@@ -397,7 +387,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'index',
             ),
-            38 => 
+            37 => 
             array (
                 'id' => 41,
                 'method' => 'post',
@@ -407,7 +397,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'store',
             ),
-            39 => 
+            38 => 
             array (
                 'id' => 42,
                 'method' => 'get',
@@ -417,7 +407,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'edit',
             ),
-            40 => 
+            39 => 
             array (
                 'id' => 43,
                 'method' => 'post',
@@ -427,7 +417,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'update',
             ),
-            41 => 
+            40 => 
             array (
                 'id' => 44,
                 'method' => 'get',
@@ -437,7 +427,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'destroy',
             ),
-            42 => 
+            41 => 
             array (
                 'id' => 45,
                 'method' => 'get',
@@ -447,7 +437,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '0000-00-00 00:00:00',
                 'function_name' => 'create',
             ),
-            43 => 
+            42 => 
             array (
                 'id' => 57,
                 'method' => 'get',
@@ -457,7 +447,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-12 14:04:53',
                 'function_name' => 'index_v2',
             ),
-            44 => 
+            43 => 
             array (
                 'id' => 58,
                 'method' => 'get',
@@ -467,7 +457,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-11-15 08:14:14',
                 'function_name' => 'view_access',
             ),
-            45 => 
+            44 => 
             array (
                 'id' => 59,
                 'method' => 'get',
@@ -477,7 +467,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 08:51:02',
                 'function_name' => 'destroy',
             ),
-            46 => 
+            45 => 
             array (
                 'id' => 60,
                 'method' => 'post',
@@ -487,7 +477,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 08:51:30',
                 'function_name' => 'store',
             ),
-            47 => 
+            46 => 
             array (
                 'id' => 61,
                 'method' => 'get',
@@ -497,7 +487,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 08:51:55',
                 'function_name' => 'edit',
             ),
-            48 => 
+            47 => 
             array (
                 'id' => 62,
                 'method' => 'patch',
@@ -507,7 +497,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 08:52:26',
                 'function_name' => 'update',
             ),
-            49 => 
+            48 => 
             array (
                 'id' => 63,
                 'method' => 'get',
@@ -517,7 +507,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 08:53:05',
                 'function_name' => 'create',
             ),
-            50 => 
+            49 => 
             array (
                 'id' => 64,
                 'method' => 'get',
@@ -527,7 +517,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 08:53:24',
                 'function_name' => 'index',
             ),
-            51 => 
+            50 => 
             array (
                 'id' => 65,
                 'method' => 'get',
@@ -537,7 +527,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:14:04',
                 'function_name' => 'index',
             ),
-            52 => 
+            51 => 
             array (
                 'id' => 66,
                 'method' => 'get',
@@ -547,7 +537,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:14:25',
                 'function_name' => 'create',
             ),
-            53 => 
+            52 => 
             array (
                 'id' => 67,
                 'method' => 'patch',
@@ -557,7 +547,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:14:45',
                 'function_name' => 'update',
             ),
-            54 => 
+            53 => 
             array (
                 'id' => 68,
                 'method' => 'get',
@@ -567,7 +557,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:15:11',
                 'function_name' => 'edit',
             ),
-            55 => 
+            54 => 
             array (
                 'id' => 69,
                 'method' => 'post',
@@ -577,7 +567,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:15:33',
                 'function_name' => 'store',
             ),
-            56 => 
+            55 => 
             array (
                 'id' => 70,
                 'method' => 'get',
@@ -587,7 +577,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:16:01',
                 'function_name' => 'destroy',
             ),
-            57 => 
+            56 => 
             array (
                 'id' => 71,
                 'method' => 'patch',
@@ -597,7 +587,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:25:21',
                 'function_name' => 'update',
             ),
-            58 => 
+            57 => 
             array (
                 'id' => 72,
                 'method' => 'get',
@@ -607,7 +597,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:25:46',
                 'function_name' => 'create',
             ),
-            59 => 
+            58 => 
             array (
                 'id' => 73,
                 'method' => 'get',
@@ -617,7 +607,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:26:12',
                 'function_name' => 'index',
             ),
-            60 => 
+            59 => 
             array (
                 'id' => 74,
                 'method' => 'post',
@@ -627,7 +617,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:26:36',
                 'function_name' => 'store',
             ),
-            61 => 
+            60 => 
             array (
                 'id' => 75,
                 'method' => 'get',
@@ -637,7 +627,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:26:58',
                 'function_name' => 'edit',
             ),
-            62 => 
+            61 => 
             array (
                 'id' => 76,
                 'method' => 'get',
@@ -647,7 +637,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 09:28:10',
                 'function_name' => 'destroy',
             ),
-            63 => 
+            62 => 
             array (
                 'id' => 77,
                 'method' => 'get',
@@ -657,7 +647,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:10:10',
                 'function_name' => 'destroy',
             ),
-            64 => 
+            63 => 
             array (
                 'id' => 78,
                 'method' => 'get',
@@ -667,7 +657,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:10:39',
                 'function_name' => 'edit',
             ),
-            65 => 
+            64 => 
             array (
                 'id' => 79,
                 'method' => 'post',
@@ -677,7 +667,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:11:13',
                 'function_name' => 'store',
             ),
-            66 => 
+            65 => 
             array (
                 'id' => 80,
                 'method' => 'get',
@@ -687,7 +677,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:11:40',
                 'function_name' => 'index',
             ),
-            67 => 
+            66 => 
             array (
                 'id' => 81,
                 'method' => 'get',
@@ -697,7 +687,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:12:16',
                 'function_name' => 'create',
             ),
-            68 => 
+            67 => 
             array (
                 'id' => 82,
                 'method' => 'patch',
@@ -707,7 +697,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:12:47',
                 'function_name' => 'update',
             ),
-            69 => 
+            68 => 
             array (
                 'id' => 83,
                 'method' => 'get',
@@ -717,7 +707,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:48:36',
                 'function_name' => 'index',
             ),
-            70 => 
+            69 => 
             array (
                 'id' => 84,
                 'method' => 'get',
@@ -727,7 +717,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:49:06',
                 'function_name' => 'create',
             ),
-            71 => 
+            70 => 
             array (
                 'id' => 85,
                 'method' => 'patch',
@@ -737,7 +727,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:49:32',
                 'function_name' => 'update',
             ),
-            72 => 
+            71 => 
             array (
                 'id' => 86,
                 'method' => 'get',
@@ -747,7 +737,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:49:51',
                 'function_name' => 'edit',
             ),
-            73 => 
+            72 => 
             array (
                 'id' => 87,
                 'method' => 'post',
@@ -757,7 +747,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:50:14',
                 'function_name' => 'store',
             ),
-            74 => 
+            73 => 
             array (
                 'id' => 88,
                 'method' => 'get',
@@ -767,7 +757,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 10:50:39',
                 'function_name' => 'destroy',
             ),
-            75 => 
+            74 => 
             array (
                 'id' => 89,
                 'method' => 'get',
@@ -777,7 +767,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-25 11:21:22',
                 'function_name' => 'fetchtype',
             ),
-            76 => 
+            75 => 
             array (
                 'id' => 90,
                 'method' => 'get',
@@ -787,7 +777,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 10:29:08',
                 'function_name' => 'index',
             ),
-            77 => 
+            76 => 
             array (
                 'id' => 91,
                 'method' => 'post',
@@ -797,7 +787,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 10:29:48',
                 'function_name' => 'store',
             ),
-            78 => 
+            77 => 
             array (
                 'id' => 92,
                 'method' => 'get',
@@ -807,7 +797,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 10:30:35',
                 'function_name' => 'edit',
             ),
-            79 => 
+            78 => 
             array (
                 'id' => 93,
                 'method' => 'get',
@@ -817,7 +807,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 10:30:54',
                 'function_name' => 'create',
             ),
-            80 => 
+            79 => 
             array (
                 'id' => 94,
                 'method' => 'patch',
@@ -827,7 +817,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 10:31:33',
                 'function_name' => 'update',
             ),
-            81 => 
+            80 => 
             array (
                 'id' => 95,
                 'method' => 'get',
@@ -837,7 +827,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 10:32:19',
                 'function_name' => 'destroy',
             ),
-            82 => 
+            81 => 
             array (
                 'id' => 96,
                 'method' => 'post',
@@ -847,7 +837,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 12:51:24',
                 'function_name' => 'store',
             ),
-            83 => 
+            82 => 
             array (
                 'id' => 97,
                 'method' => 'get',
@@ -857,7 +847,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 12:51:48',
                 'function_name' => 'create',
             ),
-            84 => 
+            83 => 
             array (
                 'id' => 98,
                 'method' => 'get',
@@ -867,7 +857,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 12:52:12',
                 'function_name' => 'index',
             ),
-            85 => 
+            84 => 
             array (
                 'id' => 99,
                 'method' => 'get',
@@ -877,7 +867,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 12:52:41',
                 'function_name' => 'destroy',
             ),
-            86 => 
+            85 => 
             array (
                 'id' => 100,
                 'method' => 'get',
@@ -887,7 +877,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 12:53:09',
                 'function_name' => 'edit',
             ),
-            87 => 
+            86 => 
             array (
                 'id' => 101,
                 'method' => 'patch',
@@ -897,7 +887,7 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 12:54:01',
                 'function_name' => 'update',
             ),
-            88 => 
+            87 => 
             array (
                 'id' => 113,
                 'method' => 'get',
@@ -906,6 +896,126 @@ class RoutesTableSeeder extends Seeder
                 'created_at' => '2017-12-27 09:02:13',
                 'updated_at' => '2017-12-27 09:02:13',
                 'function_name' => 'buildroutes',
+            ),
+            88 => 
+            array (
+                'id' => 114,
+                'method' => 'get',
+                'route' => '/',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 08:33:27',
+                'updated_at' => '2017-12-31 08:33:27',
+                'function_name' => 'homepage',
+            ),
+            89 => 
+            array (
+                'id' => 115,
+                'method' => 'get',
+                'route' => 'audios',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 09:18:25',
+                'updated_at' => '2017-12-31 09:18:25',
+                'function_name' => 'audios',
+            ),
+            90 => 
+            array (
+                'id' => 116,
+                'method' => 'get',
+                'route' => 'users/new',
+                'controller_name' => 'UserController',
+                'created_at' => '2017-12-31 09:27:24',
+                'updated_at' => '2017-12-31 09:27:24',
+                'function_name' => 'create',
+            ),
+            91 => 
+            array (
+                'id' => 117,
+                'method' => 'get',
+                'route' => 'index',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 10:35:15',
+                'updated_at' => '2017-12-31 10:35:15',
+                'function_name' => 'homepage',
+            ),
+            92 => 
+            array (
+                'id' => 118,
+                'method' => 'get',
+                'route' => 'videos',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 12:18:33',
+                'updated_at' => '2017-12-31 12:18:33',
+                'function_name' => 'videos',
+            ),
+            93 => 
+            array (
+                'id' => 119,
+                'method' => 'get',
+                'route' => 'photos',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 12:18:50',
+                'updated_at' => '2017-12-31 13:38:46',
+                'function_name' => 'images',
+            ),
+            94 => 
+            array (
+                'id' => 120,
+                'method' => 'get',
+                'route' => 'audios/{id}',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 12:19:13',
+                'updated_at' => '2017-12-31 12:19:13',
+                'function_name' => 'audio_page',
+            ),
+            95 => 
+            array (
+                'id' => 121,
+                'method' => 'get',
+                'route' => 'videos_paginate',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 12:47:22',
+                'updated_at' => '2017-12-31 12:47:22',
+                'function_name' => 'videosPaginate',
+            ),
+            96 => 
+            array (
+                'id' => 122,
+                'method' => 'get',
+                'route' => 'audios_paginate',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 13:15:59',
+                'updated_at' => '2017-12-31 13:15:59',
+                'function_name' => 'audiosPaginate',
+            ),
+            97 => 
+            array (
+                'id' => 123,
+                'method' => 'get',
+                'route' => 'photos_paginate',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 13:44:13',
+                'updated_at' => '2017-12-31 13:44:13',
+                'function_name' => 'photos_paginate',
+            ),
+            98 => 
+            array (
+                'id' => 124,
+                'method' => 'get',
+                'route' => 'videos/{id}',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 14:50:26',
+                'updated_at' => '2017-12-31 14:50:26',
+                'function_name' => 'video_page',
+            ),
+            99 => 
+            array (
+                'id' => 125,
+                'method' => 'get',
+                'route' => 'faq',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2017-12-31 15:02:03',
+                'updated_at' => '2017-12-31 15:02:03',
+                'function_name' => 'faq',
             ),
         ));
         
