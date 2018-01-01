@@ -80,9 +80,9 @@ class FrontEndController extends Controller
         if(isset($op_id)&&is_numeric($op_id))
         {
             // list from posts
-            $rbts = Rbt::where('operator_id',$op_id)
+            $rbts = Post::where('operator_id',$op_id)
             ->where('published',1)
-            ->join('contents','rbts.content_id','=','contents.id')
+            ->join('contents','posts.content_id','=','contents.id')
             ->join('types','contents.type_id','=','types.id')
             ->where('types.title','LIKE','%audio%')
             ->select('contents.*')
@@ -104,14 +104,65 @@ class FrontEndController extends Controller
         $title = "الصوتيات" ; 
         $op_id = $request['op_id'] ;  
         $rbts = $this->audiosPaginate($request) ; 
-        $view = 'audio_page' ; 
+        $view = 'audios' ; 
         if(count($rbts)==0)
         {
             $view = "error" ; 
         }
-        return view('front_end.'.$view,compact('title','rbts','op_id')) ;
+        $pagination_link = "audios_paginate" ;
+        
+        $track_page = "audios" ; 
+        return view('front_end.'.$view,compact('track_page','pagination_link','title','rbts','op_id')) ;
     }
     
+    public function audio_page(Request $request, $id)
+    {
+        $title = "الصوتيات" ; 
+        $op_id = $request['op_id'] ; 
+        if(isset($op_id)&&is_numeric($op_id))
+        {
+            // list from posts
+            $track = Post::where('operator_id',$op_id)
+            ->where('published',1)
+            ->join('contents','posts.content_id','=','contents.id')
+            ->where('contents.id',$id) 
+            ->first()  ;
+
+            $related_audios = Content::join('types','types.id','=','contents.type_id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%audio%')
+            ->where('contents.id','<>',$id)
+            ->join('posts','posts.content_id','=','contents.id')
+            ->where('posts.operator_id',$op_id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
+     
+        }
+        else{ 
+            $track = Type::where('types.title','LIKE','%audio%')
+            ->join('contents','types.id','=','contents.type_id')
+            ->where('contents.id',$id) 
+            ->select('contents.*')
+            ->first()  ;
+
+            $related_audios = Content::join('types','types.id','=','contents.type_id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%audio%')
+            ->where('contents.id','<>',$id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
+        }
+        $track_page = "audios" ;  
+        $view = 'audio_page' ; 
+        
+        if(! $track)
+        {
+            $view = "error" ; 
+        }
+        return view('front_end.'.$view,compact('track_page','related_audios','track','op_id','title')) ;
+    }
 
     public function videosPaginate(Request $request)
     {
@@ -192,56 +243,6 @@ class FrontEndController extends Controller
     }
     
 
-    public function audio_page(Request $request, $id)
-    {
-        $title = "الصوتيات" ; 
-        $op_id = $request['op_id'] ; 
-        if(isset($op_id)&&is_numeric($op_id))
-        {
-            // list from posts
-            $track = Rbt::where('operator_id',$op_id)
-            ->where('published',1)
-            ->join('contents','rbts.content_id','=','contents.id')
-            ->where('contents.id',$id) 
-            ->first()  ;
-
-            $related_audios = Content::join('types','types.id','=','contents.type_id')
-            ->orderBy('created_at','DESC')
-            ->where('types.title','LIKE','%audio%')
-            ->where('contents.id','<>',$id)
-            ->join('rbts','rbts.content_id','=','contents.id')
-            ->where('rbts.operator_id',$op_id)
-            ->select('contents.*')
-            ->limit(6)
-            ->get() ; 
-     
-        }
-        else{
-            // list from rbts  
-            $track = Type::where('types.title','LIKE','%audio%')
-            ->join('contents','types.id','=','contents.type_id')
-            ->where('contents.id',$id) 
-            ->select('contents.*')
-            ->first()  ;
-
-            $related_audios = Content::join('types','types.id','=','contents.type_id')
-            ->orderBy('created_at','DESC')
-            ->where('types.title','LIKE','%audio%')
-            ->where('contents.id','<>',$id)
-            ->select('contents.*')
-            ->limit(6)
-            ->get() ; 
-        }
-        
-        $view = 'audio_page' ; 
-        
-        if(! $track)
-        {
-            $view = "error" ; 
-        }
-        return view('front_end.'.$view,compact('related_audios','track','op_id','title')) ;
-    }
-
     public function video_page(Request $request,$id)
     {
         $title = "الفيديوهات" ; 
@@ -313,6 +314,74 @@ class FrontEndController extends Controller
         return view('front_end.register',compact('op_id','title')) ; 
     }
 
+    public function rbtsPaginate(Request $request)
+    {
+        $op_id = $request['op_id'] ; 
+        $rbts = NULL ; 
+        if(isset($op_id)&&is_numeric($op_id))
+        {
+            // list from posts
+            $rbts = Rbt::where('operator_id',$op_id)
+            ->where('published',1)
+            ->join('contents','rbts.content_id','=','contents.id')
+            ->join('types','contents.type_id','=','types.id')
+            ->where('types.title','LIKE','%audio%')
+            ->select('contents.*')
+            ->paginate($this->PAGINATION_NUMBER)  ;
+        }
+        return $rbts ; 
+    }
+
+
+    public function rbts(Request $request)
+    {
+        $title = "النغمات" ; 
+        $op_id = $request['op_id'] ;  
+        $rbts = $this->rbtsPaginate($request) ; 
+        $view = 'audios' ; 
+        if(count($rbts)==0)
+        {
+            $view = "error" ; 
+        }
+        
+        $track_page = "rbt" ;  
+        $pagination_link = "rbts_paginate" ;
+        return view('front_end.'.$view,compact('track_page','title','rbts','op_id','pagination_link')) ;        
+    }
+
+    public function rbt_page(Request $request,$id)
+    {
+       $title = "الصوتيات" ; 
+        $op_id = $request['op_id'] ; 
+        $track = NULL ; 
+        if(isset($op_id)&&is_numeric($op_id))
+        { 
+            $track = Rbt::where('operator_id',$op_id)
+            ->where('published',1)
+            ->join('contents','rbts.content_id','=','contents.id')
+            ->join('operators','rbts.operator_id','=','operators.id')
+            ->where('contents.id',$id) 
+            ->select('contents.*','rbts.id','rbts.rbt_code','operators.operator_code')
+            ->first()  ;
+
+            $related_audios = Content::join('types','types.id','=','contents.type_id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%audio%')
+            ->where('contents.id','<>',$id)
+            ->join('rbts','rbts.content_id','=','contents.id')
+            ->where('rbts.operator_id',$op_id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
+        }
+        $view = 'audio_page' ;  
+        $track_page = "rbt" ;     
+        if(! $track)
+        {
+            $view = "error" ; 
+        }
+        return view('front_end.'.$view,compact('track_page','related_audios','track','op_id','title')) ;
+    }
 
 
 }

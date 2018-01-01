@@ -210,7 +210,7 @@
 
                         @if(isset($op_id)&&is_numeric($op_id))
                         <li class="tab"  style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("rbts".$query_params)}}' class="toggle-btn">
+                            <a href='{{url("rbt".$query_params)}}' class="toggle-btn">
                                 <div>
                                     <span class="fa fa-film"></span>
                                     <p>نغمات</p>

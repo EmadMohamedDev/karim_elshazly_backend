@@ -9,12 +9,12 @@
 ?> 
 <section class="main-container">
     <!-- suggested-->
-    <h3 class="suggested">الصوتيات</h3>
+    <h3 class="suggested">{{$title}}</h3>
 
     <ul class="audio-play-list" id="all-media">
         @foreach($rbts as $rbt)
         <li class="search-hook">
-            <a href="{{url('audios/'.$rbt->id.$query_params)}}" class="cf arabic">
+            <a href="{{url($track_page.'/'.$rbt->id.$query_params)}}" class="cf arabic">
                 <div class="play-status"><span class="fa fa-play"></span></div>
                 <p>{{$rbt->title}}</p> 
             </a>
@@ -51,9 +51,11 @@
         if(current_page+1 <= last_page)
         {  
             current_page++ ;  
+            var pagination_link = "{{$pagination_link}}" + "?page=" ; 
+            var track_link = "{{$track_page}}" ; 
             if(operator_id)
                 operator_query = "&op_id="+operator_id ;   
-            $.get("{{url('audios_paginate?page=')}}"+ current_page+operator_query,function(data,status){
+            $.get("{{url()}}/"+ pagination_link+ current_page+operator_query,function(data,status){
                 var parsedData = data.data ;  
                 for(var i = 0 ; i < parsedData.length ; i++)
                 {   
@@ -65,7 +67,7 @@
                     if(parsedData[i].content_type==1)
                         preview_image = "{{url()}}/" ; 
                     var htmlString = '<li class="search-hook">'+
-                                        '<a href="{{url()}}/audios/'+parsedData[i].id+'{{$query_params}}" class="cf arabic">'+
+                                        '<a href="{{url()}}/'+track_link+'/'+parsedData[i].id+'{{$query_params}}" class="cf arabic">'+
                                             '<div class="play-status"><span class="fa fa-play"></span></div>'+
                                             '<p>'+parsedData[i].title+'</p>'+
                                         '</a>'+

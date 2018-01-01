@@ -7,8 +7,13 @@
         $query_params = "?op_id=$op_id" ; 
     }
 ?> 
+
 <section class="main-container">
+
     @if($track)
+        @if($track_page=='rbt') 
+            <a id="mobileOSLink" href="" class="rbt_call">اشترى نغمة الانتظار</a>
+        @endif
     <h3 class="audio-header">{{$track->title}}</h3>
     <div class="audio-player">
         <?php 
@@ -62,8 +67,30 @@
     </ul>
      
 
-    <a href='{{url("audios".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
+    <a href='{{url($track_page."/".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
 </section>
 @stop 
+@section('scripts')
+<script> 
+    var ua = navigator.userAgent;
+    var sign = "" ;
+    // determine OS
+    if ( ua.match(/iPad/i) || ua.match(/iPhone/i) ) {
+    mobileOS = 'iOS';
+    } else if ( ua.match(/Android/i) ){
+    mobileOS = 'Android';
+    }else {
+    mobileOS = 'unknown';
+    }
+    if ( mobileOS === 'iOS' ){ 
+        sign = "&"  ; 
+    } else if ( mobileOS === 'Android' ){ 
+        sign = "?" ; 
+    }else{  
+        sign = "?" ; 
+    }
+    $('#mobileOSLink').attr("href","sms:{{$track->operator_code}}"+sign+"body={{$track->rbt_code}}");
+</script>
 
+@stop 
  
