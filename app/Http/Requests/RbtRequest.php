@@ -45,7 +45,7 @@ class RbtRequest extends Request
             case 'PATCH':
             {
                 return [
-                'rbt_code' => 'required|numeric|digits_between:1,6',
+                'rbt_code' => 'required|numeric|digits_between:1,10',
                 ];
             }
         }
