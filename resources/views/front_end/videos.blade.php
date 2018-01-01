@@ -40,6 +40,15 @@ $query_params = "" ;
     var current_page = parseInt("<?php echo $videos->currentPage() ?>") ; 
     var last_page = parseInt("<?php echo $videos->lastPage() ?>") ; 
     var operator_id = "<?php echo $op_id ?>";   
+
+    $(document).ready(function() {
+        if(current_page+1 >= last_page)
+        {
+            $('#load-more').find('#results').css("display","none"); 
+            $('#load-more').find('#no-result').css("display","block"); 
+        } 
+    });
+
     function load_more()
     {    
         var operator_query = "" ;   
@@ -73,7 +82,11 @@ $query_params = "" ;
                     $('#load-more').find('img').css("display","none");
                      
                 }
-                    
+                if(current_page+1 > last_page)
+                {
+                    $('#load-more').find('#results').css("display","none"); 
+                    $('#load-more').find('#no-result').css("display","block"); 
+                }
             });
         }
         else{   
