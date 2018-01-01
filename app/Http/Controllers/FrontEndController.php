@@ -68,6 +68,9 @@ class FrontEndController extends Controller
             $rbts = Rbt::where('operator_id',$op_id)
             ->where('published',1)
             ->join('contents','rbts.content_id','=','contents.id')
+            ->join('types','contents.type_id','=','types.id')
+            ->where('types.title','LIKE','%audio%')
+            ->select('contents.*')
             ->paginate(6)  ;
         }
         else{
@@ -168,6 +171,17 @@ class FrontEndController extends Controller
             ->join('contents','rbts.content_id','=','contents.id')
             ->where('contents.id',$id) 
             ->first()  ;
+
+            $related_audios = Content::join('types','types.id','=','contents.type_id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%audio%')
+            ->where('contents.id','<>',$id)
+            ->join('rbts','rbts.content_id','=','contents.id')
+            ->where('rbts.operator_id',$op_id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
+     
         }
         else{
             // list from rbts  
@@ -176,16 +190,17 @@ class FrontEndController extends Controller
             ->where('contents.id',$id) 
             ->select('contents.*')
             ->first()  ;
+
+            $related_audios = Content::join('types','types.id','=','contents.type_id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%audio%')
+            ->where('contents.id','<>',$id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
         }
         
-        $related_audios = Content::join('types','types.id','=','contents.type_id')
-        ->orderBy('created_at','DESC')
-        ->where('types.title','LIKE','%audio%')
-        ->where('contents.id','<>',$id)
-        ->select('contents.*')
-        ->limit(6)
-        ->get() ; 
- 
+
         return view('front_end.audio_page',compact('related_audios','track','op_id','title')) ;
     }
 
@@ -199,9 +214,19 @@ class FrontEndController extends Controller
             $track = Post::where('operator_id',$op_id)
             ->where('Published',1)
             ->where('Published_Date','<=',Carbon::now()->format("Y-m-d"))
-            ->join('contents','rbts.content_id','=','contents.id')
+            ->join('contents','posts.content_id','=','contents.id')
             ->where('contents.id',$id) 
             ->first()  ;
+
+            $related_videos = Content::join('types','types.id','=','contents.type_id')
+            ->join('posts','posts.content_id','=','contents.id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%video%')
+            ->where('contents.id','<>',$id)
+            ->where('posts.operator_id',$op_id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
         }
         else{
             // list from rbts  
@@ -210,15 +235,15 @@ class FrontEndController extends Controller
             ->where('contents.id',$id) 
             ->select('contents.*')
             ->first()  ;
-        }
         
-        $related_videos = Content::join('types','types.id','=','contents.type_id')
-        ->orderBy('created_at','DESC')
-        ->where('types.title','LIKE','%video%')
-        ->where('contents.id','<>',$id)
-        ->select('contents.*')
-        ->limit(6)
-        ->get() ; 
+            $related_videos = Content::join('types','types.id','=','contents.type_id')
+            ->orderBy('created_at','DESC')
+            ->where('types.title','LIKE','%video%')
+            ->where('contents.id','<>',$id)
+            ->select('contents.*')
+            ->limit(6)
+            ->get() ; 
+        }
  
         return view('front_end.video_page',compact('related_videos','track','op_id','title')) ;
     }

@@ -1,5 +1,14 @@
 @extends('front_end.header') 
 @section('content')
+<?php 
+$query_params = "" ; 
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "?op_id=$op_id" ;
+    }
+
+?>
+
 <!-- =================================================start content ======================= -->
     <section class="main-container">
         <!-- suggested-->
@@ -8,7 +17,7 @@
         <ul class="suggested-items media-gallery video">
             @foreach($videos as $video)
             <li>
-                <a href='{{url("videos/$video->id")}}' class="thumbnail">
+                <a href='{{url("videos/$video->id".$query_params)}}' class="thumbnail">
                     <div class="media-wrapper">
                         <img src="{{url($video->prev_img)}}">
                         <h3 class="media-title">{{$video->title}}</h3>
@@ -33,11 +42,15 @@
     var operator_id = "<?php echo $op_id ?>";   
     function load_more()
     {    
+        var operator_query = "" ;   
         if(current_page+1 <= last_page)
-        { 
-            current_page++ ; 
-            $.get("{{url('videos_paginate?page=')}}"+ current_page,function(data,status){
+        {  
+            current_page++ ;  
+            if(operator_id)
+                operator_query = "&op_id="+operator_id ;   
+            $.get("{{url('videos_paginate?page=')}}"+ current_page+operator_query,function(data,status){
                 var parsedData = data.data ; 
+                console.log(parsedData);
                 for(var i = 0 ; i < parsedData.length ; i++)
                 {  
                     var div_app = document.createElement('div') ; 
@@ -47,7 +60,7 @@
                     if(parsedData[i].content_type==1)
                         preview_image = "{{url()}}/" ; 
                     var htmlString = '<li>'+
-                                        '<a href="{{url()}}/videos/'+parsedData[i].id+'">'+
+                                        '<a href="{{url()}}/videos/'+parsedData[i].id+'{{$query_params}}">'+
                                             '<div class="media-wrapper">'+
                                                 '<img src="'+preview_image+parsedData[i].prev_img+'">'+
                                                 '<h3 class="media-title">'+parsedData[i].title+'</h3>'+
