@@ -10,11 +10,20 @@ use App\Setting ;
 use App\Rbt ; 
 use App\Post ; 
 use App\Content ; 
-use App\Type ; 
+use App\Type ;  
 use Carbon\Carbon;
 
 class FrontEndController extends Controller
 {
+
+    private $PAGINATION_NUMBER = 3; 
+    public function __construct()
+    {
+        $settings = Setting::where('key','LIKE','%pagination_number%')->first() ; 
+        if($settings)
+            $this->PAGINATION_NUMBER = (int) $settings->value; 
+    }
+
     public function homepage(Request $request)
     {
         // STEPS 
@@ -27,6 +36,7 @@ class FrontEndController extends Controller
         $twitter_link = Setting::where('key','LIKE','%twitter%')->first() ; 
         $instagram_link = Setting::where('key','LIKE','%instagram%')->first() ;
         $youtube_link = Setting::where('key','LIKE','%youtube%')->first() ; 
+        $slogan  = Setting::where('key','LIKE','%slogan%')->first() ;
 
         if(! $homepage_image)
             $homepage_image = url('img/home.jpg');
@@ -53,9 +63,14 @@ class FrontEndController extends Controller
         else
             $youtube_link = $youtube_link->value ; 
 
+        if(! $slogan)
+            $slogan = "كاتب مصري معاصر له العديد من الكتب" ; 
+        else
+            $slogan = $slogan->value ; 
+
         $title = "الرئيسية" ; 
 
-        return view('front_end.index',compact('op_id','title','youtube_link','homepage_image','facebook_link','twitter_link','instagram_link'))  ;
+        return view('front_end.index',compact('slogan','op_id','title','youtube_link','homepage_image','facebook_link','twitter_link','instagram_link'))  ;
     }
     
 
@@ -71,13 +86,13 @@ class FrontEndController extends Controller
             ->join('types','contents.type_id','=','types.id')
             ->where('types.title','LIKE','%audio%')
             ->select('contents.*')
-            ->paginate(6)  ;
+            ->paginate($this->PAGINATION_NUMBER)  ;
         }
         else{
             // list from rbts  
             $rbts = Type::where('types.title','LIKE','%audio%')
             ->join('contents','types.id','=','contents.type_id')
-            ->paginate(6) ; 
+            ->paginate($this->PAGINATION_NUMBER) ; 
         }
         return $rbts ; 
     }
@@ -106,13 +121,13 @@ class FrontEndController extends Controller
             ->join('types','contents.type_id','=','types.id')
             ->where('types.title','LIKE','%video%')
             ->select('posts.*','contents.*')
-            ->paginate(6)  ;
+            ->paginate($this->PAGINATION_NUMBER)  ;
         }
         else{
             // list from content  
             $videos = Type::where('types.title','LIKE','%video%')
             ->join('contents','types.id','=','contents.type_id')
-            ->paginate(6) ; 
+            ->paginate($this->PAGINATION_NUMBER) ; 
         }
         return $videos ; 
     }
@@ -139,13 +154,13 @@ class FrontEndController extends Controller
             ->join('types','contents.type_id','=','types.id')
             ->where('types.title','LIKE','%image%')
             ->select('posts.*','contents.*')
-            ->paginate(6)  ;
+            ->paginate($this->PAGINATION_NUMBER)  ;
         }
         else{
             // list from content  
             $photos = Type::where('types.title','LIKE','%image%')
             ->join('contents','types.id','=','contents.type_id')
-            ->paginate(6) ; 
+            ->paginate($this->PAGINATION_NUMBER) ; 
         }
         return $photos ; 
     }

@@ -9,7 +9,7 @@
 ?> 
 <section class="main-container">
     @if($track)
-    <h3 class="audio-header">عنوان المقطع الصوتى</h3>
+    <h3 class="audio-header">{{$track->title}}</h3>
     <div class="audio-player">
         <?php 
             $init_link = "" ; 

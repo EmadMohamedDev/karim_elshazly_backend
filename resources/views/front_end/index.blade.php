@@ -8,7 +8,7 @@
         <img src="{{url($homepage_image)}}" alt=""> 
     </div>
     <div class="info_karem">
-        <p>كاتب مصري معاصر له العديد من الكتب</p>
+        <p>{{$slogan}}</p>
         <a href="{{$facebook_link}}" target="_blank"><i class="fa fa-facebook facebook"></i></a>
         <a href="{{$twitter_link}}}" target="_blank"><i class="fa fa-twitter twitter"></i></a>
         <a href="{{$instagram_link}}" target="_blank"><i class="fa fa-instagram instagram"></i></a>
