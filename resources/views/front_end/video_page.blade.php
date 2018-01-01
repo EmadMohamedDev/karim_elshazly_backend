@@ -1,5 +1,12 @@
 @extends('front_end.header') 
 @section('content')
+<?php 
+    $query_params = "" ; 
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "?op_id=$op_id" ; 
+    }
+?> 
 <!-- =================================================start content ======================= -->
     <section class="main-container">
         <h3 class="suggested">الفيديو</h3>
@@ -72,7 +79,7 @@
                 }
             ?>
             <li>
-                <a href='{{url("videos/".$video->id)}}' class="thumbnail">
+                <a href='{{url("videos/".$video->id.$query_params)}}' class="thumbnail">
                     <div class="media-wrapper">
                         <img src="{{$init_link2.$video->prev_img}}">
                         <h3 class="media-title">{{$video->title}}</h3>
@@ -81,6 +88,6 @@
             </li>
             @endforeach
         </ul>
-        <a href='{{url("videos")}}' class="xs-toggle-btn more">رجوع</a>
+        <a href='{{url("videos".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
     </section>
 @stop 

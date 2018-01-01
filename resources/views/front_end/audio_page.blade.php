@@ -1,5 +1,12 @@
 @extends('front_end.header') 
 @section('content')
+<?php 
+    $query_params = "" ; 
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "?op_id=$op_id" ; 
+    }
+?> 
 <section class="main-container">
     @if($track)
     <h3 class="audio-header">عنوان المقطع الصوتى</h3>
@@ -46,7 +53,7 @@
     <ul class="audio-play-list" id="all-media">
         @foreach($related_audios as $audio)
         <li class="search-hook">
-            <a href="{{url('audios/'.$audio->id)}}" class="cf arabic">
+            <a href="{{url('audios/'.$audio->id.$query_params)}}" class="cf arabic">
                 <div class="play-status"><span class="fa fa-play"></span></div>
                 <p>{{$audio->title}}</p>
             </a>
@@ -55,7 +62,7 @@
     </ul>
      
 
-    <a href='{{url("audios")}}' class="xs-toggle-btn more">رجوع</a>
+    <a href='{{url("audios".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
 </section>
 @stop 
 
