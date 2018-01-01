@@ -1037,6 +1037,36 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2018-01-01 13:00:06',
                 'function_name' => 'register',
             ),
+            102 => 
+            array (
+                'id' => 128,
+                'method' => 'get',
+                'route' => 'rbt',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-01 13:28:45',
+                'updated_at' => '2018-01-01 13:28:45',
+                'function_name' => 'rbts',
+            ),
+            103 => 
+            array (
+                'id' => 129,
+                'method' => 'get',
+                'route' => 'rbts_paginate',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-01 13:40:55',
+                'updated_at' => '2018-01-01 13:40:55',
+                'function_name' => 'rbtsPaginate',
+            ),
+            104 => 
+            array (
+                'id' => 130,
+                'method' => 'get',
+                'route' => 'rbt/{id}',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-01 13:59:57',
+                'updated_at' => '2018-01-01 13:59:57',
+                'function_name' => 'rbt_page',
+            ),
         ));
         
         

@@ -45,12 +45,12 @@ class ContentsTableSeeder extends Seeder
             array (
                 'id' => 6,
                 'title' => 'TT4',
-                'path' => 'uploads/services/audios/5a42178dd5b8e.mp3',
-                'type_id' => 2,
+                'path' => 'uploads/services/videos/5a421695a6010.mp4',
+                'type_id' => 1,
                 'user_id' => 1,
                 'created_at' => '2017-12-26 07:33:47',
                 'updated_at' => '2017-12-26 09:34:05',
-                'prev_img' => '',
+                'prev_img' => 'uploads/services/images/5a4216aa9633f.jpg',
                 'content_type' => 1,
             ),
             3 => 
@@ -100,6 +100,18 @@ class ContentsTableSeeder extends Seeder
                 'updated_at' => '2017-12-26 09:48:37',
                 'prev_img' => 'NULL',
                 'content_type' => 2,
+            ),
+            7 => 
+            array (
+                'id' => 15,
+                'title' => 'test audio',
+                'path' => 'uploads/services/audios/5a49efa59e0d7.wav',
+                'type_id' => 2,
+                'user_id' => 1,
+                'created_at' => '2018-01-01 08:21:57',
+                'updated_at' => '2018-01-01 08:21:57',
+                'prev_img' => 'NULL',
+                'content_type' => 1,
             ),
         ));
         

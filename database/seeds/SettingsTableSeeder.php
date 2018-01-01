@@ -68,7 +68,7 @@ class SettingsTableSeeder extends Seeder
                 'key' => 'pagination_number',
                 'value' => '6',
                 'created_at' => '2018-01-01 09:01:02',
-                'updated_at' => '2018-01-01 09:32:03',
+                'updated_at' => '2018-01-01 14:07:48',
                 'type' => 2,
             ),
             6 => 
