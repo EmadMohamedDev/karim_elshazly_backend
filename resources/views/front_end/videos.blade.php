@@ -30,9 +30,11 @@ $query_params = "" ;
         </ul> 
         <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
                          <span id="results">المزيد</span>
-                         <span id="no-result" style="display:none;">لا يوجد المزيد</span>
                      </button> 
+                     <span id="no-result-span" style="display:none;">لا يوجد المزيد</span>
+                     
     </section>
+
 
 @stop
 @section('scripts')
@@ -42,10 +44,10 @@ $query_params = "" ;
     var operator_id = "<?php echo $op_id ?>";   
 
     $(document).ready(function() {
-        if(current_page+1 >= last_page)
+        if(current_page+1 > last_page)
         {
-            $('#load-more').find('#results').css("display","none"); 
-            $('#load-more').find('#no-result').css("display","block"); 
+            $('#load-more').css("display","none"); 
+            $('#no-result-span').css("display","block"); 
         } 
     });
 
@@ -59,7 +61,6 @@ $query_params = "" ;
                 operator_query = "&op_id="+operator_id ;   
             $.get("{{url('videos_paginate?page=')}}"+ current_page+operator_query,function(data,status){
                 var parsedData = data.data ; 
-                console.log(parsedData);
                 for(var i = 0 ; i < parsedData.length ; i++)
                 {  
                     var div_app = document.createElement('div') ; 
@@ -84,14 +85,14 @@ $query_params = "" ;
                 }
                 if(current_page+1 > last_page)
                 {
-                    $('#load-more').find('#results').css("display","none"); 
-                    $('#load-more').find('#no-result').css("display","block"); 
+                    $('#load-more').css("display","none"); 
+                    $('#no-result-span').css("display","block"); 
                 }
             });
         }
         else{   
-            $('#load-more').find('#results').css("display","none"); 
-            $('#load-more').find('#no-result').css("display","block"); 
+            $('#load-more').css("display","none"); 
+            $('#no-result-span').css("display","block"); 
         } 
     }
 
