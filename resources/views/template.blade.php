@@ -130,7 +130,7 @@
     <button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
         <span class="fa fa-bars"></span>
     </button>
-    <a class="navbar-brand" href="{{url('/dashboard')}}">
+    <a class="navbar-brand" href="{{url('/')}}">
         <small>
             <i class="fa fa-user-secret"></i>
             @lang('messages.dashboard')
