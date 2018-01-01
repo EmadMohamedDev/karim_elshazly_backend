@@ -18,17 +18,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+     public function index(Request $request)
     {
         $posts = null;
+        
         if(isset($request['content_id'])&&!empty($request['content_id']) && is_numeric($request['content_id']))
         {
-            $posts = Post::where(['content_id' => $request['content_id']])->with('content','operator')->get();
+            $posts = Post::with('content','operator')->get();
         }
         else
         {
             $posts = Post::with('content','operator')->get();
         }
+        
         return view('posts/index',compact('posts'));
     }
 
@@ -88,21 +90,12 @@ class PostController extends Controller
             $post->content_id = $request->content_id;
         }
         $post->operator_id = $request->operator_id;
-        $post->Published = $request->rbt_published;
-        $post->Free = $request->rbt_free;
+        $post->Published = $request->Published;
+        $post->Free = $request->Free;
         $post->user_id = \Auth::user()->id;
         $newdata = date('Y-m-d',strtotime($request->Published_Date));
         $post->Published_Date = $newdata;
-        if($request->hasFile('post_image'))
-        {
-                $filename=uniqid(); //Uniqe Id 
-                $imgurl=$request->file('post_image');
-                $destinationPath='uploads/posts/';
-                $extension = $imgurl->getClientOriginalExtension();    
-                $post->post_image=$destinationPath.$filename.".".$extension;
-                $imgurl->move($destinationPath,$filename.".".$extension); 
-        }
-        
+        $post->post_image = "NULL";
         \Session::flash('success','Post added successfully');
         $post->save() ;  
         return redirect('posts/index');
@@ -128,7 +121,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrfail($id);
-        $operators = Operator::lists('title','id');
+        $operators = Operator::with('country')->get();
         $contents = Content::lists('title','id');
         return view('posts.input',compact('operators','contents','post'));
 
@@ -145,26 +138,8 @@ class PostController extends Controller
     {
         $newpost = $request->all();
         $oldpost= Post::findOrFail($id);
-        $destinationFolder = "uploads/posts/";
-        
         $newdata = date('Y-m-d',strtotime($request->Published_Date));
         $newpost['Published_Date'] = $newdata;
-        
-        if ($request->hasFile('post_image'))
-        {
-                $file = $request->file('post_image');
-                $uniqueID = uniqid();
-                $file->move($destinationFolder,$uniqueID.".".$file->getClientOriginalExtension());
-                $newpost['post_image'] = $destinationFolder.$uniqueID.".".$file->getClientOriginalExtension();
-                if (file_exists($oldpost['post_image']))
-                {
-                    unlink($oldpost['post_image']);
-                }
-        }
-        else
-        {
-            $newpost['post_image'] = $oldpost['post_image'] ;
-        }
         $oldpost->update($newpost);
         \Session::flash('success','Post Updated successfully');
         return redirect('posts/index');

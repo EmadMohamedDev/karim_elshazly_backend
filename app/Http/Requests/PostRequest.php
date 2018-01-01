@@ -35,9 +35,8 @@ class PostRequest extends Request
                 
                 return [
                 'operator_id' => 'required',
-                'rbt_published' => 'required',
-                'rbt_free' => 'required',
-                'post_image' => '',
+                'Published' => 'required',
+                'Free' => 'required',
                 'Published_Date' => 'required'
                 ];
             }

@@ -38,7 +38,7 @@
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.rbts.rbt-free'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
-        <select class="form-control chosen-rtl" name="rbt_free" required>
+        <select class="form-control chosen-rtl" name="Free" required>
                 <option value="0" @if ($post !=null && $post->Free == '0') selected @endif> No </option>
                <option value="1" @if ($post !=null && $post->Free == '1') selected @endif> Yes </option>
         </select>
@@ -51,7 +51,7 @@
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.rbts.rbt-published'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
-        <select class="form-control chosen-rtl" name="rbt_published" required>
+        <select class="form-control chosen-rtl" name="Published" required>
                 <option value="0" @if ($post !=null && $post->Published == '0') selected @endif> No </option>
                <option value="1" @if ($post !=null && $post->Published == '1') selected @endif> Yes </option>
         </select>
@@ -59,43 +59,7 @@
     </div>
 </div>        
 
-<div class="form-group">
-    @if($post == null)
-        {!! Form::label('post_image',\Lang::get('messages.posts.post-img').$required,['class'=>'col-sm-3 col-lg-2 control-label']) !!}
-    @else
-        {!! Form::label('post_image',\Lang::get('messages.posts.post-img'),['class'=>'col-sm-3 col-lg-2 control-label']) !!}
-    @endif
 
-    <div class="col-sm-9 col-lg-10 controls">
-        <div class="fileupload fileupload-new" data-provides="fileupload">
-            <div class="fileupload-new img-thumbnail" style="width: 200px; height: 150px;">
-                @if($post == null)
-                    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+file" alt="" />
-                @else
-                    @if(file_exists($post->post_image))
-                        <img src="{{url($post->post_image)}}" alt="" />
-                    @else
-                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+file" alt="" />
-                    @endif
-                @endif
-
-            </div>
-            <div class="fileupload-preview fileupload-exists img-thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-            <div>
-                                    <span class="btn btn-default btn-file"><span class="fileupload-new">@lang('messages.upload')</span>
-                                        <span class="fileupload-exists">@lang('messages.change')</span>
-                                        @if($post == null)
-                                            {!! Form::file('post_image',["accept"=>"image/*"]) !!}
-                                        @else
-                                            {!! Form::file('post_image') !!}
-                                        @endif
-                                        </span>
-                <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">@lang('messages.remove')</a>
-            </div>
-            <span class='label label-important'>NOTE!</span>
-            <span>Only extension supported jpg, png, and jpeg</span>
-        </div>
-    </div>
  
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">Post Date*</label>

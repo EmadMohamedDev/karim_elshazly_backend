@@ -35,10 +35,10 @@ class RbtRequest extends Request
                 
                 return [
                 'category_id' => 'required',
-                'rbt_code' => 'required|numeric|digits_between:1,6',
+                'rbt_code' => 'required|numeric|digits_between:1,10',
                 'operator_id' => 'required',
-                'rbt_published' => 'required',
-                'rbt_free' => 'required'
+                'published' => 'required',
+                'free' => 'required'
                 ];
             }
             case 'PUT':
