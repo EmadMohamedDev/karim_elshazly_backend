@@ -92,8 +92,8 @@ class RbtController extends Controller
         }
         $rbt->category_id = $request->category_id;
         $rbt->operator_id = $request->operator_id;
-        $rbt->free = $request->rbt_free;
-        $rbt->published = $request->rbt_published;
+        $rbt->free = $request->free;
+        $rbt->published = $request->published;
         $rbt->rbt_code = $request->rbt_code;
         \Session::flash('success','Rbt added successfully');
         $rbt->save() ;
@@ -122,7 +122,7 @@ class RbtController extends Controller
         $rbt = Rbt::findOrFail($id) ;
         $contents = Content::lists('title','id');
         $categories = Category::lists('title','id');
-        $operators = Operator::lists('title','id');
+        $operators = Operator::with('country')->get();
         return view('rbts.input',compact('operators','categories','contents','rbt'));
     }
 

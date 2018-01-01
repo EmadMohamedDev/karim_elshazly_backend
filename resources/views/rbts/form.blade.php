@@ -49,7 +49,7 @@
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.rbts.rbt-free'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
-        <select class="form-control chosen-rtl" name="rbt_free" required>
+        <select class="form-control chosen-rtl" name="free" required>
                 <option value="0" @if ($rbt !=null && $rbt->free == '0') selected @endif> No </option>
                <option value="1" @if ($rbt !=null && $rbt->free == '1') selected @endif> Yes </option>
         </select>
@@ -61,7 +61,7 @@
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.rbts.rbt-published'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
-        <select class="form-control chosen-rtl" name="rbt_published" required>
+        <select class="form-control chosen-rtl" name="published" required>
                 <option value="0" @if ($rbt !=null && $rbt->published == '0') selected @endif> No </option>
                <option value="1" @if ($rbt !=null && $rbt->published == '1') selected @endif> Yes </option>
         </select>
