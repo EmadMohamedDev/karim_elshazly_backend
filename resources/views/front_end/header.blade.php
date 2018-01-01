@@ -188,7 +188,19 @@
                     </ul>
                 </section>
             </section>
-
+    <style>
+        #no-result-span{
+            display: block;
+            margin: auto;
+            width: 156px;
+            border-radius: 21px;
+            background: #ff0000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
             @yield('content')
 
 

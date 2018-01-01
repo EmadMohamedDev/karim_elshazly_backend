@@ -24,8 +24,8 @@
         </ul>
         <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
                          <span id="results">المزيد</span>
-                         <span id="no-result" style="display:none;">لا يوجد المزيد</span>
                      </button> 
+                         <span id="no-result-span" style="display:none;">لا يوجد المزيد</span>
     </section>
         
     <!-- =================================================End content ====================== -->
@@ -38,10 +38,10 @@
 
 
     $(document).ready(function() {
-        if(current_page+1 >= last_page)
+        if(current_page+1 > last_page)
         {
-            $('#load-more').find('#results').css("display","none"); 
-            $('#load-more').find('#no-result').css("display","block"); 
+            $('#load-more').css("display","none"); 
+            $('#no-result-span').css("display","block"); 
         } 
     });
     
@@ -75,14 +75,14 @@
                 }
                 if(current_page+1 > last_page)
                 {
-                    $('#load-more').find('#results').css("display","none"); 
-                    $('#load-more').find('#no-result').css("display","block"); 
+                    $('#load-more').css("display","none"); 
+                    $('#no-result-span').css("display","block"); 
                 }           
             });
         }
         else{   
-            $('#load-more').find('#results').css("display","none"); 
-            $('#load-more').find('#no-result').css("display","block"); 
+            $('#load-more').css("display","none"); 
+            $('#no-result-span').css("display","block"); 
         } 
     }
 
