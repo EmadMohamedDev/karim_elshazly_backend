@@ -1017,6 +1017,26 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2017-12-31 15:02:03',
                 'function_name' => 'faq',
             ),
+            100 => 
+            array (
+                'id' => 126,
+                'method' => 'get',
+                'route' => 'login',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-01 12:55:03',
+                'updated_at' => '2018-01-01 12:55:03',
+                'function_name' => 'login',
+            ),
+            101 => 
+            array (
+                'id' => 127,
+                'method' => 'get',
+                'route' => 'register',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-01 13:00:06',
+                'updated_at' => '2018-01-01 13:00:06',
+                'function_name' => 'register',
+            ),
         ));
         
         
