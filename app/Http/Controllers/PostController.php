@@ -24,7 +24,7 @@ class PostController extends Controller
         
         if(isset($request['content_id'])&&!empty($request['content_id']) && is_numeric($request['content_id']))
         {
-            $posts = Post::with('content','operator')->get();
+             $posts = Post::where(['content_id' => $request['content_id']])->with('content','operator')->get();
         }
         else
         {
