@@ -1,18 +1,18 @@
 <?php 
-    $number = 25 ; 
+
+ 
     $query_params = "" ; 
-    if(isset($_GET['op']))
-    { 
-        $over = $_GET['op'] ; 
-        $number = 25 ; 
-        if(isset($over) && !empty($over))
-            $number = 100 / $over ; 
-    }
+    $over = 4 ; 
+    $number = 25 ; 
 
     if(isset($op_id)&&is_numeric($op_id))
     {
         $query_params = "?op_id=".$op_id  ; 
+        $over = 5 ;
     }
+    if(isset($over) && !empty($over))
+        $number = 100 / $over ; 
+
 ?>
 
 
@@ -104,7 +104,6 @@
                                 </div>
                             </a>
                         </li>
-                        <!-- menu link 5 -->
                         <li>
                             <a href='{{url("faq".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
@@ -115,6 +114,29 @@
                                 </div>
                             </a>
                         </li>
+                        <li>
+                            <a href='{{url("login".$query_params)}}' class="row">
+                                <div class="row small-3 columns">
+                                    <span class="fa fa-sign-in"></span>
+                                </div>
+                                <div class="row small-9 columns">
+                                    <p>دخول</p>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- menu link 7 -->
+                        <li>
+                            <a href='{{url("register".$query_params)}}' class="row">
+                                <div class="row small-3 columns">
+                                    <span class="fa fa-sign-out"></span>
+                                </div>
+                                <div class="row small-9 columns">
+                                    <p>تسجيل حساب</p>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- menu link 5 -->
+                        
                     </ul>
                     <!-- end menu categories -->
                 </div>
@@ -185,6 +207,18 @@
                                 </div>
                             </a>
                         </li>
+
+                        @if(isset($op_id)&&is_numeric($op_id))
+                        <li class="tab"  style="width:<?php echo $number .'%'?>;">
+                            <a href='{{url("rbts".$query_params)}}' class="toggle-btn">
+                                <div>
+                                    <span class="fa fa-film"></span>
+                                    <p>نغمات</p>
+                                </div>
+                            </a>
+                        </li>
+                        @endif
+
                     </ul>
                 </section>
             </section>

@@ -104,7 +104,12 @@ class FrontEndController extends Controller
         $title = "الصوتيات" ; 
         $op_id = $request['op_id'] ;  
         $rbts = $this->audiosPaginate($request) ; 
-        return view('front_end.audios',compact('title','rbts','op_id')) ;
+        $view = 'audio_page' ; 
+        if(count($rbts)==0)
+        {
+            $view = "error" ; 
+        }
+        return view('front_end.'.$view,compact('title','rbts','op_id')) ;
     }
     
 
@@ -137,7 +142,13 @@ class FrontEndController extends Controller
         $title = "الفيديوهات" ; 
         $op_id = $request['op_id'] ; 
         $videos = $this->videosPaginate($request) ; 
-        return view('front_end.videos',compact('title','videos','op_id')) ;
+        $view = 'videos' ; 
+        
+        if(count($videos)==0)
+        {
+            $view = "error" ; 
+        }
+        return view('front_end.'.$view,compact('title','videos','op_id')) ;
     }
     
 
@@ -162,6 +173,7 @@ class FrontEndController extends Controller
             ->join('contents','types.id','=','contents.type_id')
             ->paginate($this->PAGINATION_NUMBER) ; 
         }
+
         return $photos ; 
     }
 
@@ -170,7 +182,13 @@ class FrontEndController extends Controller
         $title = "الصور" ; 
         $op_id = $request['op_id'] ; 
         $photos = $this->photos_paginate($request) ; 
-        return view('front_end.images',compact('title','photos','op_id')) ;
+        $view = 'images' ; 
+        
+        if(count($photos)==0)
+        {
+            $view = "error" ; 
+        }
+        return view('front_end.'.$view,compact('title','photos','op_id')) ;
     }
     
 
@@ -215,8 +233,13 @@ class FrontEndController extends Controller
             ->get() ; 
         }
         
-
-        return view('front_end.audio_page',compact('related_audios','track','op_id','title')) ;
+        $view = 'audio_page' ; 
+        
+        if(! $track)
+        {
+            $view = "error" ; 
+        }
+        return view('front_end.'.$view,compact('related_audios','track','op_id','title')) ;
     }
 
     public function video_page(Request $request,$id)
@@ -259,8 +282,14 @@ class FrontEndController extends Controller
             ->limit(6)
             ->get() ; 
         }
- 
-        return view('front_end.video_page',compact('related_videos','track','op_id','title')) ;
+        $view = 'video_page' ; 
+
+        if(! $track)
+        {
+            $view = "error" ; 
+        }
+
+        return view('front_end.'.$view,compact('related_videos','track','op_id','title')) ;
     }
 
 
@@ -270,5 +299,20 @@ class FrontEndController extends Controller
         $op_id = $request['op_id']  ;
         return view('front_end.faq',compact('op_id','title')) ; 
     }
+
+    public function login(Request $request)
+    {
+        $title = "دخول" ;
+        $op_id = $request['op_id']  ;
+        return view('front_end.login',compact('op_id','title')) ; 
+    }
+    public function register(Request $request)
+    {
+        $title = "تسجيل حساب" ;
+        $op_id = $request['op_id']  ;
+        return view('front_end.register',compact('op_id','title')) ; 
+    }
+
+
 
 }

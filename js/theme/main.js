@@ -19,6 +19,12 @@ $(document).ready(function() {
             video.pause();
         });
     }); 
+    
+    // close button
+    $('.close_btn').click(function(){
+        $(this).parent().parent().css('visibility','hidden');
+    });
+    
 });
 
 /*================================================================
