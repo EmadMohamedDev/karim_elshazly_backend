@@ -9,8 +9,8 @@
 ?> 
 <!-- =================================================start content ======================= -->
     <section class="main-container">
-        <h3 class="suggested">الفيديو</h3>
         @if($track)
+        <h3 class="suggested">{{$track->title}}</h3>
 
         <div class="" >
         <?php 
