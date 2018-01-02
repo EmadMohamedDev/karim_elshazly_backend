@@ -44,6 +44,7 @@ $query_params = "" ;
     var operator_id = "<?php echo $op_id ?>";   
 
     $(document).ready(function() {
+        $('#li-videos').addClass(' active'); 
         if(current_page+1 > last_page)
         {
             $('#load-more').css("display","none"); 

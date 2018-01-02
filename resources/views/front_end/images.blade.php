@@ -16,6 +16,7 @@
                 <div class="media-wrapper img-wrapper">
                     <a href='{{$init_link.$photo->path}}' data-fancybox="group5" data-type="image" >
                         <img src="{{$init_link.$photo->path}}"> 
+                        <span class="media-title">{{$photo->title}}</span> 
                     </a>
                 </div>
             </li>
@@ -38,6 +39,7 @@
 
 
     $(document).ready(function() {
+        $('#li-photos').addClass(' active'); 
         if(current_page+1 > last_page)
         {
             $('#load-more').css("display","none"); 
@@ -64,6 +66,7 @@
                                         '<div class="media-wrapper img-wrapper">'+
                                             '<a href="'+preview_image+parsedData[i].path+'" data-fancybox="group5" data-type="image" >'+
                                                 '<img src="'+preview_image+parsedData[i].path+'">'+ 
+                                                '<span class="media-title">'+parsedData[i].title+'</span> '+
                                             '</a>'+
                                         '</div>'+
                                     '</li>';

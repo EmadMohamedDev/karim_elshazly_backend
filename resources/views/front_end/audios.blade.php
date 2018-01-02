@@ -38,6 +38,7 @@
 
 
     $(document).ready(function() {
+        $('#li-'+"{{$track_page}}").addClass(' active');        
         if(current_page+1 > last_page)
         {
             $('#load-more').css("display","none"); 
@@ -90,7 +91,6 @@
             $('#no-result-span').css("display","block"); 
         } 
     }
-
 
 </script>
 @stop 

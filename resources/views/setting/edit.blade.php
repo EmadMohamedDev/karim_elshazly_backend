@@ -73,7 +73,7 @@
                                    @endif
                                     <br>
                                 @else
-                                    @if($setting->value[0]=="<")
+                                    @if($setting->type=="1")
                                         <textarea name="value" name="value" placeholder="value" class="form-control col-md-12 ckeditor" required>{{$setting->value}}</textarea>
                                     @else
                                         <textarea name="value" name="value" placeholder="value" class="form-control col-md-12" required>{{$setting->value}}</textarea>

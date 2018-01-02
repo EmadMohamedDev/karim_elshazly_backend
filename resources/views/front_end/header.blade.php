@@ -172,7 +172,7 @@
                     <!-- toggle Categories -->
                     <ul class="toggle-menu row">
                         <!-- tab 1 -->
-                        <li class="tab" style="width:<?php echo $number .'%'?>;">
+                        <li id="li-homepage" class="tab" style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("/".$query_params)}}' class="toggle-btn trigger-click">
                                 <div>
                                     <span class="fa fa-home"></span>
@@ -181,7 +181,7 @@
                             </a>
                         </li>
                         <!-- tab 2 -->
-                        <li class="tab"  style="width:<?php echo $number .'%'?>;">
+                        <li id="li-photos" class="tab"  style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("photos".$query_params)}}' class="toggle-btn trigger-click">
                                 <div>
                                     <span class="fa fa-picture-o"></span>
@@ -190,7 +190,7 @@
                             </a>
                         </li>
                         <!-- tab 3 -->
-                        <li class="tab" style="width:<?php echo $number .'%'?>;">
+                        <li id="li-audios" class="tab" style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("audios".$query_params)}}' class="toggle-btn">
                                 <div class="flex-container center-center">
                                     <span class="fa fa-music"></span>
@@ -199,7 +199,7 @@
                             </a>
                         </li>
                         <!-- tab 4 -->
-                        <li class="tab"  style="width:<?php echo $number .'%'?>;">
+                        <li id="li-videos" class="tab"  style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("videos".$query_params)}}' class="toggle-btn">
                                 <div>
                                     <span class="fa fa-film"></span>
@@ -209,7 +209,7 @@
                         </li>
 
                         @if(isset($op_id)&&is_numeric($op_id))
-                        <li class="tab"  style="width:<?php echo $number .'%'?>;">
+                        <li id="li-rbt" class="tab"  style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("rbt".$query_params)}}' class="toggle-btn">
                                 <div>
                                     <span class="fa fa-film"></span>

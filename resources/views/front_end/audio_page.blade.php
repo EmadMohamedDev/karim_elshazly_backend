@@ -72,6 +72,7 @@
 @stop 
 @section('scripts')
 <script> 
+$('#li-audios').addClass(' active'); 
     var ua = navigator.userAgent;
     var sign = "" ;
     // determine OS

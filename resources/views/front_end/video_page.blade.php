@@ -91,3 +91,8 @@
         <a href='{{url("videos".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
     </section>
 @stop 
+@section('scripts')
+<script>
+    $('#li-videos').addClass(' active'); 
+</script>
+@stop

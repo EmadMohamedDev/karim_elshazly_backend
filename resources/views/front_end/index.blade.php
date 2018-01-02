@@ -32,3 +32,8 @@
     </style>
 </section>
 @stop
+@section('scripts')
+<script>
+    $('#li-homepage').addClass(' active'); 
+</script>
+@stop
