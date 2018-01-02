@@ -2,13 +2,13 @@
 @section('content')
 <section class="main-container">
     <!-- alert that sucess login -->
-    <div class="success_alert">
+    <!-- <div class="success_alert">
         <div class="popup_content">
             <i class="fa fa-check-circle-o fa-lg right_i" ></i>
             <a href="#" class="left_i close_btn"><i class="fa fa-close fa-lg " ></i></a>
             <span class="content">تم التسجيل بنجاح</span>
         </div>
-    </div> 
+    </div>  -->
     <!-- alert that fault login -->
     <!-- <div class="fault_alert">
         <div class="popup_content">

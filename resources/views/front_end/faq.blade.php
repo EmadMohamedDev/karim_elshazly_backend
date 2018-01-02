@@ -12,7 +12,6 @@
     <!-- suggested-->
     <h3 class="suggested">الارشادات</h3>
     {!! $faqs !!}
-    <a href='{{url("/".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
 </section>
 @stop
 
