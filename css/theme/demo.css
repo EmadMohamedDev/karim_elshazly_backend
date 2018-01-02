@@ -265,7 +265,7 @@ footer {
 }
 footer h2 {
   font-size: 15px;
-  color: #009dff;
+  color: #1565c0;
 }
 
 #scroll-top {
@@ -279,16 +279,19 @@ footer h2 {
   z-index: 8888;
   line-height: 40px;
   text-align: center;
-  border-radius: 20%;
-  background: #fff;
-  color: #1565c0;
+  border-radius: 50%;
+  background: #1565c0;
+  color: #fff;
   font-size: 20px;
   border: 1px solid #1565c0;
   transition: all 0.3s ease-in-out;
 }
+#scroll-top i {
+  font-weight: bold;
+}
 #scroll-top:hover {
-  background: #1565c0;
-  color: #fff;
+  background: #fff;
+  color: #1565c0;
 }
 
 .copy-right {

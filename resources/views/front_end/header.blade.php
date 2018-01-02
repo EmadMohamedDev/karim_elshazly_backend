@@ -252,7 +252,7 @@
                 </div>
             </footer>
     <a href="#" id="scroll-top">
-         <i class="fa fa-long-arrow-up"></i>
+        <i class="fa fa-angle-up fa-lg"></i>
     </a>  
         <!-- end site wrapper -->
         <!-- My scripts -->
