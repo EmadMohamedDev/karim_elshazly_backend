@@ -66,8 +66,6 @@
         @endforeach
     </ul>
      
-
-    <a href='{{url($track_page."/".$query_params)}}' class="xs-toggle-btn more">رجوع</a>
 </section>
 @stop 
 @section('scripts')

@@ -11,7 +11,7 @@ $query_params = "" ;
 
 <section class="main-container">
 
-    <form class="form_access" action="" id="form">
+    <form class="form_access reg" action="" id="form">
         <!-- suggested-->
         <h3 class="suggested">تسجيل حساب</h3>
         <hr>

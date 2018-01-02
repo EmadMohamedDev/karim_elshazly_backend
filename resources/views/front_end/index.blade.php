@@ -24,6 +24,9 @@
                 position:absolute ;
                 bottom: 0;
             }
+            .footer-wrapper {
+                padding:18px
+            }
             .clearfooter {
                 clear:both;
                 height:0;

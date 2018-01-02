@@ -24,9 +24,25 @@ $(document).ready(function() {
     $('.close_btn').click(function(){
         $(this).parent().parent().css('visibility','hidden');
     });
-    
-});
+   
+    // show the button when scroll button
+    $('.site-wrapper').scroll(function(){
+        if ($(this).scrollTop() >= 80) {
+            $('#scroll-top').fadeIn();
+        } else {
+            $('#scroll-top').fadeOut();
+        }
+    });
+    // when click scroll to top
+    $('#scroll-top').click(function () {
+        $(".site-wrapper").animate({ scrollTop : 0 }, 600); 
+    });
 
+});
+     
+function goBack() {
+    window.history.back();
+}
 /*================================================================
  * Debounced resize Plugin 
  * =============================================================== */
@@ -299,7 +315,7 @@ $('.video .thumbnail').append(playIcon);
 /*=====================================================================================
                              change English Number to Arabic
  *====================================================================================*/
-var html = $('html');
+/*var html = $('html');
 if(html.attr('lang') === "ar"){
 $('.arabic-number').persiaNumber('ar');
 }
@@ -320,7 +336,7 @@ if (ver[0] < 8) {
   $('#splash-screen').hide();
 }
 
-
+*/
 
 
 

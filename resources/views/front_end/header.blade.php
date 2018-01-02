@@ -158,6 +158,7 @@
                     <div class="main-nav-wrapper">
                         <ul class="row status-toolbar"></ul>
                         <ul class="menu-toolbar make-sticky cf">
+                        <i class="fa fa-angle-left fa-2x arrow" aria-hidden="true" onclick="goBack()"></i>
                             <li class="burger-menu-btn"><span class="fa fa-bars"></span></li>
                             <!-- make this a partial -->
                             <div class="logo-img">
@@ -250,6 +251,9 @@
                 </div>
                 </div>
             </footer>
+    <a href="#" id="scroll-top">
+         <i class="fa fa-long-arrow-up"></i>
+    </a>  
         <!-- end site wrapper -->
         <!-- My scripts -->
         <!-- jQuery -->
