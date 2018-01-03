@@ -22,11 +22,12 @@
         @endforeach 
     <span id="load-more-videos"> </span>
     </ul>
-
+    
     <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
         <span id="results">المزيد</span>
     </button> 
         <span id="no-result-span" style="display:none;">لا يوجد المزيد</span>
+
 </section>
 @stop 
 
