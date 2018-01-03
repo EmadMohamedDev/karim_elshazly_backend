@@ -114,7 +114,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li></li>
                             <a href='{{url("login".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-sign-in"></span>
