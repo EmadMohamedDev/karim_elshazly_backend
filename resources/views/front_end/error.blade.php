@@ -1,11 +1,18 @@
 @extends('front_end.header') 
 @section('content')
+<?php 
+    $query_params = "" ; 
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "?op_id=$op_id" ; 
+    }
+?> 
 <section class="main-container">
 
     <div class="error_word">
         <h2>4<span>0</span>4</h2>
         <p>محتوى هذه الصفحه غير موجود</p>
-        <a href="{{url()}}" class="error-link">رجوع للرئيسية</a>
+        <a href="{{url('/'.$query_params)}}" class="error-link">رجوع للرئيسية</a>
     </div>
      
     <style> 

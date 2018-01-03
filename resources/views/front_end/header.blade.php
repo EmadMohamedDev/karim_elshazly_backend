@@ -114,7 +114,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li></li>
+                        <!-- <li>
                             <a href='{{url("login".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-sign-in"></span>
@@ -123,8 +123,7 @@
                                     <p>دخول</p>
                                 </div>
                             </a>
-                        </li>
-                        <!-- menu link 7 -->
+                        </li> 
                         <li>
                             <a href='{{url("register".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
@@ -134,7 +133,7 @@
                                     <p>تسجيل حساب</p>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- menu link 5 -->
                         
                     </ul>

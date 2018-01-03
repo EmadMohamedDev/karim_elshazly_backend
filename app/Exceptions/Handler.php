@@ -46,6 +46,13 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
+        if($e instanceof NotFoundHttpException)
+        {
+            $op_id = $request['op_id'] ; 
+            $title = "صفحة خطأ" ; 
+            return response()->view('front_end.error', compact('op_id','title') , 404); 
+        }
+
         return parent::render($request, $e);
     }
 }

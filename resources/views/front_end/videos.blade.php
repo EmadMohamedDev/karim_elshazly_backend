@@ -48,7 +48,7 @@ $query_params = "" ;
         if(current_page+1 > last_page)
         {
             $('#load-more').css("display","none"); 
-            $('#no-result-span').css("display","block"); 
+            //$('#no-result-span').css("display","block"); 
         } 
     });
 
