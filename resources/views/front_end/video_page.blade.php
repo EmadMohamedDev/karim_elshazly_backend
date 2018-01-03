@@ -66,6 +66,7 @@
         </style>
 
 
+        @if(count($related_videos)>0)
         <!-- suggested-->
         <h3 class="suggested">فيديوهات مقترحة</h3>
 
@@ -88,7 +89,7 @@
             </li>
             @endforeach
         </ul>
-         
+        @endif
     </section>
 @stop 
 @section('scripts')
