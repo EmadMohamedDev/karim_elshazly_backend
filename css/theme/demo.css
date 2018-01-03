@@ -4,7 +4,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notonaskharabic.css);
 @font-face {
   font-family: logo;
-  src: url(../../fonts/hala01.otf);
+  src: url(../../css/fonts/hala01.otf);
 }
 /* Variables */
 /* colors */
@@ -36,8 +36,6 @@
 /*Absolute postioning in the center*/
 html, body {
   height: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 
 .centered-axis-xy {
@@ -267,12 +265,6 @@ footer {
 }
 footer h2 {
   font-size: 15px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #009dff;
-=======
-=======
->>>>>>> karim
   position: relative;
   top: 2px;
   color: #fff;
@@ -304,7 +296,6 @@ footer h2 {
 #scroll-top:hover {
   background: #fff;
   color: #1565c0;
->>>>>>> Hamza_back
 }
 
 .copy-right {
@@ -365,6 +356,15 @@ footer h2 {
 /************************************************************************************
 / Header Styles
 *************************************************************************************/
+header i.arrow {
+  position: absolute;
+  top: 11px;
+  left: 60px;
+  color: #fff;
+  z-index: 999;
+  cursor: pointer;
+}
+
 .main-nav {
   width: 100%;
 }
@@ -1751,6 +1751,10 @@ label {
   cursor: pointer;
   background: #1565c0;
   color: #fff;
+}
+
+.reg {
+  margin: 90px auto;
 }
 
 .form {
