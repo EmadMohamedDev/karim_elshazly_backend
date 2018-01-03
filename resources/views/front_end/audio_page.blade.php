@@ -53,6 +53,7 @@
 
     </div>
 
+    @if(count($related_audios)>0)
     <!-- suggested-->
     <h3 class="suggested">صوتيات مقترحة</h3>
     <ul class="audio-play-list" id="all-media">
@@ -65,7 +66,7 @@
         </li>
         @endforeach
     </ul>
-     
+    @endif
 </section>
 @stop 
 @section('scripts')
