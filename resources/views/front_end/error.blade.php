@@ -10,8 +10,8 @@
      
     <style> 
         .main-container {
-        position: relative;
-        min-height: auto;
+        position: relative; 
+        min-height:0;
         }
         footer { 
             position:absolute ;

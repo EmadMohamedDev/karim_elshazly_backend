@@ -241,6 +241,7 @@
 
 
     <div class="clearfooter"></div>
+    
             <footer>
                 <div class="footer-wrapper">
                 <div class="copy-right text-center">

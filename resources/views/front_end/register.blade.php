@@ -27,7 +27,7 @@ $query_params = "" ;
     <style> 
         .main-container {
         position: relative;
-        min-height: auto;
+        min-height: 0;
         }
         footer { 
             position:absolute ;
