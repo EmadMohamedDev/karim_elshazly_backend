@@ -262,11 +262,11 @@ console.log('hide');
                              css calc Mimicing 
  *====================================================================================*/
 
-$(window).smartresize(function(){
- setWidth();
- setHeight();
- setContainerHeight();
-});
+// $(window).smartresize(function(){
+//  setWidth();
+//  setHeight();
+//  setContainerHeight();
+// });
 
 function setWidth(){
   //get width of elements
@@ -294,11 +294,11 @@ function setHeight(){
 	});
 }
 
-function setContainerHeight(){
-var dheight = $(window).height();
-var mainContainer = $('.main-container');
-mainContainer.css({"min-height":(dheight - 150) + "px"});
-}
+// function setContainerHeight(){
+// var dheight = $(window).height();
+// var mainContainer = $('.main-container');
+// mainContainer.css({"min-height":(dheight - 200) + "px"});
+// }
 setWidth();
 setHeight();
 
