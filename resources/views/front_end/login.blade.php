@@ -17,7 +17,7 @@
             <span class="content">حدث خطأ فى التسجيل </span>
         </div>
     </div>  -->
-    <form class="form_access" action="">
+    <form class="form_access reg" action="">
         <!-- suggested-->
         <h3 class="suggested">تسجيل الدخول</h3>
         <hr>
