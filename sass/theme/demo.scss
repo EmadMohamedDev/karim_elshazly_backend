@@ -522,18 +522,11 @@ a.lang {
   .tab {
     float: right;  
     &:hover {
-      background: $main-color; 
-      a.toggle-btn {
-        color: #fff; 
-      }
+      border-bottom: 3px solid $main-color; 
     }
   }
   .active {
-    background: $main-color; 
-    a.toggle-btn {
-      color: #fff; 
-    }
-
+    border-bottom: 3px solid $main-color;
   }
 }
 

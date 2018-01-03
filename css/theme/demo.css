@@ -490,16 +490,10 @@ a.lang {
   float: right;
 }
 .toggle-menu .tab:hover {
-  background: #1565c0;
-}
-.toggle-menu .tab:hover a.toggle-btn {
-  color: #fff;
+  border-bottom: 3px solid #1565c0;
 }
 .toggle-menu .active {
-  background: #1565c0;
-}
-.toggle-menu .active a.toggle-btn {
-  color: #fff;
+  border-bottom: 3px solid #1565c0;
 }
 
 a.toggle-btn {
