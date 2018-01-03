@@ -334,6 +334,13 @@ class FrontEndController extends Controller
         return view('front_end.register',compact('op_id','title')) ; 
     }
 
+    public function confirm(Request $request)
+    {
+        $title = "صفحه التأكيد" ;
+        $op_id = $request['op_id']  ;
+        return view('front_end.confirm',compact('op_id','title')) ; 
+    }
+
     public function rbtsPaginate(Request $request)
     {
         $op_id = $request['op_id'] ; 
