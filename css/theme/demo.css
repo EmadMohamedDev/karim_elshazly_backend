@@ -1070,8 +1070,23 @@ background: url('../../../../img/WebApps/ooredoo/afasy/blurrybg.jpg'); }*/
   text-decoration: none;
 }
 .info_karem a i {
-  background: #1565c0;
-  color: #fff;
+  background: #fff;
+  color: #1565c0;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.info_karem_socail {
+  width: 100%;
+}
+.info_karem_socail a {
+  display: inline-block;
+  text-decoration: none;
+  width: 20%;
+}
+.info_karem_socail a i {
+  background: #fff;
+  color: #1565c0;
   padding: 10px;
   border-radius: 2px;
 }

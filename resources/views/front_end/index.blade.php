@@ -9,10 +9,6 @@
     </div>
     <div class="info_karem">
         <p>{{$slogan}}</p>
-        <a href="{{$facebook_link}}" target="_blank"><i class="fa fa-facebook facebook"></i></a>
-        <a href="{{$twitter_link}}}" target="_blank"><i class="fa fa-twitter twitter"></i></a>
-        <a href="{{$instagram_link}}" target="_blank"><i class="fa fa-instagram instagram"></i></a>
-        <a href="{{$youtube_link}}" target="_blank"><i class="fa fa-youtube youtube"></i></a>
     </div>
     <style>
         @media (max-width: 600px) {
@@ -25,7 +21,7 @@
                 bottom: 0;
             }
             .footer-wrapper {
-                padding:18px
+                padding:10px
             }
             .clearfooter {
                 clear:both;

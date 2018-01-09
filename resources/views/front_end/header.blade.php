@@ -243,17 +243,17 @@
     
             <footer>
                 <div class="footer-wrapper">
-                <div class="copy-right text-center">
-                    تصميم و تطوير 
-                    <a href="http://ivas.mobi/">
-                        <h2>IVAS</h2>
-                    </a>
-                </div>
+                    <div class="info_karem_socail">
+                        <a href="{{$facebook_link}}" target="_blank"><i class="fa fa-facebook fa-lg facebook"></i></a>
+                        <a href="{{$twitter_link}}}" target="_blank"><i class="fa fa-twitter fa-lg twitter"></i></a>
+                        <a href="{{$instagram_link}}" target="_blank"><i class="fa fa-instagram fa-lg instagram"></i></a>
+                        <a href="{{$youtube_link}}" target="_blank"><i class="fa fa-youtube fa-lg youtube"></i></a>
+                    </div>
                 </div>
             </footer>
-    <a href="#" id="scroll-top">
-        <i class="fa fa-angle-up fa-lg"></i>
-    </a>  
+            <a href="#" id="scroll-top">
+                <i class="fa fa-angle-up fa-lg"></i>
+            </a>  
         <!-- end site wrapper -->
         <!-- My scripts -->
         <!-- jQuery -->
