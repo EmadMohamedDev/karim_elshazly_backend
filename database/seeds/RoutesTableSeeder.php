@@ -1067,6 +1067,16 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2018-01-01 13:59:57',
                 'function_name' => 'rbt_page',
             ),
+            105 => 
+            array (
+                'id' => 131,
+                'method' => 'get',
+                'route' => 'verify',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-09 08:04:03',
+                'updated_at' => '2018-01-09 08:04:03',
+                'function_name' => 'confirm',
+            ),
         ));
         
         
