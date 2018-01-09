@@ -326,6 +326,11 @@ footer h2 {
   height: 50px;
   clear: both;
 }
+@media (min-width: 1000px) {
+  .clearfooter {
+    height: 80px;
+  }
+}
 
 .bullet-circle {
   list-style: circle;
@@ -1086,11 +1091,13 @@ background: url('../../../../img/WebApps/ooredoo/afasy/blurrybg.jpg'); }*/
 .photo-wrapper img {
   border: 2px solid #1565c0;
   padding: 2px;
-  width: 100%;
+  width: 65%;
+  display: block;
+  margin: auto;
 }
 @media (max-width: 768px) {
   .photo-wrapper img {
-    height: 250px;
+    height: 150px;
   }
 }
 

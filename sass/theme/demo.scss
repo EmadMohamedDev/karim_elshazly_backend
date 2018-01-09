@@ -353,6 +353,9 @@ footer {
 .clearfooter {
   height: 50px;
   clear: both;
+  @media (min-width:1000px) {
+    height: 80px;
+  }
 }
 
 .bullet-circle {
@@ -1136,9 +1139,11 @@ margin-bottom: 10px;
   img {
     border:2px solid $main-color;
     padding:2px;
-    width:100%;
+    width: 65%;
+    display: block;
+    margin: auto;
     @media (max-width:768px) {
-      height: 250px;
+      height: 150px
     }
   }
 }
@@ -1414,7 +1419,7 @@ ul.terms {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden;  
 }
 
 span {
