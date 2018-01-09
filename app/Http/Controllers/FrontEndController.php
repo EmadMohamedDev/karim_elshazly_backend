@@ -334,6 +334,7 @@ class FrontEndController extends Controller
         return view('front_end.register',compact('op_id','title')) ; 
     }
 
+    //Route "/verify"
     public function confirm(Request $request)
     {
         $title = "صفحه التأكيد" ;
