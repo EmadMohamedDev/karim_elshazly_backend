@@ -1091,13 +1091,13 @@ background: url('../../../../img/WebApps/ooredoo/afasy/blurrybg.jpg'); }*/
 .photo-wrapper img {
   border: 2px solid #1565c0;
   padding: 2px;
-  width: 65%;
+  width: 80%;
   display: block;
   margin: auto;
 }
 @media (max-width: 768px) {
   .photo-wrapper img {
-    height: 150px;
+    height: 170px;
   }
 }
 
