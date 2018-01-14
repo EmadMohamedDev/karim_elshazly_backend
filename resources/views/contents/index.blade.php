@@ -16,7 +16,7 @@
 				<div class="box-content">
                     <div class="btn-toolbar pull-right">
                         <div class="btn-group">
-                            <a class="btn btn-circle show-tooltip" title="Add Content" href="{{url('categories/create')}}" data-original-title="Add new record"><i class="fa fa-plus"></i></a>
+                            <a class="btn btn-circle show-tooltip" title="Add Content" href="{{url('contents/create')}}" data-original-title="Add new record"><i class="fa fa-plus"></i></a>
 							<a  id="delete_button" onclick="delete_selected('contents')" class="btn btn-circle btn-danger show-tooltip" title="@lang('messages.template.delete_many')" href="#"><i class="fa fa-trash-o"></i></a>
                         </div>
                     </div>
@@ -43,13 +43,22 @@
                                         @if($content->type_id == $key )
                                         @if($value == "Video")
                                          @if($content->content_type == "1")
-                                            <video  width="275" height="225"
+                                            <video  width="295" height="225"
                                             src="{{url($content->path)}}" controls>
                                             </video>
                                             @elseif($content->content_type == "2")
-                                            <iframe width="275" height="225"
-                                            src="{{url($content->path)}}">
+                                         @if(preg_match('/youtube/',$content->path))
+                                            <iframe class="" width="295" height="225"
+                                                    src="{{$content->path}}">
                                             </iframe>
+                                        @else
+                                        <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
+                                               controls preload="auto" width="295" height="225"
+                                               data-setup="{}">
+                                            <source src="{{$content->path}}" type='video/mp4' />
+                                            <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                                        </video>
+                                        @endif
                                         @endif
                                         @elseif($value == "Audio")
                                         <audio controls="">
@@ -63,12 +72,14 @@
                                     </td>
                                     <td>
                                          @if($content->type->title == "Audio")
-                                       <a title="Add Post" style="position:relative;" href="{{url('posts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Post </button></a>
+                                        <a title="Add Post" style="position:relative;" href="{{url('posts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Post </button></a>
+                                        <!--
                                         <a title="Add Rbt" style="position:relative;left:15px;" href="{{url('rbts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Rbt </button></a>
-                                        
+                                         
                                         <a title="List Rbts" style="position:relative;left:15px;" href="{{url('rbts/index?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">List Rbts </button></a>
+                                        -->
+                                        <a title="List Posts" style="position:relative;left:15px;" href="{{url('posts/index?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">List Posts </button></a>
                                         
-                                        <a title="List Posts" style="position:relative;left:15px;" href="{{url('posts/index?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">List Posts </button></a></a>
                                         @endif
                                         @if($content->type->title == "Video")
                                         <a title="Show Content" style="position:relative;" href="{{url('posts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Post </button></a>
@@ -99,6 +110,9 @@
 
 
 @section('script')
+      <script src="{{url('js/theme/player.js')}}"></script>
+      <script src="{{url('js/theme/main.js')}}"></script>
+      <script src="{{url('js/vendor/video-js/video.js')}}"></script>
     <script>
         var videos = document.querySelectorAll('video');
         for(var i=0; i<videos.length; i++)
