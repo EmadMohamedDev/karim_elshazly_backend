@@ -19,8 +19,8 @@ $query_params = "" ;
             <li>
                 <a href='{{url("videos/$video->id".$query_params)}}' class="thumbnail">
                     <div class="media-wrapper">
-                        <img src="{{url($video->prev_img)}}">
-                        <h3 class="media-title">{{$video->title}}</h3>
+                        <img id='Video{{$video->id}}' src="{{url($video->prev_img)}}">
+                        <h3 class="media-title" id='Thumb{{$video->id}}'>{{$video->title}}</h3>
                         
                     </div><!-- end video wrapper -->
                 </a>

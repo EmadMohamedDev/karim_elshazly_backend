@@ -95,5 +95,25 @@
 @section('scripts')
 <script>
     $('#li-videos').addClass(' active'); 
+    
+      function generateThumbnail() {
+            //var thumbs = document.getElementById("thumbs");
+            var vid = document.getElementById("video_html5_api");  // video id changed in video js plugin to video_html5_api       
+            var c = document.createElement("canvas");  
+            var ctx = c.getContext("2d");
+            c.width = 160;
+            c.height = 90;
+            ctx.drawImage(vid, 0, 0, 160, 90);
+            //console.log(c);
+            //thumbs.appendChild(c);
+            var image = new Image() ; 
+            image.id = "pic"
+            image.src = c.toDataURL();
+            // document.getElementById('thumbs').appendChild(image);
+            vid.poster = image.src ; 
+            //vid.poster = thumbs.appendChild(c) ; 
+        }
+    
+    
 </script>
 @stop
