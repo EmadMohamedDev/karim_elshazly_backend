@@ -4,7 +4,7 @@ return [
     'language' => 'english',
     'role' => 'الادوار',
     'create-role' => 'انشاء دور',
-    'dashboard' => 'حامد زيد',
+    'dashboard' => 'كريم الشاذلى',
     'text-messages' => 'الرسائل النصيه',
     'text-messages-send-message' => 'ارسال رساله',
     'text-messages-file-to-sms' => 'رسائل من ملف',

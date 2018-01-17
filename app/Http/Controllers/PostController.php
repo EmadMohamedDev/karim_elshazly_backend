@@ -7,6 +7,7 @@ use Auth;
 use App\Content;
 use App\Operator;
 use App\Post;
+use App\Type;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
@@ -30,8 +31,9 @@ class PostController extends Controller
         {
             $posts = Post::with('content','operator')->get();
         }
-        
-        return view('posts/index',compact('posts'));
+         
+        $types = Type::lists('title','id');
+        return view('posts/index',compact('posts','types'));
     }
 
     /**
