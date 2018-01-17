@@ -1117,13 +1117,29 @@ margin-bottom: 10px;
     display: inline-block;
     text-decoration: none;
     i {
-      background: $main-color;
-      color: #fff;
+      background: #fff;
+      color: $main-color;
       padding:10px;
       border-radius: 2px;
     }
   }
 }
+
+.info_karem_socail {
+  width:100%; 
+  a {
+    display: inline-block;
+    text-decoration: none;
+    width:20%; 
+    i {
+      background: #fff;
+      color: $main-color;
+      padding:10px;
+      border-radius: 2px;
+    }
+  }
+}
+
 
 .img-wrapper {
   padding:2px;
