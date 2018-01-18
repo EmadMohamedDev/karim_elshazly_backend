@@ -1077,6 +1077,26 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2018-01-09 08:04:03',
                 'function_name' => 'confirm',
             ),
+            106 => 
+            array (
+                'id' => 132,
+                'method' => 'post',
+                'route' => 'SearchPost',
+                'controller_name' => 'PostController',
+                'created_at' => '2018-01-18 12:08:07',
+                'updated_at' => '2018-01-18 12:08:07',
+                'function_name' => 'searchpost',
+            ),
+            107 => 
+            array (
+                'id' => 133,
+                'method' => 'post',
+                'route' => 'SearchContent',
+                'controller_name' => 'ContentController',
+                'created_at' => '2018-01-18 12:09:10',
+                'updated_at' => '2018-01-18 12:27:33',
+                'function_name' => 'searchcontent',
+            ),
         ));
         
         

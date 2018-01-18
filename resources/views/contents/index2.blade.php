@@ -4,62 +4,6 @@
 @stop
 @section('content')
 
-<div class="form-group">
-    <div class="col-sm-9 col-lg-12 controls">
-        <button  class="btn btn-primary" style="float:right; margin-left:10px;"  onclick="ShowSearch()">Search Content</button> 
-        </div>
-    </div>
-<br>
-<br>
-
-
-<div class="row" id="searchdiv3" style="display:none;">
-        <div class="col-md-12">
-            <div class="box">
-                <div class="box-title">
-                    <h3><i class="fa fa-bars"></i>Search Contents</h3>
-                    <div class="box-tool">
-                        <a data-action="collapse" href="#"><i class="fa fa-chevron-up"></i></a>
-                        <a data-action="close" href="#"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="box-content">
-                    <form class="form-horizontal" action="{{url('SearchContent')}}" method="post">  
-                     {{ csrf_field() }}    
-                    <div class="form-group">
-                     <label for="provider" class="col-sm-3 col-lg-2 control-label">Content Title * </label>
-                        <div class="col-sm-9 col-lg-10 controls">
-                            <input type="text" class="form-control input-lg" placeholder="Content Title" name="title" id="content_title" name="content_title" >
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                    <label class="col-sm-3 col-lg-2 control-label">Content Date </label>
-                    <div class="col-sm-5 col-lg-3 controls">
-                        <div class="input-group date" data-date="12-02-2012" data-date-format="YYYY-MM-DD" data-date-viewmode="years">
-                            <label class="input-group-addon" for="date_picker">
-                                <i class="fa fa-calendar"></i>
-                            </label>
-                            <input class="form-control date-picker" size="16" name="date_picker" type="text" id="date_picker"> 
-                        </div>
-                    </div>
-                    </div>
-                    
-                        <div class="form-group">
-                            <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
-                        </div>
-               
-                
-		            </form>
-                </div>
-                
-            </div>
-        </div>
-</div>
-
-
 <div class="row">
 		<div class="col-md-12">
 			<div class="box box-black">
@@ -128,7 +72,9 @@
                                     @endforeach
                                     </td>
                                     <td>
-                                         @if($content->type->title == "Audio")
+                                       @foreach($types as $key => $value) 
+                                        @if($content->type_id == $key)
+                                         @if($value == "Audio")
                                         <a title="Add Post" style="position:relative;" href="{{url('posts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Post </button></a>
                                         <!--
                                         <a title="Add Rbt" style="position:relative;left:15px;" href="{{url('rbts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Rbt </button></a>
@@ -138,12 +84,14 @@
                                         <a title="List Posts" style="position:relative;left:15px;" href="{{url('posts/index?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">List Posts </button></a>
                                         
                                         @endif
-                                        @if($content->type->title == "Video")
+                                        @if($value == "Video")
                                         <a title="Show Content" style="position:relative;" href="{{url('posts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Post </button></a>
                                         @endif
-                                        @if($content->type->title == "Image")
+                                        @if($value == "Image")
                                         <a title="Show Content" style="position:relative;" href="{{url('posts/create?'.'content_id='.$content->id)}}" target="_parent"><button class="btn btn-info">Add Post </button></a>
                                         @endif
+                                        @endif
+                                       @endforeach
                                     </td>
                                     <td class="visible-md visible-lg">
                                        
@@ -163,10 +111,15 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
 @stop
-
-
 @section('script')
+
       <script src="{{url('js/theme/player.js')}}"></script>
       <script src="{{url('js/theme/main.js')}}"></script>
       <script src="{{url('js/vendor/video-js/video.js')}}"></script>
@@ -223,4 +176,5 @@
         $('#content').addClass('active');
         $('#content-index').addClass('active');
     </script>
+    
 @stop

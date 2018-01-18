@@ -4,11 +4,7 @@ return [
     'language' => 'عربي',
     'role' => 'Role',
     'create-role' => 'Create Role',
-<<<<<<< HEAD
-    'dashboard' => 'Hamed Zaid',
-=======
     'dashboard' => 'Karim EL-Shazly',
->>>>>>> karim
     'text-messages' => 'Text Messages',
     'text-messages-send-message' => 'Send Message',
     'text-messages-file-to-sms' => 'File to SMS',

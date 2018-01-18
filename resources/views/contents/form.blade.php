@@ -7,6 +7,7 @@
 
 
 
+
 <div class="form-group">
     {!! Form::label('title',\Lang::get('messages.content.content-title').'*',['class'=>'col-sm-3 col-lg-2 control-label']) !!}
     <div class="col-sm-9 col-lg-10 controls">

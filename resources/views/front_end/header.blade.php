@@ -251,6 +251,7 @@
                     </div>
                 </div>
             </footer>
+            
             <a href="#" id="scroll-top">
                 <i class="fa fa-angle-up fa-lg"></i>
             </a>  

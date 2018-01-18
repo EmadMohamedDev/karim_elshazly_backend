@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Type;
 use App\Content;
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContentRequest;
 
+
+use Illuminate\Support\Facades\Schema;
+
+
 class ContentController extends Controller
 {
-    /**
+    /**        
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -139,6 +144,7 @@ class ContentController extends Controller
         }
         
     }
+
     /**
      * Display the specified resource.
      *
@@ -258,7 +264,6 @@ class ContentController extends Controller
 
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
@@ -283,4 +288,33 @@ class ContentController extends Controller
             return redirect('contents/index'); 
         }
     }
+    
+    
+    public function searchcontent(Request $request)
+    {
+        $contents = null;
+        $qurey = null;
+        if((!empty($request['title'])) && (!empty($request['date_picker'])))
+        {
+            $date = date("Y-m-d",strtotime($request['date_picker']));
+            $qurey = "SELECT * FROM contents WHERE title LIKE '%".$request['title']."%'"."AND created_at LIKE '%".$date."%'";
+            $contents = DB::select($qurey) ;
+            
+        }
+        else if(!empty($request['title']))
+        {
+            $qurey = "SELECT * FROM contents WHERE title LIKE '%".$request['title']."%'";
+            $contents = DB::select($qurey) ;
+        }
+        else if(!empty($request['date_picker']))
+        {
+            $date = date("Y-m-d",strtotime($request['date_picker']));
+            $qurey = "SELECT * FROM contents WHERE created_at LIKE '%".$date."%'";
+            $contents = DB::select($qurey);
+        }
+
+        $types = Type::lists('title','id');
+        return view('contents/index2',compact('types','contents'));  
+    }
+    
 }

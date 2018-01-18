@@ -102,6 +102,42 @@ class SettingsTableSeeder extends Seeder
                 'updated_at' => '2018-01-02 07:56:33',
                 'type' => 1,
             ),
+            8 => 
+            array (
+                'id' => 12,
+                'key' => 'facebook',
+                'value' => 'https://www.facebook.com/karem.alshazley/',
+                'created_at' => '2018-01-18 12:18:23',
+                'updated_at' => '2018-01-18 12:18:23',
+                'type' => 2,
+            ),
+            9 => 
+            array (
+                'id' => 13,
+                'key' => 'twitter',
+                'value' => 'https://twitter.com/karim_alshazley?lang=ar',
+                'created_at' => '2018-01-18 12:18:46',
+                'updated_at' => '2018-01-18 12:18:46',
+                'type' => 2,
+            ),
+            10 => 
+            array (
+                'id' => 14,
+                'key' => 'instagram',
+                'value' => 'https://www.instagram.com/karim_alshazley/',
+                'created_at' => '2018-01-18 12:19:05',
+                'updated_at' => '2018-01-18 12:19:05',
+                'type' => 2,
+            ),
+            11 => 
+            array (
+                'id' => 15,
+                'key' => 'youtube',
+                'value' => 'https://www.youtube.com/channel/UC9Gx0kQ94C2tyzuLzzYy9VQ',
+                'created_at' => '2018-01-18 12:19:22',
+                'updated_at' => '2018-01-18 12:19:22',
+                'type' => 2,
+            ),
         ));
         
         

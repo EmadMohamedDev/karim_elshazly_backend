@@ -417,6 +417,134 @@ class RoleRouteTableSeeder extends Seeder
                 'created_at' => '2017-12-31 09:27:24',
                 'updated_at' => '2017-12-31 09:27:24',
             ),
+            50 => 
+            array (
+                'id' => 72,
+                'role_id' => 1,
+                'route_id' => 132,
+                'created_at' => '2018-01-18 12:08:07',
+                'updated_at' => '2018-01-18 12:08:07',
+            ),
+            51 => 
+            array (
+                'id' => 74,
+                'role_id' => 1,
+                'route_id' => 12,
+                'created_at' => '2018-01-18 12:09:25',
+                'updated_at' => '2018-01-18 12:09:25',
+            ),
+            52 => 
+            array (
+                'id' => 75,
+                'role_id' => 1,
+                'route_id' => 11,
+                'created_at' => '2018-01-18 12:09:31',
+                'updated_at' => '2018-01-18 12:09:31',
+            ),
+            53 => 
+            array (
+                'id' => 76,
+                'role_id' => 1,
+                'route_id' => 10,
+                'created_at' => '2018-01-18 12:09:37',
+                'updated_at' => '2018-01-18 12:09:37',
+            ),
+            54 => 
+            array (
+                'id' => 77,
+                'role_id' => 1,
+                'route_id' => 9,
+                'created_at' => '2018-01-18 12:09:44',
+                'updated_at' => '2018-01-18 12:09:44',
+            ),
+            55 => 
+            array (
+                'id' => 78,
+                'role_id' => 1,
+                'route_id' => 43,
+                'created_at' => '2018-01-18 12:10:08',
+                'updated_at' => '2018-01-18 12:10:08',
+            ),
+            56 => 
+            array (
+                'id' => 79,
+                'role_id' => 1,
+                'route_id' => 42,
+                'created_at' => '2018-01-18 12:10:13',
+                'updated_at' => '2018-01-18 12:10:13',
+            ),
+            57 => 
+            array (
+                'id' => 80,
+                'role_id' => 1,
+                'route_id' => 41,
+                'created_at' => '2018-01-18 12:10:23',
+                'updated_at' => '2018-01-18 12:10:23',
+            ),
+            58 => 
+            array (
+                'id' => 81,
+                'role_id' => 1,
+                'route_id' => 40,
+                'created_at' => '2018-01-18 12:10:25',
+                'updated_at' => '2018-01-18 12:10:25',
+            ),
+            59 => 
+            array (
+                'id' => 82,
+                'role_id' => 1,
+                'route_id' => 38,
+                'created_at' => '2018-01-18 12:10:50',
+                'updated_at' => '2018-01-18 12:10:50',
+            ),
+            60 => 
+            array (
+                'id' => 83,
+                'role_id' => 1,
+                'route_id' => 39,
+                'created_at' => '2018-01-18 12:10:55',
+                'updated_at' => '2018-01-18 12:10:55',
+            ),
+            61 => 
+            array (
+                'id' => 84,
+                'role_id' => 1,
+                'route_id' => 37,
+                'created_at' => '2018-01-18 12:11:03',
+                'updated_at' => '2018-01-18 12:11:03',
+            ),
+            62 => 
+            array (
+                'id' => 85,
+                'role_id' => 1,
+                'route_id' => 34,
+                'created_at' => '2018-01-18 12:11:44',
+                'updated_at' => '2018-01-18 12:11:44',
+            ),
+            63 => 
+            array (
+                'id' => 86,
+                'role_id' => 1,
+                'route_id' => 36,
+                'created_at' => '2018-01-18 12:11:51',
+                'updated_at' => '2018-01-18 12:11:51',
+            ),
+            64 => 
+            array (
+                'id' => 87,
+                'role_id' => 1,
+                'route_id' => 35,
+                'created_at' => '2018-01-18 12:11:59',
+                'updated_at' => '2018-01-18 12:11:59',
+            ),
+            65 => 
+            array (
+                'id' => 88,
+                'role_id' => 1,
+                'route_id' => 133,
+                'created_at' => '2018-01-18 12:27:33',
+                'updated_at' => '2018-01-18 12:27:33',
+            ),
         ));
         
         
