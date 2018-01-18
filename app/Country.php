@@ -13,5 +13,9 @@ class Country extends Model
     public function operators()
     {
         return $this->hasMany('App\Operator');
+        
+        
+        
+        
     }
 }
