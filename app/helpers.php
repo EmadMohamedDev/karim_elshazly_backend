@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route; 
+use App\Setting ;
+
 
 function delete_multiselect(Request $request) // select many contract from index table and delete them
 {
@@ -110,6 +112,48 @@ function get_dynamic_routes()
 
     }
 
+}
+
+function fill_settings()
+{
+    $settings['homepage_image'] = Setting::where('key','LIKE','%image%')->first();
+    $settings['facebook_link'] = Setting::where('key','LIKE','%facebook%')->first() ; 
+    $settings['twitter_link'] = Setting::where('key','LIKE','%twitter%')->first() ; 
+    $settings['instagram_link'] = Setting::where('key','LIKE','%instagram%')->first() ;
+    $settings['youtube_link'] = Setting::where('key','LIKE','%youtube%')->first() ; 
+    $settings['slogan']  = Setting::where('key','LIKE','%slogan%')->first() ;
+
+    if(! $settings['homepage_image'])
+        $settings['homepage_image'] = url('img/home.jpg');
+    else
+        $settings['homepage_image'] = $settings['homepage_image']->value ; 
+
+    if(! $settings['facebook_link'])
+        $settings['facebook_link'] = "https://www.facebook.com/karem.alshazley/" ; 
+    else
+        $settings['facebook_link'] = $settings['facebook_link']->value ; 
+
+    if(! $settings['twitter_link'])
+        $settings['twitter_link'] = "https://twitter.com/karim_alshazley?lang=ar" ; 
+    else
+        $settings['twitter_link'] = $settings['twitter_link']->value ; 
+        
+    if(! $settings['instagram_link'])
+        $settings['instagram_link'] = "https://www.instagram.com/karim_alshazley/" ; 
+    else
+        $settings['instagram_link'] = $settings['instagram_link']->value ; 
+
+    if(! $settings['youtube_link'])
+        $settings['youtube_link'] = "https://www.youtube.com/channel/UC9Gx0kQ94C2tyzuLzzYy9VQ" ; 
+    else
+        $settings['youtube_link'] = $settings['youtube_link']->value ; 
+
+    if(! $settings['slogan'])
+        $settings['slogan'] = "كاتب مصري معاصر له العديد من الكتب" ; 
+    else
+        $settings['slogan'] = $settings['slogan']->value ; 
+
+    return $settings;  
 }
 
 function dynamic_routes($route_model,$found_roles)

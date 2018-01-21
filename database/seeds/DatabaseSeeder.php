@@ -17,25 +17,25 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserTableSeeder::class);
 
         Model::reguard();
-        $this->call('UsersTableSeeder');
-        $this->call('RolesTableSeeder');
-        $this->call('UserHasRolesTableSeeder');
-        $this->call('PermissionsTableSeeder');
-        $this->call('UserHasPermissionsTableSeeder');
-        $this->call('RoleHasPermissionsTableSeeder');
-        $this->call('ScaffoldinterfacesTableSeeder');
-        $this->call('RelationsTableSeeder');
-        $this->call('MigrationsTableSeeder');
-        $this->call('PasswordResetsTableSeeder');
+        // $this->call('UsersTableSeeder');
+        // $this->call('RolesTableSeeder');
+        // $this->call('UserHasRolesTableSeeder');
+        // $this->call('PermissionsTableSeeder');
+        // $this->call('UserHasPermissionsTableSeeder');
+        // $this->call('RoleHasPermissionsTableSeeder');
+        // $this->call('ScaffoldinterfacesTableSeeder');
+        // $this->call('RelationsTableSeeder');
+        // $this->call('MigrationsTableSeeder');
+        // $this->call('PasswordResetsTableSeeder');
         $this->call('RoutesTableSeeder');
         $this->call('RoleRouteTableSeeder');
-        $this->call('CountriesTableSeeder');
-        $this->call('OperatorsTableSeeder');
-        $this->call('TypesTableSeeder');
-        $this->call('CategoriesTableSeeder');
-        $this->call('ContentsTableSeeder');
-        $this->call('RbtsTableSeeder');
-        $this->call('PostsTableSeeder');
-        $this->call('SettingsTableSeeder');
+        // $this->call('CountriesTableSeeder');
+        // $this->call('OperatorsTableSeeder');
+        // $this->call('TypesTableSeeder');
+        // $this->call('CategoriesTableSeeder');
+        // $this->call('ContentsTableSeeder');
+        // $this->call('RbtsTableSeeder');
+        // $this->call('PostsTableSeeder');
+        // $this->call('SettingsTableSeeder');
     }
 }

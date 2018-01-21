@@ -16,9 +16,10 @@ use Carbon\Carbon;
 class FrontEndController extends Controller
 {
 
-    private $PAGINATION_NUMBER = 3; 
+    private $PAGINATION_NUMBER = 3;   
     public function __construct()
     {
+        $this->settings = array() ; 
         $settings = Setting::where('key','LIKE','%pagination_number%')->first() ; 
         if($settings)
             $this->PAGINATION_NUMBER = (int) $settings->value; 
@@ -31,46 +32,8 @@ class FrontEndController extends Controller
         // 2. get facebook,twitter,instagram, and youtube links from settings
         // 3. if not found return default values 
         $op_id = $request['op_id'] ;
-        $homepage_image = Setting::where('key','LIKE','%image%')->first();
-        $facebook_link = Setting::where('key','LIKE','%facebook%')->first() ; 
-        $twitter_link = Setting::where('key','LIKE','%twitter%')->first() ; 
-        $instagram_link = Setting::where('key','LIKE','%instagram%')->first() ;
-        $youtube_link = Setting::where('key','LIKE','%youtube%')->first() ; 
-        $slogan  = Setting::where('key','LIKE','%slogan%')->first() ;
-
-        if(! $homepage_image)
-            $homepage_image = url('img/home.jpg');
-        else
-            $homepage_image = $homepage_image->value ; 
-
-        if(! $facebook_link)
-            $facebook_link = "https://www.facebook.com/karem.alshazley/" ; 
-        else
-            $facebook_link = $facebook_link->value ; 
-
-        if(! $twitter_link)
-            $twitter_link = "https://twitter.com/karim_alshazley?lang=ar" ; 
-        else
-            $twitter_link = $twitter_link->value ; 
-            
-        if(! $instagram_link)
-            $instagram_link = "https://www.instagram.com/karim_alshazley/" ; 
-        else
-            $instagram_link = $instagram_link->value ; 
-
-        if(! $youtube_link)
-            $youtube_link = "https://www.youtube.com/channel/UC9Gx0kQ94C2tyzuLzzYy9VQ" ; 
-        else
-            $youtube_link = $youtube_link->value ; 
-
-        if(! $slogan)
-            $slogan = "كاتب مصري معاصر له العديد من الكتب" ; 
-        else
-            $slogan = $slogan->value ; 
-
-        $title = "الرئيسية" ; 
-
-        return view('front_end.index',compact('slogan','op_id','title','youtube_link','homepage_image','facebook_link','twitter_link','instagram_link'))  ;
+        $title = "الرئيسية" ;  
+        return view('front_end.index',compact('slogan','op_id','title'))  ;
     }
     
 

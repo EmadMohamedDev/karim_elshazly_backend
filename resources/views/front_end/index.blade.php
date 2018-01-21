@@ -3,12 +3,14 @@
 <section class="main-container">
     <!-- suggested-->
     <h3 class="suggested"> كريم الشاذلى</h3>
-
+    <?php  
+        $settings = fill_settings(); 
+    ?>
     <div class="photo-wrapper">
-        <img src="{{url($homepage_image)}}" alt=""> 
+        <img src="{{url($settings['homepage_image'])}}" alt=""> 
     </div>
     <div class="info_karem">
-        <p>{{$slogan}}</p>
+        <p>{{$settings['slogan']}}</p>
     </div>
     <style>
         @media (max-width: 600px) {

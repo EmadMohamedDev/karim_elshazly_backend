@@ -2,16 +2,19 @@
 
  
     $query_params = "" ; 
-    $over = 4 ; 
+    $over = 3 ; 
     $number = 25 ; 
 
     if(isset($op_id)&&is_numeric($op_id))
     {
         $query_params = "?op_id=".$op_id  ; 
-        $over = 5 ;
+        $over = 4 ;
     }
     if(isset($over) && !empty($over))
         $number = 100 / $over ; 
+ 
+    $settings = fill_settings() ; 
+ 
 
 ?>
 
@@ -83,7 +86,7 @@
                             </a>
                         </li>
                         <!-- menu link 3 -->
-                        <li>
+                        <!-- <li>
                             <a href='{{url("audios".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-music"></span>
@@ -92,7 +95,7 @@
                                     <p>صوتيات</p>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                          <!-- menu link 4 -->
                          <li>
                             <a href='{{url("photos".$query_params)}}' class="row">
@@ -190,14 +193,14 @@
                             </a>
                         </li>
                         <!-- tab 3 -->
-                        <li id="li-audios" class="tab" style="width:<?php echo $number .'%'?>;">
+                        <!-- <li id="li-audios" class="tab" style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("audios".$query_params)}}' class="toggle-btn">
                                 <div class="flex-container center-center">
                                     <span class="fa fa-music"></span>
                                     <p>صوتيات</p>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- tab 4 -->
                         <li id="li-videos" class="tab"  style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("videos".$query_params)}}' class="toggle-btn">
@@ -240,14 +243,14 @@
 
 
     <div class="clearfooter"></div>
-    
+
             <footer>
                 <div class="footer-wrapper">
                     <div class="info_karem_socail">
-                        <a href="{{$facebook_link}}" target="_blank"><i class="fa fa-facebook fa-lg facebook"></i></a>
-                        <a href="{{$twitter_link}}}" target="_blank"><i class="fa fa-twitter fa-lg twitter"></i></a>
-                        <a href="{{$instagram_link}}" target="_blank"><i class="fa fa-instagram fa-lg instagram"></i></a>
-                        <a href="{{$youtube_link}}" target="_blank"><i class="fa fa-youtube fa-lg youtube"></i></a>
+                        <a href="{{$settings['facebook_link']}}" target="_blank"><i class="fa fa-facebook fa-lg facebook"></i></a>
+                        <a href="{{$settings['twitter_link']}}}" target="_blank"><i class="fa fa-twitter fa-lg twitter"></i></a>
+                        <a href="{{$settings['instagram_link']}}" target="_blank"><i class="fa fa-instagram fa-lg instagram"></i></a>
+                        <a href="{{$settings['youtube_link']}}" target="_blank"><i class="fa fa-youtube fa-lg youtube"></i></a>
                     </div>
                 </div>
             </footer>

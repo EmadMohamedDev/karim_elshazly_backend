@@ -294,16 +294,17 @@ class ContentController extends Controller
     {
         $contents = null;
         $qurey = null;
-        if((!empty($request['title'])) && (!empty($request['date_picker'])))
+        $title = trim($request['title']) ; 
+        if((!empty($title)) && (!empty($request['date_picker'])))
         {
             $date = date("Y-m-d",strtotime($request['date_picker']));
-            $qurey = "SELECT * FROM contents WHERE title LIKE '%".$request['title']."%'"."AND created_at LIKE '%".$date."%'";
+            $qurey = "SELECT * FROM contents WHERE title LIKE '%".$title."%'"."AND created_at LIKE '%".$date."%'";
             $contents = DB::select($qurey) ;
             
         }
-        else if(!empty($request['title']))
+        else if(!empty($title))
         {
-            $qurey = "SELECT * FROM contents WHERE title LIKE '%".$request['title']."%'";
+            $qurey = "SELECT * FROM contents WHERE title LIKE '%".$title."%'";
             $contents = DB::select($qurey) ;
         }
         else if(!empty($request['date_picker']))

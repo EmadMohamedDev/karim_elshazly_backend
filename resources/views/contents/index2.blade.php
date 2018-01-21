@@ -30,6 +30,7 @@
                                 <th>Content title</th>
                                 <th>Content</th>
                                 <th></th>
+                                <th>Creation Date</th>
 								<th class="visible-md visible-lg" style="width:130px">@lang('messages.category.category-action')</th>
 							</tr>
 							</thead>
@@ -92,6 +93,9 @@
                                         @endif
                                         @endif
                                        @endforeach
+                                    </td>
+                                    <td>
+                                    {{date('Y-m-d',strtotime($content->created_at))}}
                                     </td>
                                     <td class="visible-md visible-lg">
                                        
