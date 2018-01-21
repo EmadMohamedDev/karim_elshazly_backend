@@ -38,23 +38,26 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required',
                 'role' => 'required',
-                'phone' => 'numeric'
+                'phone' => 'numeric|unique:users,phone'
             ]);
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }
-
+    
+    
             $user = new \App\User();
-
+    
             $user->email = $request->email;
             $user->name = $request->name;
             $user->password = Hash::make($request->password);
-            $user->phone = $request->phone ;
-
+            if(isset($request->phone)&&!empty($request->phone))
+                $user->phone = $request->phone ;
+    
+    
             $user->save();
-
+    
             $user->assignRole($request->role);
-
+    
             $request->session()->flash('success','User Added Successfully');
             return redirect('users');
     }
@@ -73,34 +76,37 @@ class UserController extends Controller
     public function update($id,Request $request)
     {
 
-            # code...
-            $validator = Validator::make($request->all(),[
-                'name' => 'required',
-                'email' => 'required|email|unique:users,email,'.$id,
-                'role' => 'required',
-                'phone' => 'numeric|unique:users,phone,'.$id
-            ]);
-            if ($validator->fails()) {
-                return back()->withErrors($validator)->withInput();
-            }
+        # code...
+        $validator = Validator::make($request->all(),[
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'role' => 'required',
+            'phone' => 'numeric|unique:users,phone,'.$id
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
-            $user = \App\User::findOrfail($id);
+        $user = \App\User::findOrfail($id);
 
-            $user->email = $request->email;
-            $user->name = $request->name;
+        $user->email = $request->email;
+        $user->name = $request->name;
+        if(isset($request->password) && !empty($request->password))
+        {
+            $user->password = Hash::make($request->password);
+        }
+
+        if(isset($request->phone)&&!empty($request->phone))
             $user->phone = $request->phone ;
-            if(isset($request->password) && !empty($request->password))
-            {
-                $user->password = Hash::make($request->password);
-            }
-            \Session::flash('success','User updated successfully');
-            $user->save();
 
-            $user->syncRoles([$request->role]);
+        \Session::flash('success','User updated successfully');
+        $user->save();
 
-            // dd($user->hasAnyRole(['admin']));
+        $user->syncRoles([$request->role]);
 
-            return redirect('users');
+        // dd($user->hasAnyRole(['admin']));
+
+        return redirect('users');
     }
 
 
