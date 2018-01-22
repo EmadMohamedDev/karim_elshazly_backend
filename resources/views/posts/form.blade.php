@@ -68,7 +68,7 @@
             <label class="input-group-addon" for="date_picker">
                 <i class="fa fa-calendar"></i>
             </label>
-            <input class="form-control date-picker" size="16" name="Published_Date" type="text" id="date_picker" @if($post!=null) value="{{date('d-m-Y',strtotime($post->Published_Date))}}" @endif required> 
+            <input class="form-control date-picker" size="16" name="Published_Date" type="text" id="date_picker" @if($post!=null) value="{{date('d-m-Y',strtotime($post->Published_Date))}}" @else value="{{date('d-m-Y')}}"  @endif required> 
         </div>
     </div>
 </div>

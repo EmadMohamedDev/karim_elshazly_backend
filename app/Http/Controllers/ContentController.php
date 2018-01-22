@@ -10,7 +10,8 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContentRequest;
-
+use App\Country  ;
+use App\Operator ; 
 
 use Illuminate\Support\Facades\Schema;
 
@@ -317,5 +318,6 @@ class ContentController extends Controller
         $types = Type::lists('title','id');
         return view('contents/index2',compact('types','contents'));  
     }
+
     
 }
