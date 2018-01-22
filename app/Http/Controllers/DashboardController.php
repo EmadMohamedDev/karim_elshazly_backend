@@ -168,7 +168,7 @@ class DashboardController extends Controller
         }
     }
 
-    public function export_DB_backup()
+    public function export_DB_backup() // not used here, you find its usage in console/ExportBackup file 
     {
         // $this->backup_tables('localhost',env('DB_USERNAME'),env('DB_PASSWORD'),env('DB_DATABASE'));
         $database_name = env('DB_DATABASE') ;
@@ -179,14 +179,14 @@ class DashboardController extends Controller
         else 
             $database_password = "" ; 
 
-        $mysqldump_command = "E:/XAMPP/mysql/bin/mysqldump" ; // for windows 
-        // $mysqldump_command = "mysqldump" ; // for linux server 
+        // $mysqldump_command = "E:/XAMPP/mysql/bin/mysqldump" ; // for windows 
+        $mysqldump_command = "mysqldump" ; // for linux server 
     
         $command = "$mysqldump_command -u $database_username $database_password $database_name > ".$this->databases_base_path.date("Y-m-d_H-i-s").'.sql' ;
         $command = str_replace("\\","/",$command) ;  
 
-
         exec($command) ;
+
         \Session::flash('success','Database Exported Successfully') ; 
         return back() ; 
     }
@@ -194,6 +194,8 @@ class DashboardController extends Controller
     public function list_backups()
     {
         $path      = $this->file_build_path("database","backups") ;
+        if(! file_exists($path))
+            mkdir($path) ; 
         $files     = scandir($path);  
         $databases = array() ; 
         foreach($files as $file)
@@ -214,7 +216,7 @@ class DashboardController extends Controller
         return back() ;
     }
 
-    public function import_DB_backup(Request $request)
+    public function import_DB_backup(Request $request) // not used here, you find its usage in console/ImportBackup file 
     {
         
         $imported_path = $this->databases_base_path.$request['path'] ; 
@@ -232,8 +234,8 @@ class DashboardController extends Controller
         else 
             $database_password = "" ; 
 
-        $mysqldump_command = "E:/XAMPP/mysql/bin/mysql" ;  // for windows
-        // $mysqldump_command = "mysql" ;    // for linux server 
+        // $mysqldump_command = "E:/XAMPP/mysql/bin/mysql" ;  // for windows
+        $mysqldump_command = "mysql" ;    // for linux server 
         
         $command = "$mysqldump_command -u $database_username $database_password $database_name < ".$imported_path ;
         $command = str_replace("\\","/",$command) ;   
