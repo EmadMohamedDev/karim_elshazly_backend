@@ -78,7 +78,7 @@
                                          @elseif($value == 'Audio')
                                             <input id="url_audio" type="text" value="{{url('audios/'.$post->content_id.'?op_id='.$post->operator_id)}}" />
                                         @elseif($value == 'Image')
-                                            @if($post->content->content_type == '2')
+                                            @if( isset($post->content) && $post->content->content_type == '2')
                                             <input id="url_photo2" type="text" value="{{$post->path}}" />
                                             @else
                                             <input id="url_photo1" type="text" value="{{url($post->path)}}" />
