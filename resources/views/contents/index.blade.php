@@ -59,6 +59,34 @@
         </div>
 </div>
 
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p id="modal-body-id">
+
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
 <div class="row">
 		<div class="col-md-12">
@@ -84,7 +112,7 @@
 							<tr>
                                 <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
                                 <th>Content title</th>
-                                <th>Content</th>
+                                <th>Content Type</th>
                                 <th></th>
                                 <th>Creation Date</th>                                
 								<th class="visible-md visible-lg" style="width:130px">@lang('messages.category.category-action')</th>
@@ -99,32 +127,15 @@
                                     <td>
                                     @foreach($types as $key => $value)
                                         @if($content->type_id == $key )
-                                        @if($value == "Video")
-                                         @if($content->content_type == "1")
-                                            <video  width="295" height="225"
-                                            src="{{url($content->path)}}" controls>
-                                            </video>
-                                            @elseif($content->content_type == "2")
-                                         @if(preg_match('/youtube/',$content->path))
-                                            <iframe class="" width="295" height="225"
-                                                    src="{{$content->path}}">
-                                            </iframe>
-                                        @else
-                                        <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
-                                               controls preload="auto" width="295" height="225"
-                                               data-setup="{}">
-                                            <source src="{{$content->path}}" type='video/mp4' />
-                                            <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                                        </video>
-                                        @endif
-                                        @endif
-                                        @elseif($value == "Audio")
-                                        <audio controls="">
-                                            <source src="{{url($content->path)}}" type="audio/mpeg">
-                                        </audio>
-                                        @else
-                                        <img src="{{url($content->path)}}" alt="No Image" height="225" width="300"> 
-                                        @endif
+                                        <button type="button" class="btn btn-primary" onclick="open_modal(this)" data-toggle="modal" data-target="#myModal" id="{{$content->id}}" value="{{$content->content_type}}!!{{$content->path}}!!{{$value}}">  
+                                            @if($value == "Video")
+                                                Video
+                                            @elseif($value == "Audio")
+                                                Audio
+                                            @else
+                                                Image
+                                            @endif 
+                                        </button>
                                         @endif
                                     @endforeach
                                     </td>
@@ -196,6 +207,48 @@
                 check = false ;
                 clear_selected() ; 
             }
+        }
+        function open_modal(element)
+        {
+            var content = element.value ;    
+
+            var content_components = content.split("!!") ; 
+            // content_components[0] contains 1 (internal) or 2(external)
+            // ~~[1] contains path 
+            // ~~[2] contains type (image, video, audio) 
+            var htmlToBeAppend = ""  ; 
+            if(content_components[2] == "Video"){
+                if(content_components[0] == "1"){
+                    htmlToBeAppend = "<video  width='295' height='225' src='{{url()}}/"+content_components[1]+"' controls> </video>" ; 
+                }
+                else if(content_components[0] == "2"){
+                    if(content_components[1].indexOf("youtube")!==-1){
+                        htmlToBeAppend = "<iframe class='' width='295' height='225' src='"+content_components[1]+"' > </iframe>" ; 
+                    }
+                    else{
+                        htmlToBeAppend = "<video id='example_video_1' class='video-js vjs-default-skin vjs-big-play-centered' controls preload='auto' width='295' height='225' data-setup='{}'> <source src='"+content_components[1]+"' type='video/mp4' />  </video>" ; 
+                    }
+                }
+            }
+            else if(content_components[2] == "Audio"){
+                if(content_components[0] == "1"){
+                    htmlToBeAppend = "<audio controls> <source src='{{url()}}/"+content_components[1]+"' type='audio/mpeg'> </audio>" ; 
+                }
+                else{
+                    htmlToBeAppend = "<audio controls> <source src='"+content_components[1]+"' type='audio/mpeg'> </audio>" ;                     
+                }
+            }
+            else{
+                if(content_components[0] == "1"){
+                    htmlToBeAppend = "<img src='{{url()}}/"+content_components[1]+"' alt='No Image' height='225' width='300' /> " ; 
+                }
+                else{
+                    htmlToBeAppend = "<img src='"+content_components[1]+"' alt='No Image' height='225' width='300' /> " ;                     
+                }
+            }
+              
+            $(".modal-body #modal-body-id").html(htmlToBeAppend) ;
+        
         }
 	</script>
       <script src="{{url('js/theme/player.js')}}"></script>
