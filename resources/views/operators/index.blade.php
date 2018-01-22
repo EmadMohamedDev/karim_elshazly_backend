@@ -25,7 +25,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox"></th>
+                                <th style="width:18px"><input type="checkbox" onclick="select_all()" ></th>
 								<th>@lang('messages.operators.operator-title')</th>
 								<th>@lang('messages.operators.operator-code')</th>
 								<th>@lang('messages.countries.country-title')</th>
@@ -37,7 +37,7 @@
                           @if($operators !=null)
 							@foreach($operators as $operator)
 								<tr class="table-flag-blue">
-								    <th><input type="checkbox" name="selected_rows[]" value="{{$operator->id}}" onclick="collect_selected(this)"></th>
+								    <th><input type="checkbox" name="selected_rows[]" class="operators-karim" value="{{$operator->id}}" onclick="collect_selected(this)"></th>
 									<td>{{$operator->title}}</td>
 									<td>{{$operator->operator_code}}</td>
                                     <td>{{$operator->country->title}}</td>
@@ -63,6 +63,33 @@
 
 
 @section('script')
+	<script>
+	var check = false ; 
+	function select_all()
+	{
+		if(!check)
+		{
+			$('.operators-karim').prop("checked",!check);
+			<?php
+			foreach($operators as $operator)
+			{ 
+			?>
+				collect_selected("{{$operator->id}}") ;
+			<?php 
+				
+			}	
+			?>
+			check = true ; 
+		}
+		else
+		{
+			$('.operators-karim').prop("checked",!check);
+			check = false ;
+			clear_selected() ; 
+		}
+	}
+	</script>
+
     <script>
         $('#operator').addClass('active');
         $('#operator-index').addClass('active');

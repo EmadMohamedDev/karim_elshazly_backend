@@ -25,7 +25,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox"></th>
+                                <th style="width:18px"><input type="checkbox" onchange="select_all()"></th>
                                 <th>@lang('messages.countries.country-title')</th>
 								<th class="visible-md visible-lg" style="width:130px">@lang('messages.countries.country-action')</th>
                             
@@ -35,7 +35,7 @@
                           @if($countries !=null)
 							@foreach($countries as $country)
 								<tr class="table-flag-blue">
-                                    <th><input type="checkbox" name="selected_rows[]" value="{{$country->id}}" onclick="collect_selected(this)"></th>
+                                    <th><input type="checkbox" name="selected_rows[]" value="{{$country->id}}" class="countries-karim" onclick="collect_selected(this)"></th>
                                     <td>{{$country->title}}</td>
                                     <td class="visible-md visible-lg">
 										<div class="btn-group">
@@ -57,6 +57,33 @@
 
 
 @section('script')
+	<script>
+		var check = false ; 
+		function select_all()
+		{
+			if(!check)
+			{
+				$('.countries-karim').prop("checked",!check);
+				<?php
+				foreach($countries as $country)
+				{ 
+				?>
+					collect_selected("{{$country->id}}") ;
+				<?php 
+					 
+				}	
+				?>
+				check = true ; 
+			}
+			else
+			{
+				$('.countries-karim').prop("checked",!check);
+				check = false ;
+				clear_selected() ; 
+			}
+		}
+	</script>
+
     <script>
         $('#country').addClass('active');
         $('#country-index').addClass('active');

@@ -25,7 +25,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox"></th>
+                                <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
 								<th>@lang('messages.rbts.content-name')</th>
 								<th>@lang('messages.rbts.category-name')</th>
 								<th>@lang('messages.rbts.operator-name')</th>
@@ -39,7 +39,7 @@
                           @if($rbts !=null)
 							@foreach($rbts as $rbt)
 								<tr class="table-flag-blue">
-								    <th><input type="checkbox" name="selected_rows[]" value="{{$rbt->id}}" onclick="collect_selected(this)"></th>
+								    <th><input type="checkbox" class="rbts-karim" name="selected_rows[]" value="{{$rbt->id}}" onclick="collect_selected(this)"></th>
 									<td>{{$rbt->content->title}}</td>
 									<td>{{$rbt->category->title}}</td>
                                     <td>{{$rbt->operator->title}}</td>
@@ -79,6 +79,33 @@
 
 
 @section('script')
+
+	<script>
+		var check = false ; 
+		function select_all()
+		{
+			if(!check)
+			{
+				$('.rbts-karim').prop("checked",!check);
+				<?php
+				foreach($rbts as $rbt)
+				{ 
+				?>
+					collect_selected("{{$rbt->id}}") ;
+				<?php 
+					
+				}	
+				?>
+				check = true ; 
+			}
+			else
+			{
+				$('.rbts-karim').prop("checked",!check);
+				check = false ;
+				clear_selected() ; 
+			}
+		}
+	</script>
     <script>
         $('#rbt').addClass('active');
         $('#rbt-index').addClass('active');

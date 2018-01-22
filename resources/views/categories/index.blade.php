@@ -25,7 +25,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox"></th>
+                                <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
                                 <th>@lang('messages.category.name-category')</th>
 								<th class="visible-md visible-lg" style="width:130px">@lang('messages.category.category-action')</th>
                             
@@ -35,7 +35,7 @@
                           @if($categories !=null)
 							@foreach($categories as $category)
 								<tr class="table-flag-blue">
-                                    <th><input type="checkbox" name="selected_rows[]" value="{{$category->id}}" onclick="collect_selected(this)"></th>
+                                    <th><input type="checkbox" class="categories-karim" name="selected_rows[]" value="{{$category->id}}" onclick="collect_selected(this)"></th>
                                     <td>{{$category->title}}</td>
                                     
                                     <td class="visible-md visible-lg">
@@ -59,6 +59,33 @@
 
 
 @section('script')
+	<script>
+			var check = false ; 
+			function select_all()
+			{
+				if(!check)
+				{
+					$('.categories-karim').prop("checked",!check);
+					<?php
+					foreach($categories as $category)
+					{ 
+					?>
+						collect_selected("{{$category->id}}") ;
+					<?php 
+						
+					}	
+					?>
+					check = true ; 
+				}
+				else
+				{
+					$('.categories-karim').prop("checked",!check);
+					check = false ;
+					clear_selected() ; 
+				}
+			}
+	</script>
+
     <script>
         $('#category').addClass('active');
         $('#category-index').addClass('active');
