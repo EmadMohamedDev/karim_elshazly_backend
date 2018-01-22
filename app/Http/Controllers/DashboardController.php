@@ -11,8 +11,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class DashboardController extends Controller
 {
+    protected $databases_base_path ; 
+
     public function __construct()
     {
+        $this->databases_base_path = base_path()."/database/backups/"  ; 
         $this->middleware('auth');
     }
 
@@ -146,6 +149,97 @@ class DashboardController extends Controller
         else{
             return "false" ; 
         } 
+    }
+
+
+    public function download_backup(Request $request)
+    {
+        $file = $this->databases_base_path.$request['path'] ; 
+        if (file_exists($file)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($file).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            readfile($file);
+            exit;
+        }
+    }
+
+    public function export_DB_backup()
+    {
+        // $this->backup_tables('localhost',env('DB_USERNAME'),env('DB_PASSWORD'),env('DB_DATABASE'));
+        $database_name = env('DB_DATABASE') ;
+        $database_password = env('DB_PASSWORD') ;
+        $database_username = env('DB_USERNAME') ;
+        if($database_password)
+            $database_password = "-p".$database_password ; 
+        else 
+            $database_password = "" ; 
+
+        $mysqldump_command = "E:/XAMPP/mysql/bin/mysqldump" ; // for windows 
+        // $mysqldump_command = "mysqldump" ; // for linux server 
+    
+        $command = "$mysqldump_command -u $database_username $database_password $database_name > ".$this->databases_base_path.date("Y-m-d_H-i-s").'.sql' ;
+        $command = str_replace("\\","/",$command) ;  
+
+
+        exec($command) ;
+        \Session::flash('success','Database Exported Successfully') ; 
+        return back() ; 
+    }
+
+    public function list_backups()
+    {
+        $path      = $this->file_build_path("database","backups") ;
+        $files     = scandir($path);  
+        $databases = array() ; 
+        foreach($files as $file)
+            if(strpos($file,".sql"))
+                array_push($databases,$file) ;  
+
+        $full_path = $this->databases_base_path  ; 
+        $full_path = str_replace("\\","/",$full_path);
+        return view('dashboard.list_backups',compact('databases','full_path')) ; 
+    }
+    
+    public function delete_backup(Request $request)
+    {
+        $path = $this->databases_base_path.$request['path'] ;  
+        if(file_exists($path))
+            unlink($path) ; 
+        \Session::flash('success','Back up deleted') ; 
+        return back() ;
+    }
+
+    public function import_DB_backup(Request $request)
+    {
+        
+        $imported_path = $this->databases_base_path.$request['path'] ; 
+        if(! file_exists($imported_path))
+        {
+            \Session::flash('success','Database not found') ; 
+            return back() ;
+        }
+
+        $database_name = env('DB_DATABASE') ;
+        $database_password = env('DB_PASSWORD') ;
+        $database_username = env('DB_USERNAME') ;
+        if($database_password)
+            $database_password = "-p".$database_password ; 
+        else 
+            $database_password = "" ; 
+
+        $mysqldump_command = "E:/XAMPP/mysql/bin/mysql" ;  // for windows
+        // $mysqldump_command = "mysql" ;    // for linux server 
+        
+        $command = "$mysqldump_command -u $database_username $database_password $database_name < ".$imported_path ;
+        $command = str_replace("\\","/",$command) ;   
+        exec($command) ;
+        \Session::flash('success','Database Imported Successfully') ; 
+        return back() ; 
     }
 
 }

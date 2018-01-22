@@ -25,12 +25,7 @@ class RouteController extends Controller
         $routes = RouteModel::all() ;  
         return view('route.index',compact('routes')) ; 
     }
-
-    public function index_v2()
-    {
-    
-    }
-    
+ 
     public function buildroutes()
     {
         $roles = Role::all();
@@ -282,4 +277,80 @@ class RouteController extends Controller
         \Session::flash('success',\Lang::get('messages.custom-messages.deleted'));
         return redirect('routes') ;        
     }
+
+
+    public function index_v2(Request $request)
+    {
+        $controller_name = $request['controller_name'] ;  
+        $selected_routes = RouteModel::where('controller_name',$controller_name)->get() ; 
+        $methods = $this->get_controllers()[$controller_name] ;
+        $roles = Role::all() ;  
+        $method_types = $this->form_methods ; 
+        return view('route.index_v2',compact('selected_routes','method_types','methods','controller_name','roles')) ;
+    }
+
+    public function create_v2(Request $request)
+    {
+        
+        $controllers = $this->get_controllers() ; // in main controller  
+    
+        return view('route.create_v2',compact('controllers')) ; 
+    }
+
+    public function get_methods_for_selected_controller(Request $request)
+    {
+        $controller = $request['controller'] ; 
+        $methods = $this->get_controllers()[$controller] ; 
+        return response()->json(["methods"=>$methods]) ; 
+    }
+
+    public function store_v2(Request $request)
+    {
+        $route_size = count($request['route']);   
+        for($i = 0 ; $i < $route_size ; $i++)
+        {
+            if(isset($request['route'][$i][0]) && ! empty($request['route'][$i][0]) 
+                && isset($request['route'][$i][1]) && ! empty($request['route'][$i][1])
+                && isset($request['route'][$i][2]) && ! empty($request['route'][$i][2]))
+            {
+                $route['function_name'] = $request['route'][$i][0] ;
+                $route['route'] = $request['route'][$i][1] ; 
+                $route['method'] = $request['route'][$i][2] ;
+                $route['controller_name'] = $request['controller_name'] ;
+
+                $check_route = RouteModel::where('controller_name',$route['controller_name'])
+                ->where('function_name',$route['function_name'])
+                ->first() ; 
+
+                $checker = false ; 
+                if($check_route)
+                {
+                    $check_route->update($route) ; 
+                    $checker = true ; 
+                }
+                else {
+                    $check_route = RouteModel::create($route) ; 
+                }
+                
+                $IDs = [] ; 
+
+                for($j = 3 ; $j < $route_size ; $j++ )
+                {
+                    if(isset($request['route'][$i][$j]))
+                    {
+                        $holder = 
+                        [
+                            'role_id'  => $request['route'][$i][$j],
+                            'route_id' => $check_route->id
+                        ]  ;
+                        array_push($IDs,$holder) ; 
+                    }
+                }
+                $check_route->roles()->sync($IDs) ; 
+            }
+        }
+        $request->session()->flash('success',"Route Added Successfully");
+        return back() ; 
+    }
+
 }

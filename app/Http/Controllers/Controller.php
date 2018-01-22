@@ -10,7 +10,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    
+    public $form_methods = [
+        "get"=>"GET",
+        "post"=>"POST",
+        "patch"=>"PATCH",
+        "delete"=>"DELETE",
+        "put"=>"PUT"
+        ] ;
     public function get_methods($filename)
     {
         $path = $this->file_build_path("app","Http","Controllers") ;
