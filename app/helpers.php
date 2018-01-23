@@ -73,6 +73,8 @@ function get_static_routes()
         delete_multiselect($request) ;
         return back();
     });
+
+    Route::get('get_table_ids','DashboardController@get_table_ids_list') ; 
 }
 
 function get_dynamic_routes()

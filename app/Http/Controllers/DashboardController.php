@@ -96,6 +96,18 @@ class DashboardController extends Controller
         //
     }
 
+    public function get_table_ids_list(Request $request)
+    {
+        $table_name = $request['table_name'] ; 
+        if(isset($table_name) && ! empty($table_name))
+        {
+            $query = "SELECT id FROM ".$table_name ; 
+            $run = \DB::select($query)  ;
+            return $run ;
+        }
+        return ; 
+    }
+
     public function file_manager()
     {
         return view('dashboard.file_manager');

@@ -17,12 +17,31 @@ class FrontEndController extends Controller
 {
 
     private $PAGINATION_NUMBER = 3;   
+    private $FRONT_TESTING =  0 ; 
+    private $sign , $date ;
     public function __construct()
     {
         $this->settings = array() ; 
         $settings = Setting::where('key','LIKE','%pagination_number%')->first() ; 
         if($settings)
             $this->PAGINATION_NUMBER = (int) $settings->value; 
+        
+        $settings = Setting::where('key','LIKE','%front test%')->first() ; 
+        if($settings)
+            $this->FRONT_TESTING = $settings->value;  
+
+        if($this->FRONT_TESTING=="true")
+            $this->FRONT_TESTING = 1; 
+        else $this->FRONT_TESTING = 0 ; 
+
+        if($this->FRONT_TESTING){
+            $this->sign = ">=" ; 
+            $this->date = 0 ;
+        }
+        else{ 
+            $this->sign = "<=" ; 
+            $this->date = Carbon::now()->format("Y-m-d") ; 
+        }
     }
 
     public function homepage(Request $request)
@@ -129,24 +148,30 @@ class FrontEndController extends Controller
 
     public function videosPaginate(Request $request)
     {
-        $op_id = $request['op_id'] ; 
+        $op_id = $request['op_id'] ;  
         if(isset($op_id)&&is_numeric($op_id))
         {
             // list from posts
             $videos = Post::where('operator_id',$op_id)
             ->where('Published',1) 
-            ->where('Published_Date','<=',Carbon::now()->format("Y-m-d"))
+            ->where('Published_Date',$this->sign,$this->date)
             ->join('contents','posts.content_id','=','contents.id')
             ->join('types','contents.type_id','=','types.id')
             ->where('types.title','LIKE','%video%')
             ->select('posts.*','contents.*')
-            ->paginate($this->PAGINATION_NUMBER)  ;
+            ->paginate($this->PAGINATION_NUMBER)  ;  
         }
         else{
             // list from content  
-            $videos = Type::where('types.title','LIKE','%video%')
-            ->join('contents','types.id','=','contents.type_id')
-            ->paginate($this->PAGINATION_NUMBER) ; 
+            if($this->FRONT_TESTING)
+            {
+                $videos = Type::where('types.title','LIKE','%video%')
+                ->join('contents','types.id','=','contents.type_id')
+                ->paginate($this->PAGINATION_NUMBER) ; 
+            }
+            else{
+                $videos = NULL ;
+            }
         }
         return $videos ; 
     }
@@ -174,7 +199,7 @@ class FrontEndController extends Controller
             // list from posts
             $photos = Post::where('operator_id',$op_id)
             ->where('Published',1) 
-            ->where('Published_Date','<=',Carbon::now()->format("Y-m-d"))
+            ->where('Published_Date',$this->sign,$this->date)
             ->join('contents','posts.content_id','=','contents.id')
             ->join('types','contents.type_id','=','types.id')
             ->where('types.title','LIKE','%image%')
@@ -183,9 +208,13 @@ class FrontEndController extends Controller
         }
         else{
             // list from content  
-            $photos = Type::where('types.title','LIKE','%image%')
-            ->join('contents','types.id','=','contents.type_id')
-            ->paginate($this->PAGINATION_NUMBER) ; 
+            if($this->FRONT_TESTING)
+            {
+                $photos = Type::where('types.title','LIKE','%image%')
+                ->join('contents','types.id','=','contents.type_id')
+                ->paginate($this->PAGINATION_NUMBER) ; 
+            }
+            else $photos = NULL  ;
         }
 
         return $photos ; 
@@ -215,7 +244,7 @@ class FrontEndController extends Controller
             // list from posts
             $track = Post::where('operator_id',$op_id)
             ->where('Published',1)
-            ->where('Published_Date','<=',Carbon::now()->format("Y-m-d"))
+            ->where('Published_Date',$this->sign,$this->date)
             ->join('contents','posts.content_id','=','contents.id')
             ->where('contents.id',$id) 
             ->first()  ;
@@ -226,26 +255,33 @@ class FrontEndController extends Controller
             ->where('types.title','LIKE','%video%')
             ->where('contents.id','<>',$id)
             ->where('posts.operator_id',$op_id)
-            ->where('posts.Published_Date','<=',Carbon::now()->format("Y-m-d"))
+            ->where('posts.Published_Date',$this->sign,$this->date)
             ->select('contents.*')
             ->limit(6)
             ->get() ; 
         }
         else{
-            // list from rbts  
-            $track = Type::where('types.title','LIKE','%video%')
-            ->join('contents','types.id','=','contents.type_id')
-            ->where('contents.id',$id) 
-            ->select('contents.*')
-            ->first()  ;
-        
-            $related_videos = Content::join('types','types.id','=','contents.type_id')
-            ->orderBy('created_at','DESC')
-            ->where('types.title','LIKE','%video%')
-            ->where('contents.id','<>',$id)
-            ->select('contents.*')
-            ->limit(6)
-            ->get() ; 
+            if($this->FRONT_TESTING)
+            {
+                // list from rbts  
+                $track = Type::where('types.title','LIKE','%video%')
+                ->join('contents','types.id','=','contents.type_id')
+                ->where('contents.id',$id) 
+                ->select('contents.*')
+                ->first()  ;
+            
+                $related_videos = Content::join('types','types.id','=','contents.type_id')
+                ->orderBy('created_at','DESC')
+                ->where('types.title','LIKE','%video%')
+                ->where('contents.id','<>',$id)
+                ->select('contents.*')
+                ->limit(6)
+                ->get() ; 
+            }
+            else{
+                $track = NULL ; 
+                $related_videos = NULL ; 
+            }
         }
         $view = 'video_page' ; 
 
