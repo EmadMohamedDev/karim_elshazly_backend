@@ -14,10 +14,10 @@
             ?> 
             <li>
                 <div class="media-wrapper img-wrapper">
-                    <a href='{{url("photoPage")}}'>
-                        <img src="http://localhost/karim_elshazly_backend/uploads/services/images/5a421c0e9b25a.JPG"> 
-                        <span class="media-title">{{$photo->title}}</span> 
+                    <a href='{{$init_link.$photo->path}}' data-fancybox="group5" data-type="image" >
+                        <img src="{{$init_link.$photo->path}}"> 
                     </a>
+                    <span class="media-title"><a href="{{url('photoPage')}}" style="color:#fff">{{$photo->title}}</a></span> 
                 </div>
             </li>
             @endforeach 
