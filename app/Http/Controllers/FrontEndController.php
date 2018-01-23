@@ -36,6 +36,16 @@ class FrontEndController extends Controller
         return view('front_end.index',compact('slogan','op_id','title'))  ;
     }
     
+    public function photopage(Request $request)
+    {
+        // STEPS 
+        // 1. get homepage image from settings 
+        // 2. get facebook,twitter,instagram, and youtube links from settings
+        // 3. if not found return default values 
+        $op_id = $request['op_id'] ;
+        $title = "الصورة" ;  
+        return view('front_end.photo_page',compact('slogan','op_id','title'))  ;
+    }
 
     public function audiosPaginate(Request $request)
     {
