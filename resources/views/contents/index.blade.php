@@ -66,8 +66,8 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Preview Media</h4>
+        <button type="button" class="close" data-dismiss="modal"  onclick="pause_all()">&times;</button>
       </div>
 
       <!-- Modal body -->
@@ -79,7 +79,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="pause_all()">Close</button>
       </div>
 
     </div>
@@ -113,7 +113,7 @@
                                 <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
                                 <th>Content title</th>
                                 <th>Content Type</th>
-                                <th></th>
+                                <th>Post actions</th>
                                 <th>Creation Date</th>                                
 								<th class="visible-md visible-lg" style="width:130px">@lang('messages.category.category-action')</th>
 							</tr>
@@ -219,31 +219,31 @@
             var htmlToBeAppend = ""  ; 
             if(content_components[2] == "Video"){
                 if(content_components[0] == "1"){
-                    htmlToBeAppend = "<video  width='295' height='225' src='{{url()}}/"+content_components[1]+"' controls> </video>" ; 
+                    htmlToBeAppend = "<video style='width:100%;height:100%'  width='295' height='225' src='{{url()}}/"+content_components[1]+"' controls> </video>" ; 
                 }
                 else if(content_components[0] == "2"){
                     if(content_components[1].indexOf("youtube")!==-1){
-                        htmlToBeAppend = "<iframe class='' width='295' height='225' src='"+content_components[1]+"' > </iframe>" ; 
+                        htmlToBeAppend = "<iframe style='width:100%;height:324px' id='popup-youtube-player' src='"+content_components[1]+"?enablejsapi=1&version=3&playerapiid=ytplayer' frameborder='0' allowfullscreen='true' allowscriptaccess='always'> </iframe>" ; 
                     }
                     else{
-                        htmlToBeAppend = "<video id='example_video_1' class='video-js vjs-default-skin vjs-big-play-centered' controls preload='auto' width='295' height='225' data-setup='{}'> <source src='"+content_components[1]+"' type='video/mp4' />  </video>" ; 
+                        htmlToBeAppend = "<video style='width:100%;height:100%' id='example_video_1' class='video-js vjs-default-skin vjs-big-play-centered' controls preload='auto' width='295' height='225' data-setup='{}'> <source src='"+content_components[1]+"' type='video/mp4' />  </video>" ; 
                     }
                 }
             }
             else if(content_components[2] == "Audio"){
                 if(content_components[0] == "1"){
-                    htmlToBeAppend = "<audio controls> <source src='{{url()}}/"+content_components[1]+"' type='audio/mpeg'> </audio>" ; 
+                    htmlToBeAppend = "<audio controls> <source src='{{url()}}/"+content_components[1]+"' type='audio/mpeg'style='width:100%' > </audio>" ; 
                 }
                 else{
-                    htmlToBeAppend = "<audio controls> <source src='"+content_components[1]+"' type='audio/mpeg'> </audio>" ;                     
+                    htmlToBeAppend = "<audio controls> <source src='"+content_components[1]+"' type='audio/mpeg' style='width:100%'> </audio>" ;                     
                 }
             }
             else{
                 if(content_components[0] == "1"){
-                    htmlToBeAppend = "<img src='{{url()}}/"+content_components[1]+"' alt='No Image' height='225' width='300' /> " ; 
+                    htmlToBeAppend = "<img src='{{url()}}/"+content_components[1]+"' alt='No Image' height='225' width='300' style='width:100%;height:100%' /> " ; 
                 }
                 else{
-                    htmlToBeAppend = "<img src='"+content_components[1]+"' alt='No Image' height='225' width='300' /> " ;                     
+                    htmlToBeAppend = "<img src='"+content_components[1]+"' alt='No Image' height='225' width='300' style='width:100%;height:100%'/> " ;                     
                 }
             }
               
@@ -251,18 +251,18 @@
         
         }
 	</script>
-      <script src="{{url('js/theme/player.js')}}"></script>
-      <script src="{{url('js/theme/main.js')}}"></script>
-      <script src="{{url('js/vendor/video-js/video.js')}}"></script>
-      <script>
-            function ShowSearch()
-            {
-                $('#searchdiv3').show();
-                $('#content_title').show();
-                $('#date_picker').show();
+    <script src="{{url('js/theme/player.js')}}"></script>
+    <script src="{{url('js/theme/main.js')}}"></script>
+    <script src="{{url('js/vendor/video-js/video.js')}}"></script>
+    <script>
+        function ShowSearch()
+        {
+            $('#searchdiv3').show();
+            $('#content_title').show();
+            $('#date_picker').show();
 
-            }
-      </script>
+        }
+    </script>
     <script>
         var videos = document.querySelectorAll('video');
         for(var i=0; i<videos.length; i++)
@@ -306,5 +306,17 @@
 
         $('#content').addClass('active');
         $('#content-index').addClass('active');
+    </script>
+    <script>
+        function pause_all()
+        {
+            $("audio").each(function(index, audio) {
+                audio.pause();
+            });
+            $("video").each(function(index, video) {
+                video.pause();
+            });
+            $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');   
+        }
     </script>
 @stop
