@@ -226,6 +226,7 @@ class FrontEndController extends Controller
             ->where('types.title','LIKE','%video%')
             ->where('contents.id','<>',$id)
             ->where('posts.operator_id',$op_id)
+            ->where('posts.Published_Date','<=',Carbon::now()->format("Y-m-d"))
             ->select('contents.*')
             ->limit(6)
             ->get() ; 
