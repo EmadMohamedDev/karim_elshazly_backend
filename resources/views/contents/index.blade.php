@@ -66,7 +66,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Preview Media</h4>
+        <h4 class="modal-title" id="modal-title-id"></h4>
         <button type="button" class="close" data-dismiss="modal"  onclick="pause_all()">&times;</button>
       </div>
 
@@ -127,7 +127,7 @@
                                     <td>
                                     @foreach($types as $key => $value)
                                         @if($content->type_id == $key )
-                                        <button type="button" class="btn btn-primary" onclick="open_modal(this)" data-toggle="modal" data-target="#myModal" id="{{$content->id}}" value="{{$content->content_type}}!!{{$content->path}}!!{{$value}}">  
+                                        <button type="button" class="btn btn-primary" onclick="open_modal(this)" data-toggle="modal" data-target="#myModal" id="{{$content->id}}" value="{{$content->content_type}}!!{{$content->path}}!!{{$value}}!!{{$content->title}}">  
                                             @if($value == "Video")
                                                 Video
                                             @elseif($value == "Audio")
@@ -246,7 +246,7 @@
                     htmlToBeAppend = "<img src='"+content_components[1]+"' alt='No Image' height='225' width='300' style='width:100%;height:100%'/> " ;                     
                 }
             }
-              
+            $('#modal-title-id').html(content_components[3]) ; 
             $(".modal-body #modal-body-id").html(htmlToBeAppend) ;
         
         }
@@ -316,7 +316,8 @@
             $("video").each(function(index, video) {
                 video.pause();
             });
-            $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');   
+            if($('#popup-youtube-player')[0])
+                $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');   
         }
     </script>
 @stop
