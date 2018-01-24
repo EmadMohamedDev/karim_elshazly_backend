@@ -674,7 +674,7 @@ class RoutesTableSeeder extends Seeder
                 'route' => 'countries/index',
                 'controller_name' => 'CountryController',
                 'created_at' => '2017-12-25 10:11:40',
-                'updated_at' => '2017-12-25 10:11:40',
+                'updated_at' => '2018-01-22 08:34:06',
                 'function_name' => 'index',
             ),
             66 => 
@@ -1096,6 +1096,26 @@ class RoutesTableSeeder extends Seeder
                 'created_at' => '2018-01-18 12:09:10',
                 'updated_at' => '2018-01-18 12:27:33',
                 'function_name' => 'searchcontent',
+            ),
+            108 => 
+            array (
+                'id' => 134,
+                'method' => 'get',
+                'route' => 'contents/{id}/list_posts',
+                'controller_name' => 'ContentController',
+                'created_at' => '2018-01-22 08:44:39',
+                'updated_at' => '2018-01-22 08:44:39',
+                'function_name' => 'list_posts',
+            ),
+            109 => 
+            array (
+                'id' => 135,
+                'method' => 'get',
+                'route' => 'photo_page',
+                'controller_name' => 'FrontEndController',
+                'created_at' => '2018-01-24 09:43:31',
+                'updated_at' => '2018-01-24 09:43:31',
+                'function_name' => 'photopage',
             ),
         ));
         
