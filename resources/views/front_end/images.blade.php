@@ -1,5 +1,12 @@
 @extends('front_end.header') 
 @section('content')
+<?php 
+    $query_params = "" ; 
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "&op_id=$op_id" ;
+    } 
+?>
 <!-- =================================================start content ======================= -->
 <section class="main-container">
         <!-- suggested-->
@@ -17,7 +24,7 @@
                     <a href='{{$init_link.$photo->path}}' data-fancybox="group5" data-type="image" >
                         <img src="{{$init_link.$photo->path}}"> 
                     </a>
-                    <span class="media-title"><a href="{{url('photoPage')}}" style="color:#fff">{{$photo->title}}</a></span> 
+                    <span class="media-title"><a href="{{url('photo_page?img='.$photo->id.$query_params)}}" style="color:#fff">{{$photo->title}}</a></span> 
                 </div>
             </li>
             @endforeach 

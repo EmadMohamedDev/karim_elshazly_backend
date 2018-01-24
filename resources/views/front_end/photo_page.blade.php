@@ -1,18 +1,25 @@
 @extends('front_end.header') 
 @section('content')
 
+<?php 
+    $query_params = "" ; 
+    if(isset($op_id)&&is_numeric($op_id))
+    {
+        $query_params = "?op_id=$op_id" ;
+    } 
+?>
 
 <div class="container">
     <div class="row">
         <div class="content">
             
             <div class="img-size">
-                <img src="{{url('img/home.jpg')}}" alt="">
+                <img src="{{url($image->path)}}" alt="">
             </div>
             
             <div class="info">
-                <a href="images.blade.php" class="btn">المزيد</a>
-                <a href="images.blade.php" class="btn">تحميل</a>
+                <a href="{{url('photos'.$query_params)}}" class="btn">المزيد</a>
+                <a href="#" id="download_image" class="btn">تحميل</a>
             </div>
             
         </div>
@@ -53,3 +60,15 @@
 </style>
 
 @stop
+@section('scripts')
+
+    <script>
+        $('#download_image').click(function(){
+            var imageURL = "{{url($image->path)}}" ; 
+            console.log(imageURL) ;
+            $(this).attr("href", imageURL)
+                    .attr("download", "img.png");
+        }); 
+    </script>
+
+@stop 

@@ -45,24 +45,61 @@ class FrontEndController extends Controller
 
     public function homepage(Request $request)
     {
-        // STEPS 
-        // 1. get homepage image from settings 
-        // 2. get facebook,twitter,instagram, and youtube links from settings
-        // 3. if not found return default values 
         $op_id = $request['op_id'] ;
         $title = "الرئيسية" ;  
         return view('front_end.index',compact('slogan','op_id','title'))  ;
     }
     
+    public function get_photo(Request $request)
+    {
+        $op_id = $request['op_id'] ;
+
+        $img_id = $request['img'] ; 
+
+        if(isset($op_id)&&is_numeric($op_id))
+        {
+            // 1.get image by this->sign and this->date from posts where content type = image
+            $image = Post::where('operator_id',$op_id) 
+            ->join('contents','posts.content_id','=','contents.id')
+            ->join('types','contents.type_id','=','types.id')
+            ->where('types.title','LIKE','%image%')
+            ->where('contents.id',$img_id)
+            ->where('posts.Published',1) 
+            ->where('posts.Published_Date',$this->sign,$this->date)
+            ->select('contents.*')
+            ->first()  ;
+        }
+        else{
+            // 1. check front testing 
+            // 2. if true get the photo 
+            // 3. else return error page 
+            if($this->FRONT_TESTING)
+            { 
+                $image = Content::join('types','types.id','=','contents.type_id')
+                ->where('types.title','LIKE','%image%')
+                ->where('contents.id',$img_id)
+                ->first() ; 
+            }
+            else{
+                $image = NULL ;
+            }
+        }
+        return $image ; 
+    }
+
     public function photopage(Request $request)
     {
-        // STEPS 
-        // 1. get homepage image from settings 
-        // 2. get facebook,twitter,instagram, and youtube links from settings
-        // 3. if not found return default values 
-        $op_id = $request['op_id'] ;
         $title = "الصورة" ;  
-        return view('front_end.photo_page',compact('slogan','op_id','title'))  ;
+        $op_id = $request['op_id'] ; 
+        $image = $this->get_photo($request) ; 
+        $view = 'photo_page' ;  
+
+        if(count($image)==0)
+        {
+            $view = "error" ; 
+        }
+
+        return view('front_end.'.$view,compact('slogan','op_id','title','image'))  ;
     }
 
     public function audiosPaginate(Request $request)
