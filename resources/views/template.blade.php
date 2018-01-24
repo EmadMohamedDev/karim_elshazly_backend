@@ -600,6 +600,31 @@
 </script>
 
 <script>
+    var check = false ; 
+    
+    function select_all(table_name,has_media)
+    {
+        if(!check)
+        {
+            $('.select-all-karim').prop("checked",!check);
+            $.get("{{url('get_table_ids?table_name=')}}"+table_name,function(data,status){
+                data.forEach(function(item){
+                    collect_selected(item.id) ;
+                });
+            });
+            check = true ; 
+        }
+        else
+        {
+            $('.select-all-karim').prop("checked",!check);
+            check = false ;
+            clear_selected() ; 
+        }
+    } 
+     
+</script>
+
+<script>
     $(document).ready(function() {
         $('#example').DataTable();
     } );

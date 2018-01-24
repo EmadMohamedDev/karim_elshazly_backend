@@ -89,6 +89,8 @@
             </li>
             @endforeach
         </ul>
+        @else 
+        <h3 class="suggested"> لا توجد فيديوهات مقترحة</h3>
         @endif
     </section>
 @stop 

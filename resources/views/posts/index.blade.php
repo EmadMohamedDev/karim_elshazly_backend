@@ -112,7 +112,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
+                                <th style="width:18px"><input type="checkbox" onclick="select_all('posts',false)"></th>
                                 <th>@lang('messages.posts.content-name')</th>
                                 <th>@lang('messages.posts.operator-name')</th>	 
                                 <th>@lang('messages.posts.post-free')</th>
@@ -126,7 +126,7 @@
                           @if($posts !=null)
 							@foreach($posts as $post)
 								<tr class="table-flag-blue">
-                                    <th><input class="posts-karim" type="checkbox" name="selected_rows[]" value="{{$post->id}}" onclick="collect_selected(this)"></th>
+                                    <th><input class="select-all-karim" type="checkbox" name="selected_rows[]" value="{{$post->id}}" onclick="collect_selected(this)"></th>
                                     <td>{{$post->content->title}}</td>
                                     @foreach($countries as $key =>$value)
                                     @if($post->operator->country_id == $key)
@@ -186,31 +186,6 @@
 
 @section('script')
     <script>
-        
-        var check = false ; 
-		function select_all()
-		{
-			if(!check)
-			{
-				$('.posts-karim').prop("checked",!check);
-				<?php
-				foreach($posts as $post)
-				{ 
-				?>
-					collect_selected("{{$post->id}}") ; 
-				<?php 
-					
-				}	
-				?>
-				check = true ; 
-			}
-			else
-			{
-				$('.posts-karim').prop("checked",!check);
-				check = false ;
-				clear_selected() ; 
-			}
-		}
 
         function ShowSearch()
         {

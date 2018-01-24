@@ -30,7 +30,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
+                                <th style="width:18px"><input type="checkbox"></th>
                                 <th>@lang('messages.posts.content-name')</th>
                                 <th>@lang('messages.posts.operator-name')</th>	 
                                 <th>@lang('messages.posts.post-free')</th>
@@ -108,30 +108,6 @@
 
 @section('script')
 <script>
-    var check = false ; 
-    function select_all()
-    {
-        if(!check)
-        {
-            $('.posts-search-karim').prop("checked",!check);
-            <?php
-            foreach($posts as $post)
-            { 
-            ?>
-                collect_selected("{{$post->id}}") ;
-            <?php 
-                
-            }	
-            ?>
-            check = true ; 
-        }
-        else
-        {
-            $('.posts-search-karim').prop("checked",!check);
-            check = false ;
-            clear_selected() ; 
-        }
-    }
 
     $('#post').addClass('active');
     $('#post-index').addClass('active');

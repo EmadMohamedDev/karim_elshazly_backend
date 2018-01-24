@@ -1,14 +1,16 @@
 <?php 
 
- 
+    $var = get_dynamic_tabs($op_id) ; 
+    $counter = $var[0] ; 
+    $tabs = $var[1] ;
+
     $query_params = "" ; 
-    $over = 3 ; 
+    $over = $counter ; 
     $number = 25 ; 
 
     if(isset($op_id)&&is_numeric($op_id))
     {
-        $query_params = "?op_id=".$op_id  ; 
-        $over = 4 ;
+        $query_params = "?op_id=".$op_id  ;          
     }
     if(isset($over) && !empty($over))
         $number = 100 / $over ; 
@@ -75,38 +77,46 @@
                             </a>
                         </li>
                         <!-- menu link 2 -->
+                        @if($tabs['Video'][1])
                         <li>
                             <a href='{{url("videos".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-film"></span>
                                 </div>
                                 <div class="row small-9 columns">
-                                    <p>فيديو</p>
+                                    <p>{{$tabs['Video'][0]}}</p>
                                 </div>
                             </a>
                         </li>
+                        @endif
                         <!-- menu link 3 -->
-                        <!-- <li>
-                            <a href='{{url("audios".$query_params)}}' class="row">
-                                <div class="row small-3 columns">
-                                    <span class="fa fa-music"></span>
-                                </div>
-                                <div class="row small-9 columns">
-                                    <p>صوتيات</p>
-                                </div>
-                            </a>
-                        </li> -->
+                        @if($tabs['Audio'][1])
+                            @if(isset($op_id)&&is_numeric($op_id))
+                                <li>
+                                    <a href='{{url("rbt".$query_params)}}' class="row">
+                                        <div class="row small-3 columns">
+                                            <span class="fa fa-music"></span>
+                                        </div>
+                                        <div class="row small-9 columns">
+                                            <p>{{$tabs['Audio'][0]}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            @endif
+                        @endif 
                          <!-- menu link 4 -->
+                         @if($tabs['Image'][1])
                          <li>
                             <a href='{{url("photos".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
                                     <span class="fa fa-picture-o"></span>
                                 </div>
                                 <div class="row small-9 columns">
-                                    <p>الصور</p>
+                                    <p>{{$tabs['Image'][0]}}</p>
                                 </div>
                             </a>
                         </li>
+                        @endif 
                         <li>
                             <a href='{{url("faq".$query_params)}}' class="row">
                                 <div class="row small-3 columns">
@@ -184,14 +194,16 @@
                             </a>
                         </li>
                         <!-- tab 2 -->
-                        <li id="li-photos" class="tab"  style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("photos".$query_params)}}' class="toggle-btn trigger-click">
-                                <div>
-                                    <span class="fa fa-picture-o"></span>
-                                    <p>الصور</p>
-                                </div>
-                            </a>
-                        </li>
+                        @if($tabs['Image'][1]) 
+                            <li id="li-photos" class="tab"  style="width:<?php echo $number .'%'?>;">
+                                <a href='{{url("photos".$query_params)}}' class="toggle-btn trigger-click">
+                                    <div>
+                                        <span class="fa fa-picture-o"></span>
+                                        <p>{{$tabs['Image'][0]}}</p>
+                                    </div>
+                                </a>
+                            </li>
+                        @endif
                         <!-- tab 3 -->
                         <!-- <li id="li-audios" class="tab" style="width:<?php echo $number .'%'?>;">
                             <a href='{{url("audios".$query_params)}}' class="toggle-btn">
@@ -202,24 +214,28 @@
                             </a>
                         </li> -->
                         <!-- tab 4 -->
-                        <li id="li-videos" class="tab"  style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("videos".$query_params)}}' class="toggle-btn">
-                                <div>
-                                    <span class="fa fa-film"></span>
-                                    <p>الفيدوهات</p>
-                                </div>
-                            </a>
-                        </li>
+                        @if($tabs['Video'][1]) 
+                            <li id="li-videos" class="tab"  style="width:<?php echo $number .'%'?>;">
+                                <a href='{{url("videos".$query_params)}}' class="toggle-btn">
+                                    <div>
+                                        <span class="fa fa-film"></span>
+                                        <p>{{$tabs['Video'][0]}}</p>
+                                    </div>
+                                </a>
+                            </li>
+                        @endif
 
-                        @if(isset($op_id)&&is_numeric($op_id))
-                        <li id="li-rbt" class="tab"  style="width:<?php echo $number .'%'?>;">
-                            <a href='{{url("rbt".$query_params)}}' class="toggle-btn">
-                                <div>
-                                    <span class="fa fa-film"></span>
-                                    <p>نغمات</p>
-                                </div>
-                            </a>
-                        </li>
+                        @if($tabs['Audio'][1])
+                            @if(isset($op_id)&&is_numeric($op_id))
+                                <li id="li-rbt" class="tab"  style="width:<?php echo $number .'%'?>;">
+                                    <a href='{{url("rbt".$query_params)}}' class="toggle-btn">
+                                        <div>
+                                            <span class="fa fa-film"></span>
+                                            <p>{{$tabs['Audio'][0]}}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            @endif
                         @endif
 
                     </ul>

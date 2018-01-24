@@ -110,7 +110,7 @@
 						<table id="example" class="table table-striped dt-responsive" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-                                <th style="width:18px"><input type="checkbox" onclick="select_all()"></th>
+                                <th style="width:18px"><input type="checkbox" onclick="select_all('contents',true)"></th>
                                 <th>Content title</th>
                                 <th>Content Type</th>
                                 <th>Post actions</th>
@@ -122,7 +122,7 @@
                           @if($contents !=null)
 							@foreach($contents as $content)
 								<tr class="table-flag-blue">
-                                    <th><input type="checkbox" class="contents-karim" name="selected_rows[]" value="{{$content->id}}" onclick="collect_selected(this)"></th>
+                                    <th><input type="checkbox" class="select-all-karim" name="selected_rows[]" value="{{$content->id}}" onclick="collect_selected(this)"></th>
                                     <td>{{$content->title}}</td>
                                     <td>
                                     @foreach($types as $key => $value)
@@ -184,30 +184,6 @@
 
 @section('script')
     <script>
-        var check = false ; 
-        function select_all()
-        {
-            if(!check)
-            {
-                $('.contents-karim').prop("checked",!check);
-                <?php
-                foreach($contents as $content)
-                { 
-                ?>
-                    collect_selected("{{$content->id}}") ;
-                <?php 
-                    
-                }	
-                ?>
-                check = true ; 
-            }
-            else
-            {
-                $('.contents-karim').prop("checked",!check);
-                check = false ;
-                clear_selected() ; 
-            }
-        }
         function open_modal(element)
         {
             var content = element.value ;    
