@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route; 
 use App\Setting ;
+use App\Type ;
 
 
 function delete_multiselect(Request $request) // select many contract from index table and delete them
@@ -75,6 +76,9 @@ function get_static_routes()
     });
 
     Route::get('get_table_ids','DashboardController@get_table_ids_list') ; 
+    Route::get('uploads',function(){
+        return "here";
+    });
 }
 
 function get_dynamic_routes()
@@ -130,6 +134,36 @@ function get_dynamic_routes()
 
     }
 
+}
+
+function get_dynamic_tabs($op_id=NULL)
+{ 
+    $tabs = [
+            "Video"=>["فيديو",0],
+            "Audio"=>["نغمات",0],
+            "Image"=>["صور",0]
+            ]  ; 
+    $types = Type::all() ;  
+    $counter = 1 ; // equal 1 because the homepage tab not removable
+    foreach($types as $type)
+    {
+        $check_for_contents = $type->contents ; 
+        if(count($check_for_contents) > 0)
+        { 
+            $tabs[$type->title][1] = 1; // el tab deh kda feha data 
+            if($type->title == "Audio")
+            {
+                if(isset($op_id)&&is_numeric($op_id))
+                {
+                    $counter++ ; 
+                }
+            }
+            else {
+                $counter++ ; 
+            }
+        }
+    }
+    return [$counter,$tabs] ; 
 }
 
 function fill_settings()

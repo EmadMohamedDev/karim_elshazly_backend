@@ -1,32 +1,9 @@
 <?php 
-    use App\Type ;
 
-    $tabs = [
-            "Video"=>["فيديو",0],
-            "Audio"=>["نغمات",0],
-            "Image"=>["صور",0]
-            ]  ; 
-    $types = Type::all() ;  
-    $counter = 1 ; // equal 1 because the homepage tab not removable
-    foreach($types as $type)
-    {
-        $check_for_contents = $type->contents ; 
-        if(count($check_for_contents) > 0)
-        { 
-            $tabs[$type->title][1] = 1; // el tab deh kda feha data 
-            if($type->title == "Audio")
-            {
-                if(isset($op_id)&&is_numeric($op_id))
-                {
-                    $counter++ ; 
-                }
-            }
-            else {
-                $counter++ ; 
-            }
-        }
-    }
- 
+    $var = get_dynamic_tabs($op_id) ; 
+    $counter = $var[0] ; 
+    $tabs = $var[1] ;
+
     $query_params = "" ; 
     $over = $counter ; 
     $number = 25 ; 

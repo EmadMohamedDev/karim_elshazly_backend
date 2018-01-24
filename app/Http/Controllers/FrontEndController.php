@@ -31,14 +31,13 @@ class FrontEndController extends Controller
             $this->FRONT_TESTING = $settings->value;  
 
         if($this->FRONT_TESTING=="true")
+        {
             $this->FRONT_TESTING = 1; 
-        else $this->FRONT_TESTING = 0 ; 
-
-        if($this->FRONT_TESTING){
             $this->sign = ">=" ; 
             $this->date = 0 ;
         }
-        else{ 
+        else {
+            $this->FRONT_TESTING = 0 ; 
             $this->sign = "<=" ; 
             $this->date = Carbon::now()->format("Y-m-d") ; 
         }
