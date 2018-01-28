@@ -279,11 +279,9 @@ class PostController extends Controller
            
         }
         $join = "" ;
-        
-        if(!empty($request['title']))
-        {
-            $join .= " JOIN contents ON contents.id = posts.content_id ";
-        }
+         
+        $join .= " JOIN contents ON contents.id = posts.content_id ";
+         
         
         $query = $select.$join.$where;
         

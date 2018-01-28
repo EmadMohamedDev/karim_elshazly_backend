@@ -28,16 +28,16 @@
                     <form class="form-horizontal" action="{{url('SearchPost')}}" method="post">  
                        {{ csrf_field() }}  
                     <div class="form-group">
-                     <label for="provider" class="col-sm-3 col-lg-2 control-label">Content Title * </label>
+                     <label for="provider" class="col-sm-3 col-lg-2 control-label">Content Title</label>
                         <div class="col-sm-9 col-lg-10 controls">
-                            <input type="text" class="form-control input-lg" placeholder="Content Title" name="title" id="content_title" required>
+                            <input type="text" class="form-control input-lg" placeholder="Content Title" name="title" id="content_title">
                         </div>
                     </div>
                         
                     <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label">@lang('messages.operators.operator-tap')</label>
+                        <label class="col-sm-3 col-lg-2 control-label">@lang('messages.operators.operator-tap') *</label>
                     <div class="col-sm-9 col-lg-10 controls">
-                         <select class="form-control" id="operator_id" name="search_field[]">
+                         <select class="form-control" id="operator_id" name="search_field[]" required>
                          <option></option>
                         @foreach ($operators as $operator)
                             <option value="{{ $operator->id }}">{{ $operator->title }} - {{$operator->country->title}}</option>
