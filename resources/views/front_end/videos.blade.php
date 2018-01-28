@@ -17,7 +17,7 @@ $query_params = "" ;
         <ul class="suggested-items media-gallery video">
             @foreach($videos as $video)
             <li>
-                <a href='{{url("videos/$video->id".$query_params)}}' class="thumbnail">
+                <a href='{{url("videos/$video->id".$query_params)}}' >
                     <div class="media-wrapper">
                         <img id='Video{{$video->id}}' src="{{url($video->prev_img)}}">
                         <h3 class="media-title" id='Thumb{{$video->id}}'>{{$video->title}}</h3>
@@ -27,18 +27,26 @@ $query_params = "" ;
             </li>
             @endforeach 
             <span id="load-more-videos"> </span>
+            <img src="{{url('loading.gif')}}" style="width: 79px;display:none;" />
         </ul> 
-        <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
-                         <span id="results">المزيد</span>
-                     </button> 
-                     <span id="no-result-span" style="display:none;">لا يوجد المزيد</span>
-                     
+        <!-- <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
+            <span id="results">المزيد</span>
+        </button>                  
+        <span id="no-result-span" style="display:none;">لا يوجد المزيد</span> -->
+        <?php 
+            $spinner = get_loading_spineer() ; 
+        ?>
+        <img id="results" src="{{$spinner}}" style="width: 79px;display: none;margin: auto;" />   
+        <!-- <span id="no-result-span" style="display: none;">لا يوجد المزيد</span> -->
     </section>
 
 
 @stop
 @section('scripts')
 <script>
+
+
+
     var current_page = parseInt("<?php echo $videos->currentPage() ?>") ; 
     var last_page = parseInt("<?php echo $videos->lastPage() ?>") ; 
     var operator_id = "<?php echo $op_id ?>";   
@@ -53,7 +61,9 @@ $query_params = "" ;
     });
 
     function load_more()
-    {    
+    {     
+        $('#results').css("display","block");             
+        
         var operator_query = "" ;   
         if(current_page+1 <= last_page)
         {  
@@ -84,19 +94,35 @@ $query_params = "" ;
                     $('#load-more').find('img').css("display","none");
                      
                 }
+                $('#results').css("display","none");             
+                
                 if(current_page+1 > last_page)
-                {
+                { 
                     $('#load-more').css("display","none"); 
-                    $('#no-result-span').css("display","block"); 
                 }
             });
         }
         else{   
             $('#load-more').css("display","none"); 
             $('#no-result-span').css("display","block"); 
+            $('#results').css("display","none");             
         } 
     }
+ 
 
-
+    var iScrollPos = 0 ;
+    var page = 1 ;   
+    $('.site-wrapper').scroll(function(){  
+        var iCurScrollPos = $(this).scrollTop(); 
+        if (iCurScrollPos > iScrollPos && iCurScrollPos > page * 10) {
+            //Scrolling Down   
+            load_more() ;  
+            page++ ; 
+        } else {
+            //Scrolling Up
+        }
+        iScrollPos = iCurScrollPos;
+    });
+    
 </script>
 @stop 

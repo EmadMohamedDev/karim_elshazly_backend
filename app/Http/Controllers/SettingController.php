@@ -61,12 +61,12 @@ class SettingController extends Controller
         {
            if ($request->hasFile('TxtValue3'))
             {
-                $imgExtensions = array("png","jpeg","jpg");
+                $imgExtensions = array("png","jpeg","jpg","gif");
                 $destinationFolder = "settings_images/";
                 $file = $request->file("TxtValue3");
                 if(! in_array($file->getClientOriginalExtension(),$imgExtensions))
                 {
-                    \Session::flash('failed','Image must be jpg, png, or jpeg only !! No updates takes place, try again with that extensions please..');
+                    \Session::flash('failed','Image must be png, jpeg, or gif only !! No updates takes place, try again with that extensions please..');
                     return redirect('setting');
                 }
                 $uniqueid = uniqid();
@@ -166,12 +166,12 @@ class SettingController extends Controller
             if ($request->hasFile('value'))
             {
 
-                $imgExtensions = array("png","jpeg","jpg");
+                $imgExtensions = array("png","jpeg","jpg","gif");
                 $destinationFolder = "settings_images/";
                 $file = $request->file("value");
                 if(! in_array($file->getClientOriginalExtension(),$imgExtensions))
                 {
-                    \Session::flash('failed','Image must be jpg, png, or jpeg only !! No updates takes place, try again with that extensions please..');
+                    \Session::flash('failed','Image must be png, jpeg, or gif only !! No updates takes place, try again with that extensions please..');
                     return redirect('setting');
                 }
                 $uniqueid = uniqid();

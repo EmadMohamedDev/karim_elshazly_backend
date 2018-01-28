@@ -205,7 +205,20 @@ function fill_settings()
     else
         $settings['slogan'] = $settings['slogan']->value ; 
 
+
+
     return $settings;  
+}
+
+function get_loading_spineer()
+{
+    $settings = Setting::where('key','LIKE','%loading%')->first() ;     
+    if(! $settings)
+        $spinner = url("uploads/loading.gif") ; 
+    else
+        $spinner = $settings->value ; 
+    
+    return $spinner ; 
 }
 
 function dynamic_routes($route_model,$found_roles)

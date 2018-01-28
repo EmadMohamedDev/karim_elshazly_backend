@@ -23,10 +23,14 @@
     <span id="load-more-videos"> </span>
     </ul>
     
-    <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
+    <!-- <button type="button" class="xs-toggle-btn more" id="load-more" onclick="load_more()">
         <span id="results">المزيد</span>
     </button> 
-        <span id="no-result-span" style="display:none;">لا يوجد المزيد</span>
+        <span id="no-result-span" style="display:none;">لا يوجد المزيد</span> -->
+        <?php 
+            $spinner = get_loading_spineer() ; 
+        ?>
+        <img id="results" src="{{$spinner}}" style="width: 79px;display: none;margin: auto;" />   
 
 </section>
 @stop 
@@ -49,6 +53,7 @@
 
     function load_more()
     {    
+        $('#results').css("display","block");             
         var operator_query = "" ;   
         if(current_page+1 <= last_page)
         {  
@@ -80,6 +85,7 @@
                     $('#load-more').find('img').css("display","none");
                      
                 }
+                $('#results').css("display","none");             
                 if(current_page+1 > last_page)
                 {
                     $('#load-more').css("display","none"); 
@@ -90,9 +96,24 @@
         else{   
             $('#load-more').css("display","none"); 
             $('#no-result-span').css("display","block"); 
+            $('#results').css("display","none");             
         } 
     }
 
+
+    var iScrollPos = 0 ;
+    var page = 1 ;   
+    $('.site-wrapper').scroll(function(){  
+        var iCurScrollPos = $(this).scrollTop(); 
+        if (iCurScrollPos > iScrollPos && iCurScrollPos > page * 10) {
+            //Scrolling Down   
+            load_more() ;  
+            page++ ; 
+        } else {
+            //Scrolling Up
+        }
+        iScrollPos = iCurScrollPos;
+    });
 </script>
 @stop 
 
