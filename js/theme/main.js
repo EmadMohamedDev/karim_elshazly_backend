@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
   
+  
   setTimeout(function(){
     $('body').addClass('loaded');
     $('h1').css('color','#222222');
@@ -26,7 +27,7 @@ $(document).ready(function() {
     });
    
     // show the button when scroll button
-    $('.site-wrapper').scroll(function(){
+    $('body').scroll(function(){
         if ($(this).scrollTop() >= 80) {
             $('#scroll-top').fadeIn();
         } else {
@@ -35,7 +36,7 @@ $(document).ready(function() {
     });
     // when click scroll to top
     $('#scroll-top').click(function () {
-        $(".site-wrapper").animate({ scrollTop : 0 }, 600); 
+        $("body").animate({ scrollTop : 0 }, 600); 
     });
 
 });

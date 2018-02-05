@@ -111,17 +111,22 @@ $query_params = "" ;
  
 
     var iScrollPos = 0 ;
-    var page = 1 ;   
-    $('.site-wrapper').scroll(function(){  
-        var iCurScrollPos = $(this).scrollTop(); 
-        if (iCurScrollPos > iScrollPos && iCurScrollPos > page * 10) {
-            //Scrolling Down   
+    var page = 1 ;  
+    var timeout ;
+    $('body').scroll(function(){ 
+        clearTimeout(timeout);  
+        timeout = setTimeout(function() {
             load_more() ;  
             page++ ; 
-        } else {
-            //Scrolling Up
-        }
-        iScrollPos = iCurScrollPos;
+        }, 50);
+        // var iCurScrollPos = $(this).scrollTop(); 
+        // if (iCurScrollPos > iScrollPos && iCurScrollPos > page * 10) {
+        //     //Scrolling Down   
+            
+        // } else {
+        //     //Scrolling Up
+        // }
+        // iScrollPos = iCurScrollPos;
     });
     
 </script>

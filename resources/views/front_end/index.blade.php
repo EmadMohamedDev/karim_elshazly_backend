@@ -17,7 +17,11 @@
             .main-container {
             position: relative;
             min-height: auto;
+            
         }
+            .site-wrapper {
+                height:100vh;
+            }
             footer { 
                 position:absolute ;
                 bottom: 0;
