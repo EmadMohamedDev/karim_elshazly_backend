@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
    
     // show the button when scroll button
-    $('body').scroll(function(){
+    $(window).scroll(function(){
         if ($(this).scrollTop() >= 80) {
             $('#scroll-top').fadeIn();
         } else {

@@ -105,17 +105,19 @@ $query_params = "" ;
         else{   
             $('#load-more').css("display","none"); 
             $('#no-result-span').css("display","block"); 
-            $('#results').css("display","none");             
+            $('#results').css("display","none");   
+            $('footer').css('marginTop',"50px");          
         } 
     }
  
-
+    
     var iScrollPos = 0 ;
-    var page = 1 ;  
+    var page = 1 ;
     var timeout ;
-    $('body').scroll(function(){ 
+    $(window).on('scroll',function(){ 
         clearTimeout(timeout);  
         timeout = setTimeout(function() {
+            alert(page);
             load_more() ;  
             page++ ; 
         }, 50);
