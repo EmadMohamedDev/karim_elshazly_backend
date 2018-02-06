@@ -113,14 +113,17 @@ $query_params = "" ;
     
     var iScrollPos = 0 ;
     var page = 1 ;
-    var timeout ;
+    var recentScroll = false;
     $(window).on('scroll',function(){ 
-        clearTimeout(timeout);  
-        timeout = setTimeout(function() {
+          
+        if(!recentScroll && $(window).scrollTop() + $(window).height() >= $(document).height()) {
+            
             alert(page);
             load_more() ;  
             page++ ; 
-        }, 50);
+            recentScroll = true; 
+            window.setTimeout(() => { recentScroll = false; }, 500)
+        }
         // var iCurScrollPos = $(this).scrollTop(); 
         // if (iCurScrollPos > iScrollPos && iCurScrollPos > page * 10) {
         //     //Scrolling Down   
