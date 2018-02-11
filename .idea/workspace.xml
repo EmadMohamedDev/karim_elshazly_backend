@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6080fbe-3a20-43b7-833e-9a3a7e92bbcb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front_end/images.blade.php" afterPath="$PROJECT_DIR$/resources/views/front_end/images.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front_end/videos.blade.php" afterPath="$PROJECT_DIR$/resources/views/front_end/videos.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/theme/demo.scss" afterPath="$PROJECT_DIR$/sass/theme/demo.scss" />
     </list>
     <ignored path="myCompound.iws" />
@@ -47,21 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="images.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="images.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/front_end/images.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="314">
               <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sass/theme/demo.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="1382" column="0" selection-start-line="1382" selection-start-column="0" selection-end-line="1382" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -322,12 +309,12 @@
       <workItem from="1510214257424" duration="1244000" />
       <workItem from="1514896803309" duration="14000" />
       <workItem from="1515923223258" duration="27000" />
-      <workItem from="1518338192895" duration="1380000" />
+      <workItem from="1518338192895" duration="2098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31882000" />
+    <option name="totallyTimeSpent" value="32600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -646,18 +633,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front_end/images.blade.php">
+    <entry file="file://$PROJECT_DIR$/sass/theme/demo.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+        <state relative-caret-position="321">
+          <caret line="1384" column="19" selection-start-line="1384" selection-start-column="19" selection-end-line="1384" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sass/theme/demo.scss">
+    <entry file="file://$PROJECT_DIR$/resources/views/front_end/images.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="1382" column="0" selection-start-line="1382" selection-start-column="0" selection-end-line="1382" selection-end-column="14" />
+        <state relative-caret-position="314">
+          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
           <folding />
         </state>
       </provider>

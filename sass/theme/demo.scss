@@ -11,8 +11,8 @@
   src: url(../../css/fonts/hala01.otf);
 }
 
-/* Variables */ 
-$main-color : #1565c0; 
+/* Variables */
+$main-color : #1565c0;
 
 /* colors */
 
@@ -54,8 +54,8 @@ $main-color : #1565c0;
 /*Absolute postioning in the center*/
 
 html, body {
-  height: 100vh;  
-} 
+  height: 100vh;
+}
 
 .centered-axis-xy {
   position: absolute;
@@ -278,7 +278,7 @@ ul li {
 }
 
 body {
-  position: relative; 
+  position: relative;
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
@@ -301,7 +301,7 @@ footer {
     text-decoration: underline;
   }
 }
-#scroll-top { 
+#scroll-top {
   position: fixed;
   left: 10px;
   bottom: 50px;
@@ -328,7 +328,7 @@ footer {
 }
 
 .copy-right {
-  font-size: 15px; 
+  font-size: 15px;
   display: inline-flex;
   direction: rtl;
   font-weight: bold;
@@ -375,14 +375,14 @@ footer {
   img {
     width: 100%;
   }
-} 
+}
 
 .sticky-top {
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
-  z-index: 3000; 
+  z-index: 3000;
 }
 
 /************************************************************************************
@@ -485,7 +485,7 @@ footer .ooredoo-logo {
   height: 50px;
   background: $main-color url('../../img/textures/gplay.png');
   color: #04C2ED;
-  border-bottom: 2px solid #ccc; 
+  border-bottom: 2px solid #ccc;
   li {
     height: 100%;
     float: left;
@@ -524,9 +524,9 @@ a.lang {
     background: rgba(255, 255, 255, 0.05);
   }
   .tab {
-    float: right;  
+    float: right;
     &:hover {
-      border-bottom: 3px solid $main-color; 
+      border-bottom: 3px solid $main-color;
     }
   }
   .active {
@@ -636,18 +636,18 @@ li:last-child a.toggle-btn {
   top: 0;
   bottom: 0;
   //left: 0;
-  right: 0; 
+  right: 0;
   z-index: 0;
 }
 
 .site-wrapper {
-  width: 100%; 
+  width: 100%;
   //height: 100%;
   position: relative;
   z-index: 1;
   top: 0;
   left: 0;
-  background: #fff; 
+  background: #fff;
   transition: left 0.3s;
   overflow-y: auto;
 }
@@ -777,51 +777,51 @@ footer .social-media-wrapper {
 
 /********** POPup Confirm *****************/
 .success_alert {
-  direction: rtl;  
+  direction: rtl;
   width:60%;
   margin:2px auto;
-  background: #dff0d8;  
-  color :#3c763d;  
+  background: #dff0d8;
+  color :#3c763d;
   @media(max-width:600px){
     width:90%;
   }
   .popup_content {
     position: relative;
     padding:20px;
-    .right_i { 
+    .right_i {
       padding-left:10px;
     }
     .left_i {
       position: absolute;
       left: 20px;
-      color :#3c763d;  
+      color :#3c763d;
     }
   }
 }
 
 .fault_alert {
-  direction: rtl;  
+  direction: rtl;
   width:60%;
   margin:2px auto;
-  background: #ebccd1;  
-  color :#a94442; 
+  background: #ebccd1;
+  color :#a94442;
   @media(max-width:600px){
     width:90%;
-  } 
+  }
   .popup_content {
     position: relative;
     padding:20px;
-    .right_i { 
+    .right_i {
       padding-left:10px;
     }
     .left_i {
       position: absolute;
       left: 20px;
-      color :#a94442;  
+      color :#a94442;
     }
   }
 }
- 
+
 
 /* Audio Player Styles ---------------------------------------------*/
         /*.audio-player-theme {
@@ -1111,7 +1111,7 @@ margin-bottom: 10px;
     line-height: 1.3;
     color: $main-color;
     font-size: 16px;
-    margin: 13px 0; 
+    margin: 13px 0;
   }
 
   a {
@@ -1127,11 +1127,11 @@ margin-bottom: 10px;
 }
 
 .info_karem_socail {
-  width:100%; 
+  width:100%;
   a {
     display: inline-block;
     text-decoration: none;
-    width:20%; 
+    width:20%;
     i {
       background: #fff;
       color: $main-color;
@@ -1168,8 +1168,8 @@ margin-bottom: 10px;
 .audio-wrapper {
   width:80%;
   margin: auto;
-  margin-bottom: 20px; 
-  border:2px solid $main-color; 
+  margin-bottom: 20px;
+  border:2px solid $main-color;
   audio {
     width:100%;
   }
@@ -1177,7 +1177,7 @@ margin-bottom: 10px;
 
 .video-wrapper {
   width:80%;
-  margin: 20px auto; 
+  margin: 20px auto;
   video {
     box-shadow: 0 2px 10px $main-color;
     width:100%;
@@ -1436,19 +1436,19 @@ ul.terms {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 span {
   &.fa-circle-play {}
-  &.fa-play { 
+  &.fa-play {
     /* //color: #4E2927; */
   }
 }
 
 .blue {
   color: #fff;
-  background: $main-color; 
+  background: $main-color;
   border-radius: 50%;
   padding: 10px;
   position: absolute;
@@ -1794,7 +1794,7 @@ section.wallpaper-img {
 / Login Styles
 *************************************************************************************/
 
-label { 
+label {
   color: $main-color;
   font-weight: bold;
   margin-bottom: 5px;
@@ -1805,7 +1805,7 @@ label {
 .form_access {
   width: 65%;
   direction: rtl;
-  margin: 20px auto; 
+  margin: 20px auto;
   box-shadow: 0 2px 10px $main-color;
   padding:10px;
   @media (max-width: 600px) {
@@ -1827,7 +1827,7 @@ label {
     padding:8px;
     padding-right: 32px;
     border-top-left-radius: 10px;
-    outline:0; 
+    outline:0;
   }
   .input_tag {
     position:  relative;
@@ -1855,9 +1855,9 @@ label {
     color:#fff;
   }
 }
- 
+
 .reg {
-  margin: 90px auto; 
+  margin: 90px auto;
 }
 
 
@@ -1995,7 +1995,7 @@ a.error {
   }
 }
 
- 
+
 
 
 .error-page {
