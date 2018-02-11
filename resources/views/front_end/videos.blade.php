@@ -116,7 +116,7 @@ $query_params = "" ;
     var recentScroll = false;
     $(window).on('scroll',function(){ 
           
-        if(!recentScroll && $(window).scrollTop() + $(window).height() >= $(document).height()) {
+        if(!recentScroll && $(window).scrollTop() + $(window).height() > $(document).height() -100) {
             
          //   alert(page);
             load_more() ;  
