@@ -1633,9 +1633,10 @@ ul.dl-img {
   }
 }
 
-@media only screen and (min-width: 398px) and (max-width: 780px) {
+
+@media only screen and (min-width: 378px) and (max-width: 780px) {
   .media-gallery li {
-    width: 30%;
+    width: 46% !important;
     padding-bottom: 25%;
     margin: 0% 1.36% 5%;
     font-size: 13px;
