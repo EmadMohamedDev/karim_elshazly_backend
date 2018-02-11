@@ -16,6 +16,9 @@
     </div>
      
     <style> 
+        .site-wrapper {
+            height: 100%;
+        }
         .main-container {
         position: relative; 
         min-height:0;
