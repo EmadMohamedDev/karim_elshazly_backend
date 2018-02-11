@@ -118,11 +118,12 @@ $query_params = "" ;
           
         if(!recentScroll && $(window).scrollTop() + $(window).height() >= $(document).height()) {
             
-            alert(page);
+         //   alert(page);
             load_more() ;  
             page++ ; 
             recentScroll = true; 
-            window.setTimeout(() => { recentScroll = false; }, 500)
+           // window.setTimeout(() => { recentScroll = false; }, 500)
+            window.setTimeout(function(){ recentScroll = false; }, 500)
         }
         // var iCurScrollPos = $(this).scrollTop(); 
         // if (iCurScrollPos > iScrollPos && iCurScrollPos > page * 10) {
