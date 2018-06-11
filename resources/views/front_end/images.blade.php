@@ -63,8 +63,10 @@
         $('#results').css("display","block");      
         if(current_page+1 <= last_page)
         { 
-            current_page++ ; 
-            $.get("{{url('photos_paginate?page=')}}"+ current_page,function(data,status){
+            current_page++ ;
+            if(operator_id)
+                operator_query = "&op_id="+operator_id ;
+            $.get("{{url('photos_paginate?page=')}}"+ current_page+operator_query,function(data,status){
                 var parsedData = data.data ; 
                 for(var i = 0 ; i < parsedData.length ; i++)
                 {  
@@ -134,7 +136,7 @@
             load_more() ;
             page++ ;
             recentScroll = true;
-            // window.setTimeout(() => { recentScroll = false; }, 500)
+          //   window.setTimeout(() => { recentScroll = false; }, 500)
             window.setTimeout(function(){ recentScroll = false; }, 500)
         }
         // var iCurScrollPos = $(this).scrollTop();

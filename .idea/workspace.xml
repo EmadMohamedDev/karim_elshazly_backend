@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6080fbe-3a20-43b7-833e-9a3a7e92bbcb" name="Default" comment="" />
+    <list default="true" id="d6080fbe-3a20-43b7-833e-9a3a7e92bbcb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front_end/images.blade.php" afterPath="$PROJECT_DIR$/resources/views/front_end/images.blade.php" />
+    </list>
     <ignored path="myCompound.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -21,12 +24,12 @@
     <favorites_list name="myCompound" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="videos.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/front_end/videos.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="135" selection-end-column="7" />
+            <state relative-caret-position="612">
+              <caret line="72" column="81" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -35,8 +38,8 @@
       <file leaf-file-name="images.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/front_end/images.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="147" column="7" selection-start-line="125" selection-start-column="2" selection-end-line="147" selection-end-column="7" />
+            <state relative-caret-position="493">
+              <caret line="68" column="81" selection-start-line="68" selection-start-column="81" selection-end-line="68" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -108,8 +111,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1910" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -137,7 +139,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -245,6 +246,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,19 +322,21 @@
       <workItem from="1514896803309" duration="14000" />
       <workItem from="1515923223258" duration="27000" />
       <workItem from="1518338192895" duration="3594000" />
-      <workItem from="1518350578830" duration="117000" />
+      <workItem from="1518350578830" duration="469000" />
+      <workItem from="1518351273057" duration="49000" />
+      <workItem from="1528705495175" duration="152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34213000" />
+    <option name="totallyTimeSpent" value="34766000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="0" width="1910" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24479167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24445617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -632,25 +636,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/emad/ivas/All notes/ivas emad notes/all day weeks/new temp notes/karim elshazly/backend summary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="499" column="60" selection-start-line="499" selection-start-column="60" selection-end-line="499" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://E:/emad/ivas/All notes/ivas emad notes/all day weeks/new temp notes/karim elshazly/backend summary.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/front_end/videos.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="135" selection-end-column="7" />
+        <state relative-caret-position="612">
+          <caret line="72" column="81" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front_end/images.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="147" column="7" selection-start-line="125" selection-start-column="2" selection-end-line="147" selection-end-column="7" />
+        <state relative-caret-position="493">
+          <caret line="68" column="81" selection-start-line="68" selection-start-column="81" selection-end-line="68" selection-end-column="81" />
           <folding />
         </state>
       </provider>
