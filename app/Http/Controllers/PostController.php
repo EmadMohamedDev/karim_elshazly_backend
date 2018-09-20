@@ -24,9 +24,9 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        
-       $operators = Operator::with('country')->get();
-        return view('posts/index',compact('operators'));
+
+        $operators = Operator::with('country')->get();
+        return view('posts/index', compact('operators'));
     }
 
     public function allData(Request $request) {
@@ -46,7 +46,6 @@ class PostController extends Controller {
                             return $post->operator->title . ' | ' . $post->operator->country->title;
                         })
                         ->addColumn('index', '<input type="checkbox" class="select-all-karim" name="selected_rows[]" value="{{$id}}" onclick="collect_selected(this)">')
-                        
                         ->addColumn('link', function(Post $post) {
                             return view('posts.postLink', compact('post'))->render();
                         })
