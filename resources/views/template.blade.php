@@ -40,9 +40,9 @@
     <link rel="stylesheet" type="text/css" href="{{url('assets/bootstrap-switch/static/stylesheets/bootstrap-switch.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url('assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" />
 
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" />
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" />-->
 
     <!--base css styles-->
     <link rel="stylesheet" href="{{url('assets/bootstrap/css/bootstrap.min.css')}}">
@@ -514,8 +514,9 @@
 <script type="text/javascript" src="{{url('assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js')}}"></script>
 <script type="text/javascript" src="{{url('assets/ckeditor/ckeditor.js')}}"></script>
 
-<script type="text/javascript" src="{{url('assets/data-tables/jquery.dataTables.js')}}"></script>
+<!--<script type="text/javascript" src="{{url('assets/data-tables/jquery.dataTables.js')}}"></script>-->
 <script type="text/javascript" src="{{url('assets/data-tables/bootstrap3/dataTables.bootstrap.js')}}"></script>
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <!--flaty scripts-->
 <script src="{{url('js/flaty.js')}}"></script>
 <script src="{{url('js/flaty-demo-codes.js')}}"></script>

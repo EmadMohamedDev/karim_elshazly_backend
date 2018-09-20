@@ -261,3 +261,10 @@ function dynamic_routes($route_model,$found_roles)
         }) ;       
     }  
  }
+ function get_pageLength(){
+     $length=10;
+     $result=  Setting::where('key','pageLength')->get();
+     if($result)
+         $length =$result[0]->value;
+     return $length;
+ }

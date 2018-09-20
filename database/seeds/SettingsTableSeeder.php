@@ -138,6 +138,15 @@ class SettingsTableSeeder extends Seeder
                 'updated_at' => '2018-01-18 12:19:22',
                 'type' => 2,
             ),
+            12 => 
+            array (
+                'id' => 16,
+                'key' => 'pageLength',
+                'value' => '3',
+                'created_at' => '2018-09-20 08:10:31',
+                'updated_at' => '2018-09-20 08:10:31',
+                'type' => 2,
+            ),
         ));
         
         

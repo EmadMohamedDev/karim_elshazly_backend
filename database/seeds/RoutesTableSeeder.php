@@ -1117,6 +1117,26 @@ class RoutesTableSeeder extends Seeder
                 'updated_at' => '2018-01-24 09:43:31',
                 'function_name' => 'photopage',
             ),
+            110 => 
+            array (
+                'id' => 136,
+                'method' => 'get',
+                'route' => 'contents/allData',
+                'controller_name' => 'ContentController',
+                'created_at' => '2018-09-19 15:00:38',
+                'updated_at' => '2018-09-19 15:00:38',
+                'function_name' => 'allData',
+            ),
+            111 => 
+            array (
+                'id' => 137,
+                'method' => 'get',
+                'route' => 'posts/allData',
+                'controller_name' => 'PostController',
+                'created_at' => '2018-09-20 08:29:26',
+                'updated_at' => '2018-09-20 08:29:26',
+                'function_name' => 'allData',
+            ),
         ));
         
         
