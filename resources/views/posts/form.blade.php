@@ -39,8 +39,8 @@
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.rbts.rbt-free'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
         <select class="form-control chosen-rtl" name="Free" required>
-                <option value="0" @if ($post !=null && $post->Free == '0') selected @endif> No </option>
-               <option value="1" @if ($post !=null && $post->Free == '1') selected @endif> Yes </option>
+            <option value="1" @if ($post !=null && $post->Free == '1') selected @endif> Yes </option>
+            <option value="0" @if ($post !=null && $post->Free == '0') selected @endif> No </option>
         </select>
         <br/>
     </div>
@@ -52,15 +52,15 @@
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.rbts.rbt-published'){{$required}}</label>
     <div class="col-sm-9 col-md-10 controls">
         <select class="form-control chosen-rtl" name="Published" required>
-                <option value="0" @if ($post !=null && $post->Published == '0') selected @endif> No </option>
-               <option value="1" @if ($post !=null && $post->Published == '1') selected @endif> Yes </option>
+            <option value="1" @if ($post !=null && $post->Published == '1') selected @endif> Yes </option>
+            <option value="0" @if ($post !=null && $post->Published == '0') selected @endif> No </option>
         </select>
         <br/>
     </div>
-</div>        
+</div>
 
 
- 
+
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">Post Date*</label>
     <div class="col-sm-5 col-lg-3 controls">
@@ -68,12 +68,12 @@
             <label class="input-group-addon" for="date_picker">
                 <i class="fa fa-calendar"></i>
             </label>
-            <input class="form-control date-picker" size="16" name="Published_Date" type="text" id="date_picker" @if($post!=null) value="{{date('d-m-Y',strtotime($post->Published_Date))}}" @else value="{{date('d-m-Y')}}"  @endif required> 
+            <input class="form-control date-picker" size="16" name="Published_Date" type="text" id="date_picker" @if($post!=null) value="{{date('d-m-Y',strtotime($post->Published_Date))}}" @else value="{{date('d-m-Y')}}"  @endif required>
         </div>
     </div>
 </div>
 
-    
+
 </div>
 <div class="form-group">
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
@@ -105,11 +105,11 @@
            document.getElementById("content_id").disabled = true;
            document.getElementById("content_id_s").value = content_id;
            console.log(document.getElementById("content_id").value);
-           
-        } 
+
+        }
         </script>
-       @stop 
-        
+       @stop
+
 @section('script')
 
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -117,4 +117,3 @@
       <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 @stop
-
